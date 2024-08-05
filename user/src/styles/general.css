@@ -1,0 +1,242 @@
+:root{
+    --heading-fonts:  "Poppins", sans-serif;
+    --body-fonts : "Inter", sans-serif;
+    --background: linear-gradient(135deg, #1c1b2e, #2d2b41);
+    --box-shadow1: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+	--box-shadow2: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+	--box-shadow3: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+	--box-shadow4: rgba(0, 0, 0, 0.1) 0px 4px 12px;;/* Box Shadows */
+    --primary-color: #FF7622;
+    --secondary-color: #ff9351;
+    --light-color: #e6ebf0; 
+    --gradient-1: linear-gradient(45deg, #FF7622, #FFB347);
+    --gradient-2: linear-gradient(90deg, #FF7622, #FF6B6B);
+    --gradient-3: linear-gradient(135deg, #FF7622, #FFD700);
+	
+    
+}
+body{
+    overflow: hidden;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+.welcome-img{
+    display: flex;
+    justify-content: center;
+}
+.welcome-img img{
+    height: 300px;
+    border-radius: 50%;
+    
+}
+.main-page{
+   max-width: 600px;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    
+    height: 100vh;
+}
+.welome-wrapper{
+    padding: 1rem 1.8rem;
+}
+.welcome-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.primary-heading{
+    text-align: center;
+    margin-top: 1rem;
+    padding-bottom: 0.4rem;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1c1b2e;
+    font-family: var(--heading-fonts);
+    line-height: 1.2;
+}
+.primary-message{
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    color: #666;
+    font-family: var(--body-fonts);
+    line-height: 1.4;
+}
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.primary-button{
+    height: 40px;
+    width: 200px;
+    border: none;
+    background: var(--primary-color);
+    font-size: 18px;
+    color: #1c1b2e;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: var(--heading-fonts);
+  
+    border-radius: 2rem;
+    
+}
+.account-page{
+    height: 100%;
+    min-height: 100vh;
+   background: var(--background);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   max-width: 600px;
+}
+.welcomebtn{
+    transition: background 0.4s ease-in;
+}
+.welcomebtn:hover{
+   background-color: var(--secondary-color);
+}
+
+/* this is account css here */
+
+.account__wrapper{
+    width: 100%;
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  
+    padding: 1rem;
+    margin-inline: 2rem;
+    border-radius: 1rem;
+}
+.account__header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    width: 100%;
+   
+    text-align: center;
+}
+.account__footer{
+   width: 100%;
+   
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding-inline: 0.4rem
+;
+}
+.form-group{
+    width: 100%;
+}
+.form-group input{
+width: 100%;
+}
+label{
+    display: block;
+    font-size: 20px;
+    color: #444;
+    font-family: var(--heading-fonts);
+    margin-bottom: 0.4rem;
+
+}
+.form-item{
+    height: 50px;
+    border-radius: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    outline: none;
+    font-size: 18px;
+    color: #888;
+    border: 1px solid #ccc
+}
+.account-button{
+    background: var(--primary-color);
+   width: 100%;
+    height: 50px;
+    font-weight:600;
+    font-size: 18px;
+    font-family: var(--heading-fonts);
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 0.4rem;
+    transition: all 0.4s linear;
+}
+.account-button:hover{
+background-color: var(--secondary-color);
+}
+.footer-text{
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    font-family: var(--body-fonts);
+    font-weight: 400;
+}
+.action-Btn{
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.secondary-heading{
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+    text-transform: capitalize;
+    margin-bottom: 0.4rem;
+    font-family: var(--heading-fonts);
+}
+.secondary-text{
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 0.8rem;
+    font-family: var(--body-fonts);
+
+}
+/* .hidelogin{
+    display: none;
+} */
+.hideregister{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
