@@ -295,9 +295,10 @@ label {
 }
 .dashboard__main--wrapper{
     width: 80%;
-    overflow-y: auto;
-    margin: 0 auto;
-    height: 90vh
+    overflow-y: scroll;
+    margin: 0 0 auto;
+    padding-bottom: 2rem;
+    height: 100vh;
 }
 .side-bar {
 	position: fixed;
@@ -468,6 +469,7 @@ label {
 	gap: 1rem;
     width: 100%;
 }
+
 .food__info {
 	display: flex;
 	flex-direction: column;
@@ -635,6 +637,11 @@ label {
     }
     .menu__item{
         margin-bottom: 1rem;
+    }
+}
+@media screen and (max-width:500px) {
+	.dashboard__main--wrapper{
+        height: 90vh;
     }
 }
 
