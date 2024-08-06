@@ -817,8 +817,40 @@ label {
     font-weight: 500;
     font-family: var(--body-fonts);
 }
-
-
+.cart__item2{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-right: 0.4rem
+}
+.delete-btn{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+    background: var(--gradient-1);
+    border-radius: 50%;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 700;
+}
+.hide-Cart{
+    display: ;
+}
+.empty-cart{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+.hide-noresult{
+    display: none;
+}
 @media screen and (max-width: 840px) {
 	.account__footer {
 		width: 100%;
@@ -915,6 +947,19 @@ label {
        
     }.cart__amount{
         font-size: 14px;
+        gap: 0.8rem;
+    }
+    .quanty__amount{
+        padding: 0.2rem;
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+    .total__quantity{
+        gap: 0.4rem;
+    }
+    .delete-btn{
+        
     }
     
     .cart__item--price{

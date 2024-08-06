@@ -107,60 +107,79 @@
 				<!-- the cart page -->
 				<div class="cart-main">
 					<div class="cart-wrapper">
-						<div class="cart-header">
-							<h3 class="primary-heading">My Cart</h3>
-						</div>
-						<div class="cart-body">
-							<div class="cart__item">
-								<div class="cart__item1">
-									<div class="cart__imag">
-                                        <img src="/user/src/images/food1.jpg" alt="">
-                                    </div>
-									<div class="cart__name-price">
-										<div class="cart__item--name">
-                                            Fried Rice and Chicken
-                                        </div>
-										<div class="cart__item--price">
-                                            Price:<span class="cart__item-price">1200CFA</span>
-                                        </div>
+						<div class="main-cart__wrapper hide-Cart">
+							<div class="cart-header">
+								<h3 class="primary-heading">My Cart</h3>
+							</div>
+							<div class="cart-body">
+								
+								<div class="cart__item">
+									<div class="cart__item1">
+										<div class="cart__imag">
+											<img src="/user/src/images/food1.jpg" alt="">
+										</div>
+										<div class="cart__name-price">
+											<div class="cart__item--name">
+												Fried Rice and Chicken
+											</div>
+											<div class="cart__item--price">
+												Price:<span class="cart__item-price">1200CFA</span>
+											</div>
+										</div>
+									</div>
+	
+									<div class="cart__item2">
+										<div class="total__quantity">
+											<span class="reduce__qty">-</span>
+											<span class="quanty__amount">4</span>
+											<span class="add_quanty">+</span>
+										</div>
+										<span class="delete-btn">
+											<i class="fas fa-times"></i>
+										</span>
 									</div>
 								</div>
-
-								<div class="total__quantity">
-									<span class="reduce__qty">-</span>
-									<span class="quanty__amount">4</span>
-									<span class="add_quanty">+</span>
+							</div>
+							<div class="cart-footer">
+							   <div class="cart__footer--wrapper">
+								<div class="coupon-section">
+									<p class="coupon-text">
+										Do you have a coupon? enter it below
+									</p>
+									<div class="coupon-input">
+										<input type="text" placeholder="Enter coupon code">
+										<button>Confirm</button>
 								</div>
+								</div>
+								<div class="price-section">
+									<li class="price__section--item">
+										<span class="price-section-text">Sub Total:</span>
+										<span class="cart__amount"> 1200CFA</span>
+									</li>
+									<li class="price__section--item">
+										<span class="price-section-text">Discount:</span>
+										<span class="cart__amount"> 123CFA</span>
+									</li>
+									<li class="price__section--item">
+										<span class="price-section-text"> Total Amount:</span>
+										<span class="cart__amount">9000CFA</span>
+									</li>
+								</div>
+								<button class="primary-button cart-button">Confirm Order</button>
+							   </div>
 							</div>
 						</div>
-                        <div class="cart-footer">
-                           <div class="cart__footer--wrapper">
-                            <div class="coupon-section">
-                                <p class="coupon-text">
-                                    Do you have a coupon? enter it below
-                                </p>
-                                <div class="coupon-input">
-                                    <input type="text" placeholder="Enter coupon code">
-                                    <button>Confirm</button>
-                            </div>
-                            </div>
-                            <div class="price-section">
-                                <li class="price__section--item">
-                                    <span class="price-section-text">Sub Total:</span>
-                                    <span class="cart__amount"> 1200CFA</span>
-                                </li>
-                                <li class="price__section--item">
-                                    <span class="price-section-text">Discount:</span>
-                                    <span class="cart__amount"> 123CFA</span>
-                                </li>
-                                <li class="price__section--item">
-                                    <span class="price-section-text"> Total Amount:</span>
-                                    <span class="cart__amount">9000CFA</span>
-                                </li>
-                            </div>
-                            <button class="primary-button cart-button">Confirm Order</button>
-                           </div>
-                        </div>
+
+						<div class="empty-cart hide-noresult">
+							<div class="no-result-image">
+								<img src="/user/src/images/noresult.jpg" alt="">
+							</div>
+							<div class="no-result__message">
+								<h1 class="priamry-heading">No Item found</h1>
+								<p class="primary-text">No time found here, click the button below to order your meal.</p>
+							</div>
+							<button class="primary-button cart-button">Order now</button>
+						</div>
 					</div>
 				</div>
 			</div>
