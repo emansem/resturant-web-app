@@ -297,6 +297,7 @@ label {
     width: 80%;
     overflow-y: auto;
     margin: 0 auto;
+    height: 90vh
 }
 .side-bar {
 	position: fixed;
@@ -457,7 +458,7 @@ label {
 	flex-direction: column;
 	gap: 1rem;
 
-	padding: 1rem;
+
 }
 .food-item {
 	box-shadow: var(--box-shadow4);
@@ -608,7 +609,11 @@ label {
     }
     .footer__menus{
         display: block;
-        padding-bottom: 8rem;
+    height: 100px;
+    margin-top: 2rem;
+    }
+    .footer__menus--wrapper{
+        margin-bottom: 2rem;
     }
 }
 @media screen and (max-width:500px) {
@@ -619,7 +624,7 @@ label {
         gap: 1rem;
     }
     .dashboard__main--wrapper{
-        padding: 0;
+        margin-bottom: 20rem;
        
     }
     .footer__menus{
@@ -627,6 +632,9 @@ label {
     }
     .food-item:last-child{
         margin-bottom: 2rem;
+    }
+    .menu__item{
+        margin-bottom: 1rem;
     }
 }
 
