@@ -638,11 +638,68 @@ label {
 }	
 .cart__btn:hover{
     background: var(--secondary-color);
-}	
+}
+/* ..... this is the  cart page styling here .....	 */
+.cart-main{
+	margin: 8rem auto;
+ width: 80%;
+	display: flex;
+	justify-content: center;
+}
+.cart__imag{
+	background-color: #ff772268;
+	height: 90px;
+	width: 90px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+}
+.cart__imag img{
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.cart-wrapper{
+	width: 80%;
+}
+.cart_body{
+	width: 100%;
+}
+.cart__item{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	
+	padding: 0.8rem 1rem;
+	box-shadow: var(--box-shadow3);
+	border-radius: 1.2rem;
+	margin-block: 1rem;
+	background-color: #f1f1f1a2;
+}
+.cart__item1{
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+.cart__name-price{
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.cart__item--name{
+	font-size: 18px;
+	font-weight: 500;
+	font-family: var(--heading-fonts);
+	color: #444;
+}
 
 .footer__menus {
 	display: none;
 }
+
 
 @media screen and (max-width: 840px) {
 	.account__footer {

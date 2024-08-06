@@ -104,39 +104,61 @@
 					</div>
 				</div>
 
-				<!-- the single details section -->
-				<div class="meal__details--wrapper">
-					<div class="meal__details--header">
-						<div class="meal__details--image">
-							<img src="/user/src/images/food2.jpg" alt="fried rice" />
+				<!-- the cart page -->
+				<div class="cart-main">
+					<div class="cart-wrapper">
+						<div class="cart-header">
+							<h3 class="primary-heading">My Cart</h3>
 						</div>
-					</div>
-					<div class="meal__details--footer">
-						<div class="meal__details--heading">
-							<h2 class="primary-heading mean-heading">Fried Rice and Chicken</h2>
+						<div class="cart-body">
+							<div class="cart__item">
+								<div class="cart__item1">
+									<div class="cart__imag">
+                                        <img src="/user/src/images/food1.jpg" alt="">
+                                    </div>
+									<div class="cart__name-price">
+										<div class="cart__item--name">
+                                            Fried Rice and Chicken
+                                        </div>
+										<div class="cart__item--price">
+                                            Price:<span class="cart__item-price">1200CFA</span>
+                                        </div>
+									</div>
+								</div>
+
+								<div class="total__quantity">
+									<span class="reduce__qty">-</span>
+									<span class="quanty__amount">4</span>
+									<span class="add_quanty">+</span>
+								</div>
+							</div>
 						</div>
-						<div class="meal__paragraph">
-							<p class="primary-text">
-								Jandar Kitchen brings you the perfect combo of crispy fried
-								chicken and flavorful fried rice. Our chicken is juicy on the
-								inside, golden and crunchy on the outside. We pair it with our
-								special fried rice, packed with tasty bits and spices. For those
-								who like it hot, try our spicy pepper sauce - it adds a fiery
-								kick to every bite. Simple, delicious, and satisfying - that's
-								the Jandar way.
-							</p>
-						</div>
-						<div class="meal__details--amount">
-							<div class="total__amount">
-								
-								<div class="total__amount--text">Amount:</div>
-					
-							<div class="total__amount--value">3900CFA</div>
-							
-						</div>
-						<div class="meal__details--cart-btn">
-							<button class="primary-button cart__btn">Add to cart</button>
-						</div>
+                        <div class="cart-footer">
+                            <div class="coupon-section">
+                                <p class="coupon-text">
+                                    Do you have a coupon? enter it below
+                                </p>
+                                <div class="coupon-input">
+                                    <input type="text" placeholder="Enter coupon code">
+                                    <button>Confirm</button>
+                            </div>
+                            </div>
+                            <div class="price-section">
+                                <li class="price__section--item">
+                                    <span>Sub Total:</span>
+                                    <span> 1200CFA</span>
+                                </li>
+                                <li class="price__section--item">
+                                    <span>Discount:</span>
+                                    <span> 123CFA</span>
+                                </li>
+                                <li class="price__section--item">
+                                    <span>Total Amount:</span>
+                                    <span>9000CFA</span>
+                                </li>
+                            </div>
+                            <button class="primary-button cart-button">Confirm Order</button>
+                        </div>
 					</div>
 				</div>
 			</div>
