@@ -695,7 +695,113 @@ label {
 	font-family: var(--heading-fonts);
 	color: #444;
 }
+.cart__item--price{
+	font-size: 20px;
+	color: #666;
+	font-family: var(--body-fonts);
+	font-weight: 400;
+}
+.cart__item-price{
+	font-weight: 500;
+	color: #1c1b2e;
+	padding-left: 0.4rem;
+}
+.total__quantity{
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	background: #ffb24726;
+	padding: 0.6rem 1rem;
+	border-radius: 2rem;
+}
+.quanty__amount{
+	background: var(--primary-color);
+	height: 100%;
+	width: 24px;
+	text-align: center;
+	border-radius: 2rem;
+	padding: 0.2rem 0.6rem;
+	color: #fff;
+	font-family: var(--body-fonts);
+	font-size: 16px;
+	font-weight: 600;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.reduce__qty, .add_quanty{
+	font-size: 17px;
+	color: #1c1b2e;
+	font-weight: 600;
+	font-family: var(--heading-fonts);
+	cursor: pointer;
+}
+.cart-footer{
+	display: flex;
+	justify-content: flex-end;
+}
+.cart__footer--wrapper{
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+.coupon-text{
+	font-size: 18px;
+	color: #666;
+	font-family: var(--body-fonts);
+	font-weight: 400;
+	padding-top: 1rem;
+	margin-bottom: 0.4rem;
+}
+.coupon-input{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin-top: 0.4rem;
+}
+.coupon-input input
 
+{
+	flex: 1;
+	height: 40px;
+	border: none;
+	outline: none;
+	border: 1px solid #ccc;
+	padding-inline: 1rem;
+	
+	font-size: 16px;
+	color: #666;
+	font-family: var(--heading-fonts);
+	border-top-left-radius: 1rem;
+	border-bottom-left-radius: 1rem;
+
+}
+.coupon-input button{
+	width: 70px !important;
+	padding: 0.4rem;
+	margin-left: -1rem;
+	height: 40px;
+	border-top-right-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+	border: none;
+	background: var(--primary-color);
+	cursor: pointer;
+	color: #fff;
+	font-family: var(--body-fonts);
+	font-weight: 600;
+	transition: all 0.4s linear;
+}
+.coupon-input button:hover{
+	background-color: var(--secondary-color);
+}
+.price__section--item{
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #999999c9;
+	padding-bottom: 0.5rem;
+	justify-content: space-between;
+}
 .footer__menus {
 	display: none;
 }
