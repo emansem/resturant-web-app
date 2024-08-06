@@ -18,8 +18,41 @@
 <body>
     <div class="dashboard">
         <!-- the dashboard section -->
+   <div class="side-bar">
+    <div class="side__bar-menus">
+       <div class="side__bar--menus-items">
 
+        <a href="" class="menu__list-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="" class="menu__list-item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Orders</span>
+        </a>
+        <a  href="" class="menu__list-item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+        <a  href="" class="menu__list-item">
+            <i class="fas fas fa-gift"></i>
+            <span>Coupons</span>
+        </a>
+        <a  href="" class="menu__list-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Feedback</span>
+        </a>
+       </div>
+       <div>
+        <a  href="" class="menu__list-item">
+            <i class="fas fa-comment"></i>
+            <span>Logout</span>
+        </a>
+       </div>
+    </div>
+   </div>
         <div class="dashboard-main">
+           <div class="dashboard__main--wrapper">
             <div class="dashboard__header">
                 <div class="header__top">
                     <div class="logo-header">
@@ -41,6 +74,7 @@
                         Hi, <span>Eman, </span> Good evening!
                     </div>
                     <div class="promo__banner">
+                       <div class="promo__content">
                         <h2 class="promo__heading">
                             Loyal Customer Reward!
 
@@ -49,11 +83,34 @@
                             Treat yourself 3 times and we'll treat you back! Get  <span>30%</span>
                             off your 4th order.
                         </p>
+                        
+                       </div>
+                       <div class="banner-image">
+                        <img src="/user/src/images/dsicount.png" alt="">
+                    </div>
                     </div>
                 </div>
             </div>
             <div class="dashboard__body">
-                <h1 class="primary-heading">Our Menus</h1>
+                <h1 class="primary-heading menu-heading">Our Menus</h1>
+            
+                <div class="food-item">
+                    <div class="food__photo">
+                        <img src="/user/src/images/food1.jpg" alt="Fried Rice">
+                    </div>
+                    <div class="food__info">
+                     <div class="food__name">Fried Rice and Chicken</div>
+                     <div class="food__price--btn">
+                        <div class="food__price">
+                            <span class="price-text">Price:</span><span class="price">1500CFA</span>
+                        </div>
+                        <div> 
+                              <button class="food__btn">Order now</button>
+                        </div>
+                     </div>
+
+                    </div>
+                </div>
                 <div class="food-item">
                     <div class="food__photo">
                         <img src="/user/src/images/food1.jpg" alt="Fried Rice">
@@ -89,8 +146,11 @@
                     </div>
                 </div>
             </div>
+           </div>
            
         </div>
+
+
         <div class="footer__menus">
             <div class="footer__menus--wrapper">
                 <a href="" class="menu__item">
