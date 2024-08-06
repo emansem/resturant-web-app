@@ -35,8 +35,8 @@ body{
     
 }
 .main-page{
-   max-width: 600px;
-   
+   max-width: 1200px;
+   margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,6 +71,7 @@ body{
     color: #666;
     font-family: var(--body-fonts);
     line-height: 1.4;
+    width: 80%;
 }
 .btn-wrapper{
     display: flex;
@@ -131,7 +132,7 @@ body{
     text-align: center;
 }
 .account__footer{
-   width: 100%;
+   width: 40%
    
 }
 .form{
@@ -157,6 +158,7 @@ label{
     margin-bottom: 0.4rem;
 
 }
+
 .form-item{
     height: 50px;
     border-radius: 0.4rem;
@@ -165,6 +167,9 @@ label{
     font-size: 18px;
     color: #888;
     border: 1px solid #ccc
+}
+.form-item:focus{
+    border: 2px solid #666;
 }
 .account-button{
     background: var(--primary-color);
@@ -178,6 +183,7 @@ label{
     border: none;
     border-radius: 0.4rem;
     transition: all 0.4s linear;
+    cursor: pointer;
 }
 .account-button:hover{
 background-color: var(--secondary-color);
@@ -217,7 +223,14 @@ background-color: var(--secondary-color);
     display: none;
 } 
 
-.header__top img{
+.header__menu{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.header__menu img{
 min-height: 50px;
 min-width: 50px;
 width: 50px;
@@ -229,6 +242,13 @@ border-radius: 050%
     height: 100px;
     width: 100px;
     object-fit: cover;
+}
+.logo-header {
+ 
+    width: 40%;
+}
+.logo-header img{
+    height: 100px;
 }
 .dashboard{
  height: 100vh;
@@ -457,8 +477,15 @@ border-radius: 050%
     padding-block: 2rem;
   
 }
+.footer__menus{
+    display: none;
+}
 
-
+@media screen and (max-width:700px) {
+    .account__footer{
+        width: 100%;
+    }
+}
 
 
 
