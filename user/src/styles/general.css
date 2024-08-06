@@ -830,6 +830,7 @@ label {
         height: 90vh;
         overflow: auto;
     }
+    
     .promo__content{
         width: 100%;
         text-align: center;
@@ -902,11 +903,37 @@ label {
 	.dashboard-main{
         margin-left: 0;
     }
+    .cart-footer{
+        justify-content: center;
+        font-size: 14px;
+    }
     .food__price--btn{
         gap: 1rem;
     }
     .dashboard__main--wrapper{
         margin-bottom: 20rem;
+       
+    }.cart__amount{
+        font-size: 14px;
+    }
+    
+    .cart__item--price{
+        font-size: 14px;
+    }
+    .cart__imag img{
+        height: 60px;
+        width: 60px;
+        min-height: 60px;
+        min-width: 60px;
+    }
+    .cart__item{
+        padding-inline: 1.4rem;
+    }
+    .cart__footer--wrapper{
+      width: 100%;
+      padding-inline: 1rem;
+    }
+    .price__section--item{
        
     }
     .footer__menus{
@@ -915,8 +942,18 @@ label {
     .food-item:last-child{
         margin-bottom: 8rem;
     }
+    .coupon-input {
+        width: 100%
+    }
+    .coupon-input input{
+        width: 90%;
+    }
     .menu__item{
         margin-bottom: 1rem;
+    }
+    .cart__imag{
+        height: 70px;
+        width: 70px;
     }
 }
 @media screen and (max-width:500px) {
