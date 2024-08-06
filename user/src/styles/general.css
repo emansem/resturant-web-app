@@ -497,6 +497,12 @@ label {
     width: 100%;
 	gap: 1.5rem;
 }
+.cart__amount{
+    font-size: 17px;
+    color: #555;
+    font-family: var(--heading-fonts);
+    font-weight: 500;
+}
 .food__name {
 	font-size: 18px;
 	color: #1c1b2e;
@@ -805,6 +811,12 @@ label {
 .footer__menus {
 	display: none;
 }
+.price-section-text{
+    font-size: 18px;
+    color: #666;
+    font-weight: 500;
+    font-family: var(--body-fonts);
+}
 
 
 @media screen and (max-width: 840px) {
@@ -829,6 +841,17 @@ label {
       height: 100px;
       width: 100%;
       object-fit: cover;
+    }
+    .cart-main{
+       margin-inline: 0;
+        padding-left: 1rem;
+        width: 100%;
+    }
+    .cart-wrapper{
+        width: 100%;
+    }
+    .cart__item--name{
+        font-size: 14px;
     }
 }
 @media screen and (max-width:700px) {
