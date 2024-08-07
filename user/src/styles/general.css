@@ -920,6 +920,43 @@ justify-content: center;
 .checkout__btn:hover{
     background-color: var(--secondary-color);
 }
+/* this is the success popup general popup */
+.success-container{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.success__wrapper{
+    width: 40%;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.8rem;
+}
+.success__wrapper--icon{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.4rem;
+}
 @media screen and (max-width: 840px) {
 	.account__footer {
 		width: 100%;
