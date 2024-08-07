@@ -851,6 +851,75 @@ label {
 .hide-noresult{
     display: none;
 }
+/* this is the checkout page */
+.checkout-container{
+    margin-block: 7rem;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-inline: auto;
+}
+.checkout__main{
+    display: flex;
+    width: 100%;
+   gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-inline:  auto;
+}
+.checkout__content{
+    width: 80%;
+    display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;    
+}
+.checkout__list{
+    width: 80%;
+    border: 1px solid #ccc;
+    margin-top: 1rem;
+    border-radius: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+}
+.checkout__heading{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 70%;
+}
+.checkout__value,
+.checkout__key{
+    font-size: 18px;
+    font-family: var(--heading-fonts);
+    color: #777;
+    font-weight: 500;
+}
+.checkout__value input,
+.checkout__value select{
+    height: 40px;
+    color: #777;
+    font-weight: 400;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border: 1px solid #555;
+    font-family: var(--body-fonts);
+    padding-inline: 0.8rem;
+    border-radius: 2rem;
+
+}
+.checkout__btn{
+    color: #fff;
+    transition: all 0.4s linear;
+}
+.checkout__btn:hover{
+    background-color: var(--secondary-color);
+}
 @media screen and (max-width: 840px) {
 	.account__footer {
 		width: 100%;
@@ -886,6 +955,29 @@ label {
     .cart__item--name{
         font-size: 14px;
     }
+    .checkout-container{
+        width: 100%;
+        margin-inline: 0 -1rem;
+    }
+    .checkout__heading{
+        width: 100%;
+        padding-left: 0.4rem;
+    }
+    .checkout__list{
+       width: 310px;
+       margin-left: 1rem;
+    }
+    .checkout__key,
+    .checkout__value{
+        font-size: 14px;
+    }
+    .checkout__main{
+        margin-inline: 0;
+    }
+    .checkout__value input{
+        width: 80%;
+        margin-left: 3rem;
+    }
 }
 @media screen and (max-width:700px) {
 	.side-bar{
@@ -917,6 +1009,7 @@ label {
     .meal__paragraph{
         width: 100%;
     }
+   
     .primary-text{
         font-size: 16px;
         width: 100%;
