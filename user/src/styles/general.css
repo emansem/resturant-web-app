@@ -957,6 +957,20 @@ justify-content: center;
     justify-content: center;
     margin-top: 0.4rem;
 }
+.success-Btn{
+    margin-bottom: 1rem;
+    color: #fff;
+    transition: all 0.4s linear;
+}
+.success-Btn:hover{
+    background-color: var(--secondary-color);
+}
+.hidePopup{
+    display: none;
+}
+/* .hideCheckout{
+    display: none;
+} */
 @media screen and (max-width: 840px) {
 	.account__footer {
 		width: 100%;
@@ -1025,6 +1039,10 @@ justify-content: center;
     }
     .header__top{
         margin-left: 0;
+    }
+    .success__wrapper{
+        width: 100%;
+        margin-inline: 1rem;
     }
     .footer__menus{
         display: block;
@@ -1129,7 +1147,7 @@ justify-content: center;
         width: 70px;
     }
 }
-@media screen and (max-width:500px) {
+@media screen and (max-width:480px) {
 	.dashboard__main--wrapper{
         height: 90vh;
     }

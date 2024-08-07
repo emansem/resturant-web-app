@@ -105,7 +105,7 @@
 				</div>
                 
                 <!-- the success popup form here-->
-                 <div class="success-container">
+                 <div class="success-container hidePopup">
                     <div class="success__wrapper">
                         <div class="success__wrapper--icon">
                             <i class="fas fas fa-check"></i>
@@ -125,7 +125,7 @@
 
 				<!-- the ckout content here-->
                  <div class="checkout-container">
-                    <div class="checkout__main">
+                    <div class="checkout__main hideCheckout">
                        <div class="checkout__heading">
                         <h1 class="primary-heading">Complete Your Checkout </h1>
                         <div class="primary-text">Please we will charge deleivery fee depending on your location, make sure you enter your location</div>
@@ -163,6 +163,17 @@
                         </li>
                        </div>
                        <button class="primary-button checkout__btn">Place Order</button>
+                    </div>
+
+                    <div class="empty-cart hide-noresult">
+                        <div class="no-result-image">
+                            <img src="/user/src/images/noresult.jpg" alt="">
+                        </div>
+                        <div class="no-result__message">
+                            <h1 class="priamry-heading">No Item found</h1>
+                            <p class="primary-text">No time found here, click the button below to order your meal.</p>
+                        </div>
+                        <button class="primary-button cart-button">Order now</button>
                     </div>
                  </div>
 			
