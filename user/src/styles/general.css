@@ -971,6 +971,108 @@ justify-content: center;
 /* .hideCheckout{
     display: none;
 } */
+
+
+/* the order section design here */
+.orders__container{
+	margin-block: 7rem;
+	margin-inline: auto;
+	width: 80%;
+}
+.orders__wrapper{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.4rem;
+}
+.order__items{
+	border-radius: 0.4rem;
+	background-color: var(--primary-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	box-shadow: var(--box-shadow4);
+	overflow: hidden;
+}
+.order__item--header{
+	padding-inline: 2rem;
+	padding-top: 1rem;
+}
+.order__content{
+	background-color: #fff;
+	width: 100%;
+	padding-inline: 2rem;
+	padding-block: 2rem;
+	border-top-left-radius: 2rem;
+	border-top-right-radius: 2rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+.order__heading .primary-heading{
+	
+	margin-bottom: 1rem;
+}
+.order__item--price,
+.order__item--name{
+	font-size: 18px;
+	color: #666;
+	font-family: var(--heading-fonts);
+	font-weight: 500;
+	margin-bottom: 0.2rem;
+}
+.order__image img{
+	height: 200px;
+	border-radius: 50%;
+	width: 200px;
+	object-fit: cover;
+}
+.order-status{
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	justify-content: center;
+	font-size: 16px;
+	font-family: var(--body-fonts);
+	color: #555;
+}
+.state{
+	color: #128a12;
+	font-weight: 700;
+}
+.order__buttons button{
+	font-size: 16px;
+	height: 30px;
+	padding-inline: 1rem;
+	border: none;
+	font-family: var(--body-fonts);
+	font-weight: 500;
+color: #fff;
+border-radius: 0.4rem;
+	background-color: var(--primary-color);
+	margin: 0.4rem;
+	cursor: pointer;
+}
+.see-details{
+	transition: all 0.4s linear;
+}
+.see-details:hover{
+	background-color: var(--secondary-color);
+}
+.cancel-order{
+	background-color: #ff0000bb !important;
+	transition: all 0.4s linear;
+}
+.cancel-order:hover{
+	background-color: #ff6b6b !important;
+}
+/* .hideOrders{
+	display: none;
+} */
+.hideNoOrder{
+	display: none;
+}
 @media screen and (max-width: 840px) {
 	.account__footer {
 		width: 100%;
@@ -982,6 +1084,9 @@ justify-content: center;
         height: 90vh;
         overflow: auto;
     }
+	.orders__wrapper{
+		grid-template-columns: repeat(2, 1fr);
+	}
     
     .promo__content{
         width: 100%;
@@ -1040,6 +1145,9 @@ justify-content: center;
     .header__top{
         margin-left: 0;
     }
+	.orders__container{
+		width: 100%;
+	}
     .success__wrapper{
         width: 100%;
         margin-inline: 1rem;
@@ -1064,6 +1172,7 @@ justify-content: center;
     .meal__paragraph{
         width: 100%;
     }
+	
    
     .primary-text{
         font-size: 16px;
@@ -1106,7 +1215,10 @@ justify-content: center;
     .total__quantity{
         gap: 0.4rem;
     }
-  
+	.orders__wrapper{
+		grid-template-columns: repeat(1, 1fr);
+		margin-left: 2em;
+	}
     
     .cart__item--price{
         font-size: 14px;

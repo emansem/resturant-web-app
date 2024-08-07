@@ -1,0 +1,242 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Jandar Kitchen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/user/src/styles/general.css" />
+  </head>
+  <body>
+    <!-- Dashboard Container -->
+    <div class="dashboard">
+      <!-- Side Bar -->
+      <div class="side-bar">
+        <!-- Side Bar Menu Items -->
+        <div class="side__bar-menus">
+          <div class="side__bar--menus-items">
+            <!-- Home Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-home"></i>
+              <span>Home</span>
+            </a>
+
+            <!-- Orders Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-shopping-bag"></i>
+              <span>Orders</span>
+            </a>
+
+            <!-- Account Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-user"></i>
+              <span>Account</span>
+            </a>
+
+            <!-- Coupons Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fas fa-gift"></i>
+              <span>Coupons</span>
+            </a>
+
+            <!-- Feedback Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-comment"></i>
+              <span>Feedback</span>
+            </a>
+          </div>
+
+          <!-- Logout Menu Item -->
+          <div>
+            <a href="" class="menu__list-item">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Main Content -->
+      <div class="dashboard-main">
+        <!-- Dashboard Header -->
+        <div class="dashboard__header">
+          <div class="header__top">
+            <!-- Logo -->
+            <div class="logo-header">
+              <img src="/user/src/images/logo.png" alt="Jandar kitchen logo" />
+            </div>
+
+            <!-- Header Menu Items -->
+            <div class="header__menu">
+              <span class="notice"
+                ><i class="fas fa-bell"></i>
+                <span class="notice_count">2</span></span
+              >
+              <span class="cart"
+                ><i class="fas fa-cart-plus"></i>
+                <span class="order-count">2</span></span
+              >
+
+              <!-- User Avatar -->
+              <img
+                src="/user/src/images/avatar.webp"
+                alt="a great man"
+                class="avatar"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- all the orders goes here -->
+         <div class="orders__container">
+            <div class="order__heading">
+                <h1 class="primary-heading">
+                    My orders
+                </h1>
+            </div>
+            <div class="orders__wrapper hideOrders">
+                <div class="order__items">
+                    <div class="order__item--header">
+                        <div class="order__image">
+                            <img src="/user/src/images/food2.jpg" alt="">
+                        </div>
+                    </div>
+                 <div class="order__content">
+                    <div class="order__item--body">
+                        <p class="order__item--name">Fried Rice and Chicken</p>
+                        <p class="order__item--price">2000CFA</p>
+                        <P class="order-status">
+                            <span>Status:</span>
+                            <span class="state">Proccessing..</span>
+                        </P>
+                    </div>
+                    <div class="order__item--footer">
+                        <div class="order__buttons">
+                            <button class="see-details">See more</button>
+                            <button class="cancel-order">Cancel Order</button>
+                        </div>
+                    </div>
+                 </div>
+                </div>
+                <div class="order__items">
+                    <div class="order__item--header">
+                        <div class="order__image">
+                            <img src="/user/src/images/food2.jpg" alt="">
+                        </div>
+                    </div>
+                 <div class="order__content">
+                    <div class="order__item--body">
+                        <p class="order__item--name">Fried Rice and Chicken</p>
+                        <p class="order__item--price">2000CFA</p>
+                        <P class="order-status">
+                            <span>Status:</span>
+                            <span class="state">Proccessing..</span>
+                        </P>
+                    </div>
+                    <div class="order__item--footer">
+                        <div class="order__buttons">
+                            <button class="see-details">See more</button>
+                            <button class="cancel-order">Cancel Order</button>
+                        </div>
+                    </div>
+                 </div>
+                </div>
+                <div class="order__items">
+                    <div class="order__item--header">
+                        <div class="order__image">
+                            <img src="/user/src/images/food2.jpg" alt="">
+                        </div>
+                    </div>
+                 <div class="order__content">
+                    <div class="order__item--body">
+                        <p class="order__item--name">Fried Rice and Chicken</p>
+                        <p class="order__item--price">2000CFA</p>
+                        <P class="order-status">
+                            <span>Status:</span>
+                            <span class="state">Proccessing..</span>
+                        </P>
+                    </div>
+                    <div class="order__item--footer">
+                        <div class="order__buttons">
+                            <button class="see-details">See more</button>
+                            <button class="cancel-order">Cancel Order</button>
+                        </div>
+                    </div>
+                 </div>
+                </div>
+                <div class="order__items">
+                    <div class="order__item--header">
+                        <div class="order__image">
+                            <img src="/user/src/images/food2.jpg" alt="">
+                        </div>
+                    </div>
+                 <div class="order__content">
+                    <div class="order__item--body">
+                        <p class="order__item--name">Fried Rice and Chicken</p>
+                        <p class="order__item--price">2000CFA</p>
+                        <P class="order-status">
+                            <span>Status:</span>
+                            <span class="state">Proccessing..</span>
+                        </P>
+                    </div>
+                    <div class="order__item--footer">
+                        <div class="order__buttons">
+                            <button class="see-details">See more</button>
+                            <button class="cancel-order">Cancel Order</button>
+                        </div>
+                    </div>
+                 </div>
+                </div>
+            </div>
+
+            <!-- no result found page here -->
+            <div class="empty-cart hideNoOrder ">
+                <div class="no-result-image">
+                    <img src="/user/src/images/noresult.jpg" alt="">
+                </div>
+                <div class="no-result__message ">
+                    <h1 class="priamry-heading">No Order found</h1>
+                    <p class="primary-text">No order found here, click the button below to order your meal.</p>
+                </div>
+                <button class="primary-button cart-button">Order now</button>
+            </div>
+         </div>
+      </div>
+
+      <!-- Footer Menu Items -->
+      <div class="footer__menus">
+        <div class="footer__menus--wrapper">
+          <a href="" class="menu__item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="" class="menu__item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Orders</span>
+          </a>
+          <a href="" class="menu__item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
