@@ -1073,6 +1073,62 @@ border-radius: 0.4rem;
 .hideNoOrder{
 	display: none;
 }
+
+/* the invoice design section here */
+.invoice__container{
+	margin-block: 7rem;
+	width: 80%;
+	margin-inline: auto;
+}
+.order__invoice--top-header{
+	display: flex;
+	justify-content: center;
+	padding-block: 2rem;
+}
+.order__invoice--top-header img{
+	height: 100px;
+}
+.order__invoice--contents{
+box-shadow: var(--box-shadow4);
+margin-top: 1rem;
+padding-bottom: 0.6rem;
+border-radius: 0.4rem;
+}
+.order__invoice--header{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	padding-right: 2rem;
+}
+.order__items--body{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.order__list-items{
+	width: 80%;
+	
+	display: flex;
+	justify-content: space-between;
+	column-gap: 2rem;
+	align-items: center;
+	padding-block: 1rem;
+	border-bottom: 1px solid;
+	border-radius: 1rem;
+}
+.order__list-items:first-child{
+	border-radius: 0;
+}
+.order__list-items1{
+	width: 80%;
+	display: flex;
+	justify-content: flex-end;
+	margin-block: 1rem;
+	gap: 1rem;
+}
 @media screen and (max-width: 840px) {
 	.account__footer {
 		width: 100%;
