@@ -1,0 +1,219 @@
+
+:root {
+    --heading-fonts: "Poppins", sans-serif;
+    --body-fonts: "Inter", sans-serif;
+    --background: linear-gradient(135deg, #1c1b2e, #2d2b41);
+    --box-shadow1: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+    --box-shadow2: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    --box-shadow3: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    --box-shadow4: rgba(0, 0, 0, 0.1) 0px 4px 12px; /* Box Shadows */
+    --primary-color: #ff7622;
+    --secondary-color: #ff9351;
+    --light-color: #e6ebf0;
+    --gradient-1: linear-gradient(45deg, #ff7622, #ffb347);
+    --gradient-2: linear-gradient(90deg, #ff7622, #ff6b6b);
+    --gradient-3: linear-gradient(135deg, #ff7622, #ffd700);
+  }
+
+  /* this is the admin dashboard here */
+
+  .dashboard__reports{
+    margin-block: 7rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+  }
+
+  .dashboard__report--container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+  }
+  .report__list{
+    padding: 1rem 2rem;
+    box-shadow: var(--box-shadow3);
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffffc4;
+    gap: 1rem;
+    border: 1px solid #cccccc71;
+   
+    white-space: nowrap;
+    
+  }
+  .report__value{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: var(--heading-fonts);
+    color: #555;
+  }
+
+  .report__text{
+padding: 0.2rem 0.8rem;
+border-radius: 0.8rem;
+background-color: var(--primary-color);
+font-size: 16px;
+color: #fff;
+font-family: var(--body-fonts);
+  }
+  .served{
+    background-color: #0aca0a;
+  }
+  .pending{
+    background: #ffdd1a;
+    color: #1c1b2e;
+  }
+  .cancelled{
+    background-color: #fd5454;
+  }
+.newcustomers{
+    background-color: #3939e2;
+}
+.order__list--container{
+    box-shadow: var(--box-shadow4);
+    padding-block: 2rem;
+    border-radius: 0.4rem;
+    margin-block: 1rem;
+}
+.orderHeading{
+    padding-block: 1rem;
+}
+.seemore1{
+    color: #444;
+}
+.orderHeader{
+    background-color: lightgray;
+}
+.seemore{
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: var(--primary-color);
+}
+.newOrder{
+    border: none;
+    padding: 1rem;
+    /* text-align: right !important; */
+    border-bottom: 2px solid #ccc;
+    width: 90%;
+    font-weight: 500 !important;
+  border-radius:  0 !important;
+}
+.pending-order{
+    background-color: #ffdd1a;
+    padding-inline: 0.8rem;
+    border-radius: 2rem;
+}
+
+.pagination-container{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end;
+    margin-block: 2rem;
+}
+.pagination__item{
+    padding: 0.4rem 1rem;
+    background: var(--gradient-2);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: var(--heading-fonts);
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+.search__input{
+    display: flex;
+    width: 80%;
+    align-items: center;
+}
+.search__input input{
+    flex: 1;
+    height: 50px;
+    padding-inline: 1rem;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    font-weight: 500;
+    color: #888;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    outline: none;
+}
+.search-btn{
+    height: 50px;
+    width: 70px;
+   
+    margin-left: -40px;
+    border: none;
+    background-color: var(--primary-color);
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    transition: all 0.4s linear;
+}
+.search-btn:hover{
+    background-color: var(--secondary-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* this is the media querries here */
+
+@media screen and (max-width: 800px) {
+    .dashboard__report--container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .order__list--container{
+        width: 500px;
+        overflow-x: auto;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    .dashboard__report--container{
+        grid-template-columns: 1fr;
+        
+    }
+    .pagination__item{
+        padding: 0.2rem 0.8rem;
+        font-size: 14px;
+    }
+    .search__input{
+        width: 100%;
+    }
+    
+}
+
+
+
+
+
+
