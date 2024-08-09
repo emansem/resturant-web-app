@@ -167,15 +167,98 @@ font-family: var(--body-fonts);
     background-color: var(--secondary-color);
 }
 
+.menus__conatiner{
+    margin-block: 7rem;
+    width: 100%;
+    padding-inline: 2rem;
+}
+.menus__wrapper{
+width: 100%;
+box-shadow: var(--box-shadow3);
+padding: 1rem;
+background-color: #fff;
+border-radius: 0.4rem;
+}
+.menus__item--list{
+    margin-block: 0.4rem;
+    padding: 1.2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    flex-wrap: wrap;
+    box-shadow: var(--box-shadow2);
+}
 
+.menu__item--list--body{
+    font-weight: 400;
+    color: #777;
+    font-family: var(--body-fonts);
+    font-size: 16px;
+}
+.action__buttons button{
+    padding:  0.8rem 1rem;
+    margin-left: 0.4rem;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    font-family: var(--body-fonts);
+    background-color: var(--primary-color);
+}
 
+.menu__status{
+   padding: 0.1rem 1rem;
+    background-color: #0aca0a;
+    font-size: 16px;
+    color: #fff;
+    font-family: var(--heading-fonts);
+    font-weight: 600;
+    border-radius: 1.4rem;
+}
+.menu__item--list-header{
+    font-size: 18px;
+    color: #444;
+    font-weight: 600;
+    font-family: var(--heading-fonts);
+    box-shadow: none;
+   background-color: #ccc;
+}
+.delete{
+    background-color: #fd5454 !important;
+    transition: all 0.4s linear;
+}
+.delete:hover{
+    background-color: #b32e2e !important;
+}
+.update:hover{
+    background-color: var(--secondary-color) !important;
+    transition: all 0.4s linear;  
+}
+.menus__add-new{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+    margin-block: 1rem;
+}
+.add__new--menu{
+    color: #fff;
+    transition: all 0.4s linear;
+}
 
-
-
-
-
-
-
+.add__new--menu:hover{
+    background-color: var(--secondary-color);
+}
+.total__menus{
+    font-size: 20px;
+    color: #666;
+    font-weight: 500;
+    font-family: var(--body-fonts);
+}
 
 
 
@@ -206,6 +289,28 @@ font-family: var(--body-fonts);
     }
     .pagination__item{
         padding: 0.2rem 0.8rem;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         font-size: 14px;
     }
     .search__input{

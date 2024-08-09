@@ -111,57 +111,46 @@
         </div>
 
         <!--the invoice details section -->
-        <div class="invoice__container">
-            <div class="invoice__wrapper">
-                <div class="primary-heading">Order Details</div>
-                <div class="order__invoice--contents">
-                  <div class="order__invoice--top-header">
-                    <img src="/user/src/images/logo.png" alt="">
-                  </div>
-                  <div class="order__invoice--header">
-                    <p class="order__item--name">
-                      <span class="order_key">Order Number:</span>
-                      <span class="order__value">#0282J</span>
+               
+        <div class="menus__conatiner">
+            <h1 class="primary-heading">Jandar kitchen Menus</h1>
+            <div class="menus__wrapper">
+                <div class="menus__add-new">
+                    <p class="total__menus">
+                        Total Menus: 2
                     </p>
-                    <p class="order__item--name">
-                      <span class="order_key">Order Time:</span>
-                      <span class="order__value">09:12AM</span>
-                    </p>
-                    <p class="order__item--name">
-                      <span class="order_key">Order Status:</span>
-                      <span class="order__value">Proccessing</span>
-                    </p>
-                    <div class="order__buttons">
-                      <button  id="approve" class="approve">Approve</button>
-                      <button class="cancel-order">Reject</button>
-                    </div>
-                  </div>
-                  <div class="order__invoice--body">
-                    <h1 class="primary-heading">Order Items</h1>
-                    <div class="order__items--body">
-                      <li class="order__list-items">
+                    <button class="primary-button add__new--menu">Add new menu</button>
+                </div>
+                <div class="menus__items--lists">
+                    <li class="menus__item--list menu__item--list-header">
+                        <span>Id</span>
                         <span>Name</span>
-                        <span>Quantity</span>
                         <span>Price</span>
-                      </li>
-                      <li class="order__list-items">
-                        <span>Fried Rice</span>
-                        <span>2</span>
-                        <span>2000CFA</span>
-                      </li>
-                      <li class="order__list-items">
-                        <span>Fried Rice</span>
-                        <span>2</span>
-                        <span>2000CFA</span>
-                      </li>
-                      <li class="order__list-items1">
-                        <span>Total Price:</span>
-                       
-                        <span>2000CFA</span>
-                      </li>
+                        <span>Status</span>
+                        <span>Action</span>
+                    </li>
+                    <div>
+                        <li class="menus__item--list menu__item--list--body">
+                            <span>1</span>
+                            <span>Rice and Chicken</span>
+                            <span>1,500FCFA</span>
+                            <span class="menu__status">Active</span>
+                           <div class="action__buttons">
+                            <button class="update">Update</button>
+                            <button class="delete">Delete</button>
+                           </div>
+                        </li>
+                        <li class="menus__item--list menu__item--list--body">
+                            <span>2</span>
+                            <span>Rice and Chicken</span>
+                            <span>1,500FCFA</span>
+                            <span class="menu__status delete">Inactive</span>
+                           <div class="action__buttons">
+                            <button class="update">Update</button>
+                            <button class="delete">Delete</button>
+                           </div>
+                        </li>
                     </div>
-                  </div>
-                  <div class="order__invoice--footer"></div>
                 </div>
             </div>
         </div>
