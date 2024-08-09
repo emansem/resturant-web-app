@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout | Jandar Kitchen</title>
+    <title>Orders</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -105,51 +105,59 @@
         </div>
 
         <!--the invoice details section -->
-        <div class="invoice__container">
-            <div class="invoice__wrapper">
-                <div class="primary-heading">Order Details</div>
-                <div class="order__invoice--contents">
-                  <div class="order__invoice--top-header">
-                    <img src="/user/src/images/logo.png" alt="">
-                  </div>
-                  <div class="div order__invoice--header">
-                    <p class="order__item--name">
-                      <span class="order_key">Order Number:</span>
-                      <span class="order__value">#0282J</span>
-                    </p>
-                    <p class="order__item--name">
-                      <span class="order_key">Order Time:</span>
-                      <span class="order__value">09:12AM</span>
-                    </p>
-                    <p class="order__item--name">
-                      <span class="order_key">Order Status:</span>
-                      <span class="order__value">Proccessing</span>
-                    </p>
-                  </div>
-                  <div class="order__invoice--body">
-                    <h1 class="primary-heading">Order Items</h1>
-                    <div class="order__items--body">
-                      <li class="order__list-items">
-                        <span>Name</span>
-                        <span>Quantity</span>
-                        <span>Price</span>
-                      </li>
-                      <li class="order__list-items">
-                        <span>Fried Rice</span>
-                        <span>2</span>
-                        <span>2000CFA</span>
-                      </li>
-                      <li class="order__list-items">
-                        <span>Total Price</span>
-                       
-                        <span>2000CFA</span>
-                      </li>
-                    </div>
-                  </div>
-                  <div class="order__invoice--footer"></div>
-                </div>
+        <div class="orders__container">
+         <div class="orders__wrapper">
+       <div class="order__items">
+       
+          <div class="order__header">
+            <P >
+              <span>Order Number:</span>
+              <span>8272JK</span>
+            </P>
+            <P>
+              <span>Order Time:</span>
+              <span>12:00PM</span>
+            </P>
+          </div>
+          <div class="order__content">
+            <div class="order__item--body">
+              <P>
+                <span>Quantity:</span>
+                <span >2</span>
+              </P>
+              <P>
+                <span>Price:</span>
+                <span >1908FCFA</span>
+              </P>
+                <span>Status:</span>
+                <span class="state">Processing..</span>
+              </P>
             </div>
+            <div class="order__item--footer">
+              <div class="order__buttons">
+                <button class="see-details">See more</button>
+                <button class="cancel-order">Cancel Order</button>
+              </div>
+            </div>
+          </div>
+       
+       </div>
+         </div>
+        </div> 
+       
+        
+        <!-- no result found page here -->
+        <div class="empty-cart hideNoOrder">
+          <div class="no-result-image">
+            <img src="/user/src/images/noresult.jpg" alt="" />
+          </div>
+          <div class="no-result__message">
+            <h1 class="priamry-heading">No Order found</h1>
+            <p class="primary-text">No order found here, click the button below to order your meal.</p>
+            <button class="primary-button cart-button">Order now</button>
+          </div>
         </div>
+        
        
       </div>
 

@@ -58,9 +58,11 @@ font-size: 16px;
 color: #fff;
 font-family: var(--body-fonts);
   }
+  
   .served{
-    background-color: #0aca0a;
+    background-color: #0aca0a !important;
   }
+
   .pending{
     background: #ffdd1a;
     color: #1c1b2e;
