@@ -15,7 +15,32 @@
   --gradient-2: linear-gradient(90deg, #ff7622, #ff6b6b);
   --gradient-3: linear-gradient(135deg, #ff7622, #ffd700);
 }
-
+/* ...........login or action message........ */
+.error-text ,
+.success-text{
+  background-color: #128a12;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: var(--heading-fonts);
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 0.4rem;
+}
+.login__success-text{
+  display: none;
+}
+.register__success--message{
+  display: none;
+}
+.hide__register--error{
+  display: none;
+}
+.error-text {
+  background-color: #ff6b6b;
+}
+.hideError{
+  display: none;
+}
 @keyframes slideIn {
   0% {
     transform: translateY(-100%);
@@ -235,9 +260,51 @@ label {
   margin-bottom: 0.8rem;
   font-family: var(--body-fonts);
 }
-/* .hidelogin{
+
+/* ........login animation............. */
+@keyframes slidinLeft {
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0%);
+  }
+  
+}
+@keyframes slideBackLeft {
+  from{
+    transform: translateX(0%);
+  }
+  to{
+    transform: translateX(-100%);
+  }
+}
+@keyframes slideInRight {
+  from{
+    transform: translateX(100%);
+  }
+  to{
+    transform: translateX(0%);
+  }
+  
+}
+.loginForm__slideBack{
+  animation: slideBackLeft 0.5s ease-in-out;
+transition: all 0.4s ease-in-out;
+}
+#login__conatiner{
+animation: slidinLeft 0.5s ease-in-out;
+transition: all 0.4s ease-in-out;
+}
+#register__form{
+  animation: slideInRight 0.5s ease-in-out;
+transition: all 0.4s ease-in-out;
+}
+
+
+.hidelogin{
     display: none;
-} */
+}
 .hideregister {
   display: none;
 }

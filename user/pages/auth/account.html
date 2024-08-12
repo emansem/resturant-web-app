@@ -12,18 +12,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <link rel="stylesheet" href="/user/src/styles/general.css">
+<script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
 
 
 </head>
 <body>
     <div class="main-page">
         <!-- this is the login section -->
-       <div class="account__wrapper hidelogin">
+       <div id="login__conatiner" class="account__wrapper">
         <div class="account__header">
             <img src="/user/src/images/logo.png" alt="janda logo">
            <div>
             <h2 class="secondary-heading">login</h2>
             <p class="secondary-text">Please login to continue</p>
+            <p id="login__success--message" class="success-text login__success-text">Login was successful</p>
+            <p id="error__message" class="error-text hideError">User already register</p>
            </div>
         </div>
         <div class="account__footer">
@@ -38,7 +41,7 @@
                     <input name="password" type="password" class="form-item" placeholder="Enter your password">
                 </div>
                 
-                  <button class="account-button">LOG IN</button>
+                  <button class="account-button loginBtn">LOG IN</button>
                
                 <div class="form-group footer-text">
                    <p><span>Dont have account?</span> <span class="action-Btn">Register Now</span></p>
@@ -49,39 +52,43 @@
        </div>
 
        <!-- this is the register section -->
-       <div class="account__wrapper hideregister">
+       <div  id="register__form" class="account__wrapper  hideregister ">
         <div class="account__header">
             <img src="/user/src/images/logo.png" alt="janda logo">
            <div>
             <h2 class="secondary-heading">Create Account</h2>
-            <p class="secondary-text">Create your account to continue..</p>
+            <p class="secondary-text">Create your account to continue.</p>
+            <p id="register__message" class="success-text register__success--message">Your account was created successfully.</p>
+            <p id="register__error--message" class="error-text hide__register--error">User already register</p>
+
            </div>
         </div>
         <div class="account__footer">
-            <form class="form loginForm" action="">
+            <form class="form registerForm " action="">
                 <div class="form-group">
                     <label for="name">Full Name</label>
-                    <input name="name" type="text" class="form-item" placeholder="Enter your name">
+                    <input name="name" type="text" class="form-item" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone number</label>
-                    <input name="phone" type="tel" class="form-item" placeholder="Enter your Phone">
+                    <input name="phone" type="tel" class="form-item" placeholder="Enter your Phone" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input name="password" type="password" class="form-item" placeholder="Enter your password">
+                    <input name="password" type="password" class="form-item" placeholder="Enter your password" required>
                 </div>
                 
-                  <button class="account-button">Sign Up</button>
+                  <button class="account-button signBtn">Sign Up</button>
                
                 <div class="form-group footer-text">
-                   <p><span>Have Account already?</span> <span class="action-Btn">Login now</span></p>
+                   <p><span>Have Account already?</span> <span class="action-Btn show__register--page">Login now</span></p>
                   </div>
 
             </form>
         </div>
        </div>
     </div>
-    
+    <script type="module" src="/user/src/scripts/auth/account.js"></script>
+ 
 </body>
 </html>
