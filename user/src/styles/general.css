@@ -261,6 +261,12 @@ label {
   font-family: var(--body-fonts);
 }
 
+.status_text{
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+  font-family: var(--heading-fonts);
+}
 /* ........login animation............. */
 @keyframes slidinLeft {
   from{
@@ -557,6 +563,9 @@ transition: all 0.4s ease-in-out;
   width: 100%;
   gap: 1.5rem;
 }
+.hideCheckout{
+  display: none !important;
+}
 .cart__amount {
   font-size: 17px;
   color: #555;
@@ -570,8 +579,7 @@ transition: all 0.4s ease-in-out;
   font-family: var(--heading-fonts);
 }
 .food__btn {
-  height: 30px;
-  width: 90px;
+ padding:  0.4rem 0.8rem;
   border: none;
   background: var(--primary-color);
   border-radius: 0.4rem;
@@ -579,6 +587,7 @@ transition: all 0.4s ease-in-out;
   font-weight: 600;
   cursor: pointer;
   color: #fff;
+  display: block;
 }
 .price-text,
 .price {
@@ -1091,7 +1100,23 @@ transition: all 0.4s ease-in-out;
 }
 .state {
   color: #128a12;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: var(--heading-fonts);
+  color: #fff;
+  background-color: #ffb347;
+  padding-inline: 1rem;
+  border-radius: 2rem;
+
+}
+.cancel{
+  background-color: #ff6b6b;
+}
+.processing{
+  background-color: #1c1b2e;
+}
+.deliver{
+  background-color: #128a12;
 }
 .order__buttons button {
   font-size: 16px;

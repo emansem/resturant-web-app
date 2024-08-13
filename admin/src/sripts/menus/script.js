@@ -1,12 +1,12 @@
 // import all  crud functions
-import { Buffer } from "https://jspm.dev/buffer";
-import { saveDateIntoDataBase } from "../data.js";
-import { updateDataIntoDataBase } from "../data.js";
-import { deletDataInDataBase } from "../data.js";
-import { fetchDataFromDataBase } from "../data.js";
-import { fetchAllDataFromDataBase } from "../data.js";
-import { supabase } from "../../../../config.js";
-import { formatAmout } from "../data.js";
+
+import { saveDateIntoDataBase } from "../../../../general/data.js";
+import { updateDataIntoDataBase } from "../../../../general/data.js";
+import { deletDataInDataBase } from "../../../../general/data.js";
+import { fetchDataFromDataBase } from "../../../../general/data.js";
+import { fetchAllDataFromDataBase } from "../../../../general/data.js";
+
+import { formatAmout } from "../../../../general/data.js";
 
 //selectors to render the contents into the dom
 

@@ -117,7 +117,7 @@
                             </p>
                         </div>
                         <div class="success__wrapper--button">
-                            <button class="primary-button success-Btn">View Order</button>
+                            <button id="checkout_successBtn" class="primary-button success-Btn">View Order</button>
                         </div>
                     </div>
                  </div>
@@ -125,7 +125,7 @@
 
 				<!-- the ckout content here-->
                  <div class="checkout-container">
-                    <div class="checkout__main hideCheckout">
+                    <div class="checkout__main">
                        <div class="checkout__heading">
                         <h1 class="primary-heading">Complete Your Checkout </h1>
                         <div class="primary-text">Please we will charge deleivery fee depending on your location, make sure you enter your location</div>
@@ -136,7 +136,7 @@
                             <span class="checkout__key">
                                 Total Amount:
                             </span>
-                            <span class="checkout__value">2000CFA</span>
+                            <span class="checkout__value totalAmount">2000CFA</span>
                         </li>
                         <li class="checkout__list">
                             <span class="checkout__key">
@@ -158,7 +158,7 @@
                               Location
                             </span>
                             <span class="checkout__value">
-                                <input class="delivery__fees" name="fees" type="text" placeholder="Enter your location" required>
+                                <input id="location" class="delivery__fees" name="fees" type="text" placeholder="Enter your location" required>
                             </span>
                         </li>
                        </div>
@@ -173,7 +173,7 @@
                             <h1 class="priamry-heading">No Item found</h1>
                             <p class="primary-text">No time found here, click the button below to order your meal.</p>
                         </div>
-                        <button class="primary-button cart-button">Order now</button>
+                        <button id="checkout__no-result" class="primary-button cart-button">Order now</button>
                     </div>
                  </div>
 			
@@ -197,5 +197,6 @@
 				</div>
 			</div>
 		</div>
+		<script type="module" src="/user/src/scripts/checkout.js"></script>
 	</body>
 </html>

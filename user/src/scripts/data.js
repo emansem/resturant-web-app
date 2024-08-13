@@ -1,7 +1,7 @@
 // a function to load and display the data on the user dashboard.
 const activeId = localStorage.getItem("activeID");
 const id = Number(activeId);
-import { supabase } from "../../../config.js";
+import { supabase } from "../../../general/config.js";
 
 export async function getUserData() {
     let result;

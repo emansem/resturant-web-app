@@ -1,4 +1,4 @@
-import { supabase } from "../../../config.js";
+import { supabase } from "../general/config.js";
 
 // a function to insert into  the table
 
@@ -12,7 +12,7 @@ export async function saveDateIntoDataBase(saveData, tableName) {
     return data;
   }
   if (error) {
-    console.log("this is the error inserting the data", error);
+    console.error("this is the error inserting the data", error);
   }
 }
 
@@ -78,13 +78,16 @@ export async function fetchDataFromDataBase(tableName, id, actionId) {
   .from(`${tableName}`)
   .select("*")
   .eq(`${id}`, actionId);
+  if (error) {
+    console.log("this is the error fetch the data", error);
+  }
 if (data && data.length !== 0) {
   console.log("this is the fetch data", data);
   return data;
+}else{
+  return data
 }
-if (error) {
-  console.log("this is the error fetch the data", error);
-}
+
 }
 
 //a function to format currency.
@@ -95,3 +98,47 @@ export function formatAmout(amount) {
   }).format(amount);
   return formatData;
 }
+
+// a function increment data in the detabase
+
+export async function incrementCart(amount, id){
+  const {data, error} = await supabase.rpc('increment_cart', {
+    prod_price : amount,
+    prod_qty : 1,
+    prod_id : id
+  })
+  if(error){
+    console.log('this is the error updating the product', error);
+  }
+  
+}
+
+//decrement the product 
+export async function decrementCart(amount, id){
+  const {data, error} = await supabase.rpc('decrement_cart', {
+    prod_price : amount,
+    prod_qty : 1,
+    prod_id : id
+  }).select();
+  if(error){
+    console.log('this is the error updating the product', error);
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
