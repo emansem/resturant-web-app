@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/user/src/styles/general.css" />
+    <link rel="stylesheet" href="/admin/src/styles/style.css" />
+    <style>
+      .order__buttons button {
+        margin-block: 1rem !important;
+      }
+    
+    </style>
+  </head>
+  <body>
+    <!-- Dashboard Container -->
+    <div class="dashboard">
+      <!-- Side Bar -->
+      <div class="side-bar">
+        <!-- Side Bar Menu Items -->
+        <div class="side__bar-menus">
+          <div class="side__bar--menus-items">
+            <!-- Home Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-home"></i>
+              <span>Home</span>
+            </a>
+
+            <!-- Orders Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-shopping-bag"></i>
+              <span>Orders</span>
+            </a>
+
+            <!-- Account Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-user"></i>
+              <span>Account</span>
+            </a>
+
+            <!-- Coupons Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fas fa-gift"></i>
+              <span>Coupons</span>
+            </a>
+
+            <!-- Feedback Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-comment"></i>
+              <span>Feedback</span>
+            </a>
+          </div>
+
+          <!-- Logout Menu Item -->
+          <div>
+            <a href="" class="menu__list-item">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Main Content -->
+      <div class="dashboard-main">
+        <!-- Dashboard Header -->
+        <div class="dashboard__header">
+          <div class="header__top">
+            <!-- Logo -->
+            <div class="logo-header">
+              <img src="/user/src/images/logo.png" alt="Jandar kitchen logo" />
+            </div>
+
+            <!-- Header Menu Items -->
+            <div class="header__menu">
+              <span class="notice"
+                ><i class="fas fa-bell"></i>
+                <span class="notice_count">2</span></span
+              >
+              <span class="cart"
+                ><i class="fas fa-cart-plus"></i>
+                <span class="order-count">2</span></span
+              >
+
+              <!-- User Avatar -->
+              <img
+                src="/user/src/images/avatar.webp"
+                alt="a great man"
+                class="avatar"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!--the invoice details section -->
+        <div class="menu__overlay--popup hide_popup">
+          <!-- ....... HERE IS THE POPUP FORM TO ADD Product..... -->
+          <form
+            id="add__menuForm"
+            action=""
+            class="menu__popup--form hide_add-newForm"
+          >
+            <div class="menu__input--group">
+              <h1 class="primary-heading">Add a new food menu</h1>
+            </div>
+            <div class="menu__input--group">
+              <label for="">Upload the food image</label>
+              <input name="menu-image" id="menu-image" type="file" required />
+            </div>
+            <div class="menu__input--group">
+              <label for="name">Food name</label>
+              <input
+                name="name"
+                type="text"
+                class="menu__form--input"
+                placeholder="Enter food name"
+                required
+              />
+            </div>
+            <div class="menu__input--group">
+              <label for="price">Food price</label>
+              <input
+                name="price"
+                type="number"
+                class="menu__form--input"
+                placeholder="Enter food price"
+                required
+              />
+            </div>
+            <div class="menu__input--group">
+              <label for="description">Update Item details</label>
+              <textarea
+                name="description"
+                id="description"
+                cols="10"
+                rows="5"
+                required
+                spellcheck="false"
+              ></textarea>
+            </div>
+
+            <div class="menu__input--group popup__buttons">
+              <button class="delete close_form">Close</button>
+              <button class="add-food">Add now</button>
+            </div>
+          </form>
+
+          <!-- .......the success form after a new product is added..... -->
+           <!-- the success popup form here-->
+         
+         <!-- .. update the menu items --> 
+          <form
+          id="update_menuForm"
+            action=""
+            class="menu__popup--form udateForm hide__update--form"
+          >
+           
+          </form>
+        </div>
+
+        <div class="menus__conatiner">
+          <h1 class="primary-heading">Jandar kitchen Menus</h1>
+          <div class="menus__wrapper">
+            <div class="menus__add-new">
+              <p class="total__menus"></p>
+              <button class="primary-button add__new--menu-button">
+                Add new menu
+              </button>
+            </div>
+            <div class="menus__items--lists">
+              <div class="menus__container--list">
+              
+                <li class="menus__item--list menu__item--list--body">
+                  <span>2</span>
+                  <span>Rice and Chicken</span>
+                  <span>1,500FCFA</span>
+                  <span class="menu__status delete">Inactive</span>
+                  <div class="action__buttons">
+                    <button class="update">Update</button>
+                    <button class="delete">Delete</button>
+                  </div>
+                </li>
+              </div>
+            </div>
+          </div>
+
+          <div id="no_menu--item" class="empty-cart hide__nomenu">
+           
+            <div class="no-result__message">
+              <h1 class="priamry-heading">No menu item found</h1>
+              <p class="primary-text">
+                No menu found here, click the button below to add your menu.
+              </p>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- this is the succces form here -->
+    <div class="success-container hideSuccessForm">
+      <div class="success__wrapper">
+          <div class="success__wrapper--icon">
+              <i class="fas fas fa-check"></i>
+          </div>
+          <div class="success__wrapper--container">
+              <p class="primary-text success_message">
+                YOur item was successfully added;
+              </p>
+          </div>
+          <div class="success__wrapper--button">
+              <button id="close_succes-popup" class="primary-button success-Btn">Close</button>
+          </div>
+      </div>
+   </div>.
+    <script type="module" src="../src/sripts/menus/script.js"></script>
+  </body>
+</html>
