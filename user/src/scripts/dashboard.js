@@ -38,6 +38,7 @@ greetUser();
 async function getAllMenusItems(){
   foodItime__container.innerHTML = '';
   const data = await fetchAllDataFromDataBase('menus');
+  console.log(data)
   const filterData = data.filter(menu=>menu.status === 'Active');
 
   if(filterData && filterData.length !==0){
@@ -73,7 +74,6 @@ function renderFoodMenuItems(menus){
   });
 
 }
-
 
 
 
