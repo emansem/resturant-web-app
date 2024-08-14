@@ -4,7 +4,7 @@ const register__form = document.getElementById("register__form");
 const show__register = document.querySelector(".show__register--page");
 const registerForm = document.querySelector(".registerForm");
 const loginForm = document.querySelector(".loginForm");
-import { supabase } from "../config.js";
+import { supabase } from "../../../../general/config";
 const login__successMsg = document.querySelector("#login__success--message");
 const register__message = document.querySelector("#register__message");
 const signBtn = document.querySelector(".signBtn");
