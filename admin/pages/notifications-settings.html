@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Order invoice | Jandar Kitchen</title>
+    <title>Notifications settings | Jandar kitchen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,6 +23,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="/user/src/styles/general.css" />
+    <link rel="stylesheet" href="/admin/src/styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+    <style>
+       .notification__container{
+        margin-block: 8rem;
+       }
+ 
+    </style>
   </head>
   <body>
     <!-- Dashboard Container -->
@@ -105,63 +113,75 @@
         </div>
 
         <!--the invoice details section -->
-        <div class="invoice__container">
-            <div class="invoice__wrapper">
-                <div class="primary-heading">Order Details</div>
-                <div class="order__invoice--contents">
-                  <div class="order__invoice--top-header">
-                    <img src="/user/src/images/logo.png" alt="">
-                  </div>
-                  <div class="order__invoice--header">
-                  
-                  </div>
-                  <div class="order__invoice--body">
-                    <h1 class="primary-heading">Order Items</h1>
-                    <div class="order__items--body">
-                      <table id="order__data--table">
-                        <thead>
-                          <tr>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                          </tr>
-                        </thead>
-                        <tbody id="order__dataContainer">
-                         <!-- .....the orders items will be generated here.... -->
-                        </tbody>
-                      </table>
-                     
-                      
-                    </div>
-                    <div id="totalPrice">
-                      <!-- .....total item amount here.... -->
-                    </div>
-                  </div>
-                  <div class="order__invoice--footer"></div>
-                </div>
-            </div>
-        </div>
+        <div class="notification__container">
+          <!-- .........no message settings added..... -->
+           <div class="no__message--added hideNoNoticationsMessage">
+            <h1 class="primary-heading">No notifications message added</h1>
+            <p class="primary-text">
+              Please setup your notifications message
+            </p>
+             <div class="setup__button">
+              <button class="primary-button setupBtn">Setup now</button>
+             </div>
+           </div>
+          
+          <form id="update__notifications--message-form" class="form__container hidechangestatusForm">
+           
+          </form>
+          
+       
        
       </div>
 
-      <!-- Footer Menu Items -->
-      <div class="footer__menus">
-        <div class="footer__menus--wrapper">
-          <a href="" class="menu__item">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-          </a>
-          <a href="" class="menu__item">
-            <i class="fas fa-shopping-bag"></i>
-            <span>Orders</span>
-          </a>
-          <a href="" class="menu__item">
-            <i class="fas fa-user"></i>
-            <span>Account</span>
-          </a>
+    <!-- ..........change order status... and cancel form..... -->
+     <div  id="addNewNotificationMessage" class="order__popup--container hideAction-popup">
+      <div class="change__order--status-form">
+        <div class="change__order-input">
+        <h1 class="primary-heading change-orderHeading">Add notifications message.</h1>
+         <div id="sucessMessage" class="success__message--container">
+          <!-- sucess message -->
+         </div>
+         <form id="addNewNotificationForm" class="form__container">
+          <div class="form__groud-textarea">
+            <label for="processing">Add order processing message</label>
+            <textarea name="processing" id="processing" cols="50"  required></textarea>
+          </div>
+          <div class="form__groud-textarea">
+            <label for="deliver">Add order in delivery message</label>
+            <textarea name="deliver" id="deliver" cols="50" required></textarea>
+          </div>
+          <div class="form__groud-textarea">
+            <label for="complete">Add order complete message</label>
+            <textarea name="complete" id="complete" cols="50"  required></textarea>
+          </div>
+          <div class="form__groud-textarea">
+            <label for="smsmessage">Add order SMS message</label>
+            <textarea name="smsmessage" id="smsmessage" cols="50" required></textarea>
+          </div>
+          <div class="form__groud-textarea">
+            <label for="reject">Add order reject message</label>
+            <textarea name="reject" id="reject" cols="50"  required></textarea>
+          </div>
+          <div class="form__groud-textarea">
+            <label for="coupon">Add coupon  message</label>
+            <textarea name="coupon" id="coupon" cols="50"  required></textarea>
+          </div>
+          
+         
+          <div class="change__orderBtn">
+            <button id="closePopUp" class="cancel close__order--status-form">Close</button>
+            <button class="save__status">Add now</button>
+          </div>
+          
+        </form>
+         
+         
         </div>
+
       </div>
+     </div>
     </div>
-    <script type="module" src="/user/src/scripts/order-invoice.js"></script>
+ 
+  <script type="module" src="/admin/src/sripts/notification-settings.js"></script>
   </body>
 </html>

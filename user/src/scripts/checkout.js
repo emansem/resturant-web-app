@@ -104,10 +104,6 @@ async function saveOrderDetails(saveInfo) {
     getAllOrdersItems(dataResult[0].id)
     checkout__btn.innerHTML = "Place an order";
     successContainer.classList.remove("hidePopup");
-     
-  setTimeout(async function(){
-    await deletDataInDataBase("cart", "customer_Id", customer_Id);
-  }, 5000);
   }
 }
 checkout_successBtn.addEventListener("click", function(e) {
@@ -139,8 +135,14 @@ async function getAllOrdersItems(order_id){
 //save cart items in the order items table for reference to get it back letter.
 
 async function saveOrderItemsDetails(saveData){
+
   const data = await saveDateIntoDataBase(saveData, 'order_items');
   console.log('this is the save order datails here', data);
+  setTimeout(async function(){
+  const deletedData =  await deletDataInDataBase("cart", "customer_Id", data[0].user_id);
+  console.log('this is the deleted data here', deletedData);
+  }, 5000);
+  
 }
 
 

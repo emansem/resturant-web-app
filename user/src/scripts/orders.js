@@ -22,9 +22,9 @@ getAllOrders();
 //render the all orders to the web page.
 
 function renderOrders(orders) {
-  orders.forEach((order, index) => {
-    const time = order.created_at.split("T")[0];
-
+  orders.forEach((order) => {
+    const time = order.created_at.split("T")[0]
+    const id = order.id
     orders__wrapper.innerHTML += ` 
       <div class="order__data--item">
                 <!-- Order details header -->
@@ -58,7 +58,7 @@ function renderOrders(orders) {
                     <!-- Button to view order details -->
                     <div class="view-more">
                       <button class="primary-button view__order-details">
-                      <a href="/user/pages/order-invoice.html?id=${order.id}">View details</a>
+                      <a href="/user/pages/order-invoice.html?id=${id}">View details</a>
                       </button>
                     </div>
                   </div>

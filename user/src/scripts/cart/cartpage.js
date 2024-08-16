@@ -201,10 +201,10 @@ deleteBtbn,
 }
 
 // Function to update the subtotal in the UI
-function increaseSubBalanceUi(strSubTotalEl, subTotal, cartItemPrice, cartQty) {
-  
+function increaseSubBalanceUi(strSubTotalEl, subTotal, cartItemPrice) {
+  strSubTotalEl.innerHTML = ''
   strSubTotalEl.innerHTML = `${formatAmout(
-    (subTotal = cartItemPrice * cartQty)
+    (subTotal += cartItemPrice)
   )}`;
   updateTotalBalanceUi(subTotal);
 

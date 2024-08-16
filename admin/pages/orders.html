@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		|<title>Dasboard | Jandar kitchen</title>
+		|<title>Orders | Jandar kitchen</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -111,17 +111,41 @@
                     <!-- ... recent orders sections..... -->
                     <div class="order__invoice--body">
                         <h1 class="primary-heading orderHeading">Total Orders</h1>
-                        <div class="search__orders">
-                            <div class="search__input">
-                                <input type="text" placeholder="Enter order number or phone">
-                                <button class="search-btn">
-                                    <i class="fas  fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
+                        <div class="search__section">
+							
+								<div class="search__input--items search">
+									<label for="searchValue">Search orders</label>
+									<input id="search__input" name="searchValue" type="text" placeholder="Enter order number or phone">
+									<button class="search-btn">
+										<i class="fas  fa-search"></i>
+									</button>
+								</div>
+							
+							<div class="search__input--items">
+								<label for="status">Filter orders</label>
+								<select name="status" id="status">
+									<option value="Processing">Processing</option>
+									<option value="Pending">Pending</option>
+									<option value="Delivery">In Transite</option>
+									<option value="Completed">completed</option>
+								</select>
+							</div>
+						</div>
                         <div class="order__items--body order__list--container">
                          
-                           
+                           <table>
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Phone No</th>
+									<th>Status</th>
+									<th>See more</th>
+								</tr>
+							</thead>
+							<tbody id="ordersContainer">
+							<!-- ......all the orders here..... -->
+							</tbody>
+						   </table>
                         
                           
                         </div>
