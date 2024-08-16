@@ -5,15 +5,18 @@ const activeId = localStorage.getItem("activeID");
 const orderCount = document.querySelector(".order-count");
 const totalContainer = document.querySelector(".price-section");
 const placeOrderBtn = document.getElementById("add__cart");
+const emptyCartPage = document.querySelector('.empty-cart');
+const mainCartContainer = document.querySelector('.main-cart__wrapper');
 const customer_Id = Number(activeId);
 
 // import all the functions from data js
-import { fetchDataFromDataBase } from "../../../../general/data.js";
+import { fetchAllDataFromDataBase, fetchDataFromDataBase } from "../../../../general/data.js";
 import { formatAmout } from "../../../../general/data.js";
 import { saveDateIntoDataBase } from "../../../../general/data.js";
 import { incrementCart } from "../../../../general/data.js";
 import { deletDataInDataBase } from "../../../../general/data.js";
 import { decrementCart } from "../../../../general/data.js";
+import { updateDataIntoDataBase } from "../../../../general/data.js";
 
 //render the cart items on the web page
 async function renderCartDetails() {
@@ -50,103 +53,191 @@ async function renderCartDetails() {
 								</div>`;
 
     const cart__item = document.querySelectorAll(".cart__item");
-    getCartItemId(cart__item);
+    getCartItemId(cart__item, data);
   });
   priceSection(data);
 }
+renderCartDetails();
 
-//get the item id and update it or delete the item from the database;
-
-function getCartItemId(cart__item) {
-  cart__item.forEach(catITem => {
-    catITem.addEventListener("click", function(e) {
-      const cartItemId = this.getAttribute("id");
-      const actionBtn = e.target.textContent;
-      const deletBtbn = e.target.className;
+// Function to attach event listeners to each cart item for handling clicks
+function getCartItemId(cart__item, data) {
+  cart__item.forEach(cartItem => {
+    cartItem.addEventListener("click", function(e) {
+      const cartItemId = this.getAttribute("id"); // Get the ID of the clicked cart item
+      const actionBtn = e.target.textContent; // Get the action button text (+, -)
+      const deleteBtbn = e.target.className;
       const cartItemQty = this.querySelector(".quanty__amount").textContent;
       const cartItemQtyEl = this.querySelector(".quanty__amount");
       performActions(
         cartItemId,
-        deletBtbn,
+        deleteBtbn,
         actionBtn,
         cartItemQty,
         cartItemQtyEl,
-        catITem,
-        cart__item
+        cartItem,
+        data,
       );
     });
   });
 }
 
-//get the buttons and perform the actions in the data base;
-
+// Function to handle various actions on the cart (increase, decrease, delete)
 async function performActions(
   id,
-  deletBtbn,
+  deleteBtbn,
   actionBtn,
   cartItemQty,
   cartItemQtyEl,
   cartItem,
-  cart__item
+  data
 ) {
-  let cartQty = Number(cartItemQty);
-  const strSubTotalEl = document.querySelector(".cart_subTotal");
+  let cartQty = Number(cartItemQty); // Convert quantity to a number
+  const strSubTotalEl = document.querySelector(".cart_subTotal"); // Get the subtotal element
   const strSubTotal = document.querySelector(".cart_subTotal").textContent;
-  const matchSubTotal = strSubTotal.replace(/\D/g, "");
+  const matchSubTotal = strSubTotal.replace(/\D/g, ""); // Extract numbers from the subtotal string
   let subTotal = parseInt(matchSubTotal);
   const carItemPriceStr = cartItem.querySelector(".cart__item-price")
     .textContent;
-  const matchCartItemPrice = carItemPriceStr.replace(/\D/g, "");
-  const cartItemrice = parseInt(matchCartItemPrice);
-  console.log(cart__item);
+  const matchCartItemPrice = carItemPriceStr.replace(/\D/g, ""); // Extract numbers from the price string
+  const cartItemPrice = parseInt(matchCartItemPrice);
+
+  // Handle the quantity increase or decrease
+  await decreaseCartQuantity(
+    actionBtn,
+    cartItemQtyEl,
+    cartQty,
+    cartItemPrice,
+    id,
+    strSubTotalEl,
+    subTotal,
+    cartItem
+  );
+
+  await increaseCartQuantity(
+    actionBtn,
+    cartItemQtyEl,
+    cartQty,
+    cartItemPrice,
+    id,
+    strSubTotalEl,
+    subTotal
+  );
+  //Handle item deletion if the delete button was clicked
+  await deleteCartItem(
+    deleteBtbn,
+      cartItem,
+      cartItemPrice,
+      id,
+      strSubTotalEl,
+      subTotal,
+    data,
+    )
+}
+
+// Function to increase the quantity of a cart item
+async function increaseCartQuantity(
+  actionBtn,
+  cartItemQtyEl,
+  cartQty,
+  cartItemPrice,
+  id,
+  strSubTotalEl,
+  subTotal
+) {
   if (actionBtn === "+") {
-    cartItemQtyEl.innerHTML = cartQty + 1;
-    strSubTotalEl.innerHTML = `${formatAmout((subTotal += cartItemrice))}`;
-    await incrementCart(cartItemrice, id);
-    document.querySelector(".totalAmount").innerHTML = `${formatAmout(
-      subTotal
-    )}`;
-  } else if (actionBtn === "-") {
-    if (cartQty === 0) {
-      cartItem.style.display = "none";
-      deletDataInDataBase("cart", "id", id);
-      return;
-    } else {
-      cartItemQtyEl.innerHTML = cartQty - 1;
-      await decrementCart(cartItemrice, id);
-      console.log(
-        (strSubTotalEl.innerHTML = `${formatAmout((subTotal -= cartItemrice))}`)
-      );
-      document.querySelector(".totalAmount").innerHTML = `${formatAmout(
-        subTotal
-      )}`;
-    }
-  } else if (deletBtbn === "fas fa-times") {
-    cartItem.style.display = "none";
-    console.log(
-      (strSubTotalEl.innerHTML = `${formatAmout((subTotal -= cartItemrice))}`)
-    );
-    document.querySelector(".totalAmount").innerHTML = `${formatAmout(
-      subTotal
-    )}`;
+    cartItemQtyEl.innerHTML = cartQty + 1; // Increase the      quantity displayed
+
+    increaseSubBalanceUi(strSubTotalEl, subTotal, cartItemPrice, cartQty + 1); // Update the UI subtotal
+    await incrementCart(id);
   }
 }
+
+// Function to decrease the quantity of a cart item
+async function decreaseCartQuantity(
+  actionBtn,
+  cartItemQtyEl,
+  cartQty,
+  cartItemPrice,
+  id,
+  strSubTotalEl,
+  subTotal,
+  cartItem
+) {
+  if (actionBtn === "-") {
+    if (cartQty === 0) {
+      cartItem.style.display = "none"; // Hide the item if the quantity is zero
+      await deletDataInDataBase("cart", "id", id); // Remove the item from the database
+      return;
+    } else {
+      cartItemQtyEl.innerHTML = cartQty - 1; // Decrease the quantity displayed
+      await decrementCart(id); // Update the quantity in the database
+      updateTotalBalanceUi(strSubTotalEl, subTotal, cartItemPrice);
+      decreaseSubBalanceUi(strSubTotalEl, subTotal, cartItemPrice, cartQty)
+    }
+  }
+}
+
+// Function to delete a cart item
+async function deleteCartItem(
+deleteBtbn,
+  cartItem,
+  cartItemPrice,
+  id,
+  strSubTotalEl,
+  subTotal,
+  data
+) {
+  if (deleteBtbn === "fas fa-times") {
+    cartItem.style.display = "none";
+    
+    decreaseSubBalanceUi(strSubTotalEl, subTotal, cartItemPrice);
+    await deletDataInDataBase("cart", "id", id); 
+   
+      setTimeout(function(){
+        location.reload()
+      }, 1500);
+    
+  }
+}
+
+// Function to update the subtotal in the UI
+function increaseSubBalanceUi(strSubTotalEl, subTotal, cartItemPrice, cartQty) {
+  
+  strSubTotalEl.innerHTML = `${formatAmout(
+    (subTotal = cartItemPrice * cartQty)
+  )}`;
+  updateTotalBalanceUi(subTotal);
+
+}
+
+// Function to update the subtotal in the UI
+function decreaseSubBalanceUi(strSubTotalEl, subTotal, cartItemPrice) {
+
+  strSubTotalEl.innerHTML = `${formatAmout(
+    (subTotal -= cartItemPrice)
+  )}`; 
+  updateTotalBalanceUi(subTotal);
+
+
+}
+
+// Function to update the total balance in the UI
+function updateTotalBalanceUi(subTotal) {
+  document.querySelector(".totalAmount").innerHTML = `${formatAmout(subTotal)}`;
+}
+
 // all the slectors to use
-
-renderCartDetails();
-
 //render the total quantity price
-
 function priceSection(data) {
-  const SubTotal = data.reduce((sum, amount) => sum + amount.product_price, 0);
-  console.log(SubTotal);
-
-  localStorage.setItem("subTotal", SubTotal);
-
-  totalContainer.innerHTML = `<li  class="price__section--item">
+  const totalPrice = data.reduce(
+    (sum, item) => sum + item.product_price * item.product_quantity,
+    0
+  );
+ 
+totalContainer.innerHTML = `<li  class="price__section--item">
 										<span class="price-section-text">Sub Total:</span>
 										<span class="cart__amount cart_subTotal">${formatAmout(
-                      SubTotal
+                      totalPrice
                     )}</span>
 									</li>
 									<li class="price__section--item">
@@ -155,10 +246,56 @@ function priceSection(data) {
 									</li>
 									<li class="price__section--item">
 										<span class="price-section-text"> Total Amount:</span>
-										<span class="cart__amount totalAmount">${formatAmout(SubTotal)}</span>
+										<span class="cart__amount totalAmount">${formatAmout(totalPrice)}</span>
 									</li>`;
+  // const sub_total = localStorage.getItem('saveData')|| SubTotal;
+  // console.log(, 'this is localStorage')
 }
 
 placeOrderBtn.addEventListener("click", function(e) {
   location.href = "/user/pages/checkout.html";
 });
+
+//check if the cart is empty and show no result;
+async function checkIfCartIsEmpty(){
+  const dataResult = await fetchAllDataFromDataBase('cart')
+  if(dataResult.length ===0){
+    emptyCartPage.classList.remove('hide-noresult');
+    mainCartContainer.classList.add('hide-Cart');
+  }
+}
+checkIfCartIsEmpty();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

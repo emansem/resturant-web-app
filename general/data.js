@@ -101,9 +101,9 @@ export function formatAmout(amount) {
 
 // a function increment data in the detabase
 
-export async function incrementCart(amount, id){
+export async function incrementCart(id){
   const {data, error} = await supabase.rpc('increment_cart', {
-    prod_price : amount,
+   
     prod_qty : 1,
     prod_id : id
   })
@@ -111,15 +111,16 @@ export async function incrementCart(amount, id){
     console.log('this is the error updating the product', error);
   }
   
+  
 }
 
 //decrement the product 
-export async function decrementCart(amount, id){
+export async function decrementCart(id){
   const {data, error} = await supabase.rpc('decrement_cart', {
-    prod_price : amount,
+ 
     prod_qty : 1,
     prod_id : id
-  }).select();
+  })
   if(error){
     console.log('this is the error updating the product', error);
   }
