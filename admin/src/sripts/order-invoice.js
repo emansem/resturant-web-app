@@ -1,29 +1,36 @@
 import { fetchDataFromDataBase } from "../../../../general/data.js";
+import { fetchAllDataFromDataBase } from "../../../../general/data.js";
 import { formatAmout } from "../../../../general/data.js";
 import { saveDateIntoDataBase } from "../../../../general/data.js";
 import { updateDataIntoDataBase } from "../../../../general/data.js";
 import { deletDataInDataBase } from "../../../../general/data.js";
+import { incrementNotificationLength } from "../../../general/data.js";
 const orderItemsContainer = document.querySelector("#order__dataContainer");
 
 const totalPrice = document.getElementById("totalPrice");
 const orderDetails = document.querySelector(".order__invoice--header");
 const orderITemWrapper = document.querySelector(".invoice__container");
-const order__popup = document.querySelector('.order__popup--container');
-const closeOrderStatusForm = document.querySelector('.close__order--status-form');
-const statusSelectInput = document.querySelector('#status');
-const save__statusBtn = document.querySelector('.save__status');
-const success__messagWrapper = document.querySelector('.success__message--container');
-const warning__popup = document.querySelector('#warning__popup');
-const rejectPopup = document.querySelector('#rejectPopup');
-const rejectedMessage = document.querySelector('#rejectedMessage');
+const order__popup = document.querySelector(".order__popup--container");
+const closeOrderStatusForm = document.querySelector(
+  ".close__order--status-form"
+);
+const statusSelectInput = document.querySelector("#status");
+const save__statusBtn = document.querySelector(".save__status");
+const success__messagWrapper = document.querySelector(
+  ".success__message--container"
+);
+const warning__popup = document.querySelector("#warning__popup");
+const rejectPopup = document.querySelector("#rejectPopup");
+const rejectedMessage = document.querySelector("#rejectedMessage");
 const orderId = location.search.split("=")[1];
-
+const activeId = localStorage.getItem("activeID");
+const id = Number(activeId);
 
 async function fetchAllOrders() {
   if (orderId === "undefined") {
     orderITemWrapper.innerHTML =
       '<h1 class="primary-heading">No item found</h1>';
-      return
+    return;
   } else {
     const dataResult = await fetchDataFromDataBase("orders", "id", orderId);
 
@@ -39,22 +46,17 @@ fetchAllOrders();
 
 //fetch all the order items from the database
 async function fetchAllOrdersItems() {
-    if (orderId === "undefined") {
-        orderITemWrapper.innerHTML =
-          '<h1 class="primary-heading">No item found</h1>';
-          return
-      }
- 
-   else {
+  
     const dataResult = await fetchDataFromDataBase(
-        "order_items",
-        "order_id",
-        orderId
-      );
-    renderOrderItems(dataResult);
-  }
+      "order_items",
+      "order_id",
+      orderId
+    );
+   renderOrderItems(dataResult);
+   return dataResult[0].user_id;
 }
-fetchAllOrdersItems();
+const customerID = await fetchAllOrdersItems();
+
 //render the order items details
 async function renderOrderItems(data) {
   data.forEach(item => {
@@ -100,7 +102,8 @@ function displayOrderItemInfo(data) {
                       </p>
                       <p class="order__item--name">
                         <span class="order_key">Delivery Type:</span>
-                        <span class="order__value">${data[0].delvery_type}</span>
+                        <span class="order__value">${data[0]
+                          .delvery_type}</span>
                       </p>
                      
                       <p class="order__item--name">
@@ -114,71 +117,118 @@ function displayOrderItemInfo(data) {
                       <button class="cancel-order">Reject</button>
                     </div>
                     `;
-                    const actionButtonEl = document.querySelector('.order__buttons');
-                    getActionButtonEl(actionButtonEl);
+  const actionButtonEl = document.querySelector(".order__buttons");
+  getActionButtonEl(actionButtonEl);
 }
 
 //add  event to show the change status form or reject page.
-function getActionButtonEl(actionButtonEl){
-actionButtonEl.addEventListener('click', async function(e){
+function getActionButtonEl(actionButtonEl) {
+  actionButtonEl.addEventListener("click", async function(e) {
     //get the text content for the button to perform the action to it.
-    const actionButton =  e.target.textContent;
-    if(actionButton === 'Change status'){
-      order__popup.classList.remove('hideChangeOrderPopup');
-    }else if(actionButton === 'Reject'){
-        warning__popup.classList.remove('hideAction-popup');
+    const actionButton = e.target.textContent;
+    if (actionButton === "Change status") {
+      order__popup.classList.remove("hideChangeOrderPopup");
+    } else if (actionButton === "Reject") {
+      warning__popup.classList.remove("hideAction-popup");
     }
-})
+  });
 }
 
 //add event to get the reject value
-rejectPopup.addEventListener('click', function(e){
-    const rejectActionBtn =  e.target.textContent;
-    if(rejectActionBtn === 'Close'){
-        warning__popup.classList.add('hideAction-popup');
-    }else if(rejectActionBtn === 'Yes'){
-        const saveData = {
-            status : 'Rejected'
-        }
-        saveRejectedStatus(saveData);
-    }
-})
+rejectPopup.addEventListener("click", function(e) {
+  const rejectActionBtn = e.target.textContent;
+  if (rejectActionBtn === "Close") {
+    warning__popup.classList.add("hideAction-popup");
+  } else if (rejectActionBtn === "Yes") {
+    const saveData = {
+      status: "Rejected"
+    };
+    saveRejectedStatus(saveData);
+  }
+});
 
-//save reject status in the database 
-async function saveRejectedStatus(saveData){
-    const data = await updateDataIntoDataBase(saveData, 'orders', 'id', orderId);
-    if(data.length !==0){
-      rejectedMessage.innerHTML =`<p class="sucess-text">Order status was successfully Rejecetd`
-                setTimeout(()=>{
-                    warning__popup.classList.add('hideAction-popup');
-                    location.reload()
-                }, 3000)
-    }else{
-        console.log('there is no data here bro');
-    }
-    }
+//save reject status in the database
+async function saveRejectedStatus(saveData) {
+  const data = await updateDataIntoDataBase(saveData, "orders", "id", orderId);
 
+  if (data.length !== 0) {
+    rejectedMessage.innerHTML = `<p class="sucess-text">Order status was successfully Rejecetd`;
+    // setTimeout(() => {
+    //   warning__popup.classList.add("hideAction-popup");
+    //   location.reload();
+    // }, 3000);
+    createRejecetNotifications();
+  } else {
+    console.log("there is no data here bro");
+  }
+}
+//save reject notifications when admin reject the order,
+async function createRejecetNotifications() {
+  const data = await fetchAllDataFromDataBase("notifications_settings");
+  const saveData = {
+    customer_ID: id,
+    description: data[0].reject_message,
+    action: "Order Rejected"
+  };
+  await saveDateIntoDataBase(saveData, "notifications");
+  await incrementNotificationLength(customerID);
+}
+//save order processing notifications when admin change  the order status,
+async function createOrderProcessNotifications() {
+  const data = await fetchAllDataFromDataBase("notifications_settings");
+  const saveData = {
+    customer_ID: id,
+    description: data[0].processing_message,
+    action: "Order processing"
+  };
+  await saveDateIntoDataBase(saveData, "notifications");
+  await incrementNotificationLength(customerID);
+}
+//save order delivery notifications when admin change  the order status,
+async function createOrderCompleteNotifications() {
+  const data = await fetchAllDataFromDataBase("notifications_settings");
+  const saveData = {
+    customer_ID: id,
+    description: data[0].completed_message,
+    action: "Order on the way"
+  };
+  await saveDateIntoDataBase(saveData, "notifications");
+  await incrementNotificationLength(customerID);
+}
+
+//save order delivery notifications when admin change  the order status,
+async function createOrderDeliveryNotifications() {
+  const data = await fetchAllDataFromDataBase("notifications_settings");
+  const saveData = {
+    customer_ID: id,
+    description: data[0].delivery_message,
+    action: "Order on the way"
+  };
+  await saveDateIntoDataBase(saveData, "notifications");
+  await incrementNotificationLength(customerID);
+}
 //close the order status popup
-closeOrderStatusForm.addEventListener('click', ()=>{
-    setTimeout(()=>{
-        order__popup.classList.add('hideChangeOrderPopup');
-        location.reload()
-    }, 1000)
-})
+closeOrderStatusForm.addEventListener("click", () => {
+  setTimeout(() => {
+    order__popup.classList.add("hideChangeOrderPopup");
+    location.reload();
+  }, 1000);
+});
 
 //save the order status in the database
-async function changeOrderStatus(saveData){
-const data = await updateDataIntoDataBase(saveData, 'orders', 'id', orderId);
-if(data.length !==0){
-   success__messagWrapper.innerHTML =`<p class="sucess-text">Order status was successfully change to
-            <span class="order-state">${data[0].status}</span> </p>`
-            setTimeout(()=>{
-                order__popup.classList.add('hideChangeOrderPopup');
-                location.reload()
-            }, 3000)
-}else{
-    console.log('there is no data here bro');
-}
+async function changeOrderStatus(saveData) {
+  const data = await updateDataIntoDataBase(saveData, "orders", "id", orderId);
+  if (data.length !== 0) {
+    checkOrderStatusToSave(data[0].status);
+    success__messagWrapper.innerHTML = `<p class="sucess-text">Order status was successfully change to
+            <span class="order-state">${data[0].status}</span> </p>`;
+    setTimeout(() => {
+      order__popup.classList.add("hideChangeOrderPopup");
+      location.reload();
+    }, 3000);
+  } else {
+    console.log("there is no data here bro");
+  }
 }
 //check other status
 function checkOrderStatus(status) {
@@ -191,29 +241,23 @@ function checkOrderStatus(status) {
   }
 }
 
-save__statusBtn.addEventListener('click', async function(e){
-  
-    const saveData = {
-        status : statusSelectInput.value
-    }
-   changeOrderStatus(saveData);
-})
+save__statusBtn.addEventListener("click", async function(e) {
+  const saveData = {
+    status: statusSelectInput.value
+  };
+  changeOrderStatus(saveData);
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//check order status
+function checkOrderStatusToSave(status) {
+  if (status === "Processing") {
+    createOrderProcessNotifications();
+  } else if (status === "Delivery") {
+    createOrderDeliveryNotifications();
+  } else {
+    createOrderCompleteNotifications();
+  }
+}
 
 
 

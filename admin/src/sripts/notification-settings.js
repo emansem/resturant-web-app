@@ -133,12 +133,12 @@ function renderNotificationsMessage(data) {
 //get all the update form notifications message inputs
 function getAllNotificationsUpdateInputs(id, saveBtn) {
   const saveData = {
-    processing_message: updateNoticationsForm.processing.value,
-    delivery_message: updateNoticationsForm.deliver.value,
-    completed_message: updateNoticationsForm.complete.value,
-    sms_message: updateNoticationsForm.smsmessage.value,
-    reject_message: updateNoticationsForm.reject.value,
-    coupon_message: updateNoticationsForm.coupon.value
+    processing_message: updateNoticationsForm.processing.value.trim(),
+    delivery_message: updateNoticationsForm.deliver.value.trim(),
+    completed_message: updateNoticationsForm.complete.value.trim(),
+    sms_message: updateNoticationsForm.smsmessage.value.trim(),
+    reject_message: updateNoticationsForm.reject.value.trim(),
+    coupon_message: updateNoticationsForm.coupon.value.trim(),
   };
   updateNoticationsMessage(saveData, id, saveBtn);
 }

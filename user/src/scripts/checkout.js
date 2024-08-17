@@ -82,12 +82,9 @@ async function createANewOrder() {
   if (newOrderData.location === "") {
     location.setAttribute("required", true);
     return;
-  }else{
+  } else {
     saveOrderDetails(newOrderData);
   }
-
- 
-  
 }
 
 checkout__btn.addEventListener("click", async function(e) {
@@ -101,7 +98,7 @@ checkout__btn.addEventListener("click", async function(e) {
 async function saveOrderDetails(saveInfo) {
   const dataResult = await saveDateIntoDataBase(saveInfo, "orders");
   if (dataResult.length !== 0) {
-    getAllOrdersItems(dataResult[0].id)
+    getAllOrdersItems(dataResult[0].id);
     checkout__btn.innerHTML = "Place an order";
     successContainer.classList.remove("hidePopup");
   }
@@ -115,64 +112,50 @@ checkout_successBtn.addEventListener("click", function(e) {
 
 //new order function to  save the orders in the database;
 
-async function getAllOrdersItems(order_id){
-  const dataResult = await fetchDataFromDataBase('cart', 'customer_Id', customer_Id);
-  dataResult.forEach(item=>{
+async function getAllOrdersItems(order_id) {
+  const dataResult = await fetchDataFromDataBase(
+    "cart",
+    "customer_Id",
+    customer_Id
+  );
+  dataResult.forEach(item => {
     const orderData = {
-      quantity : item.product_quantity,
-      product_image : item.product_image,
-      product_name : item.product_name,
-       price : item.product_price,
+      quantity: item.product_quantity,
+      product_image: item.product_image,
+      product_name: item.product_name,
+      price: item.product_price,
       user_id: item.customer_Id,
-      order_id : order_id,
-    }
+      order_id: order_id
+    };
     saveOrderItemsDetails(orderData);
-  })
-
+  });
 }
-
 
 //save cart items in the order items table for reference to get it back letter.
 
-async function saveOrderItemsDetails(saveData){
-
-  const data = await saveDateIntoDataBase(saveData, 'order_items');
-  console.log('this is the save order datails here', data);
-  setTimeout(async function(){
-  const deletedData =  await deletDataInDataBase("cart", "customer_Id", data[0].user_id);
-  console.log('this is the deleted data here', deletedData);
+async function saveOrderItemsDetails(saveData) {
+  const data = await saveDateIntoDataBase(saveData, "order_items");
+  getTotalNoticationLength();
+  setTimeout(async function() {
+    const deletedData = await deletDataInDataBase(
+      "cart",
+      "customer_Id",
+      data[0].user_id
+    );
+    console.log("this is the deleted data here", deletedData);
   }, 5000);
-  
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//create a new a notification length
+async function getTotalNoticationLength(){
+  const data = await fetchDataFromDataBase('notifications_number' , 'client_id', customer_Id);
+ if(data.length ===0){
+  const saveData = {
+    client_id : customer_Id,
+    length : 0,
+  }
+  await saveDateIntoDataBase(saveData,'notifications_number');
+  return;
+ }
+}

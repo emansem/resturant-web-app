@@ -19,7 +19,6 @@ const userData = await getUserData();
   const userName =  userData[0].name.split(' ')[0];
 
 //function to greet the user depending on the time.
-
 function greetUser(){
     const hours =  new Date().getHours();
     if(hours >=6 && hours < 12){
@@ -33,9 +32,7 @@ function greetUser(){
 }
 greetUser();
 
-
 //get all the menus from the admin and render to the users.
-
 async function getAllMenusItems(){
   foodItime__container.innerHTML = '';
   const data = await fetchAllDataFromDataBase('menus');
@@ -52,7 +49,6 @@ async function getAllMenusItems(){
 getAllMenusItems();
 
 //render the food item to the users 
-
 function renderFoodMenuItems(menus){
   menus.forEach(menu => {
     foodItime__container.innerHTML+= `   <div class="food-item">

@@ -56,38 +56,34 @@ export async function deletDataInDataBase(tableName, id, actionId) {
 
 //function to fetch the date from database
 export async function fetchAllDataFromDataBase(tableName) {
-  const { data, error } = await supabase
-    .from(`${tableName}`)
-    .select("*")
-   
-    if (error) {
-      console.log("this is the error fetch the data", error);
-    }
+  const { data, error } = await supabase.from(`${tableName}`).select("*");
+
+  if (error) {
+    console.log("this is the error fetch the data", error);
+  }
   if (data && data.length !== 0) {
     console.log("this is the fetch data", data);
     return data;
-  }else{
+  } else {
     return data;
   }
- 
 }
 
 // this is the function to fetch  a specific data in the database.
 export async function fetchDataFromDataBase(tableName, id, actionId) {
   const { data, error } = await supabase
-  .from(`${tableName}`)
-  .select("*")
-  .eq(`${id}`, actionId);
+    .from(`${tableName}`)
+    .select("*")
+    .eq(`${id}`, actionId);
   if (error) {
     console.log("this is the error fetch the data", error);
   }
-if (data && data.length !== 0) {
-  console.log("this is the fetch data", data);
-  return data;
-}else{
-  return data
-}
-
+  if (data && data.length !== 0) {
+    console.log("this is the fetch data", data);
+    return data;
+  } else {
+    return data;
+  }
 }
 
 //a function to format currency.
@@ -100,46 +96,39 @@ export function formatAmout(amount) {
 }
 
 // a function increment data in the detabase
-
-export async function incrementCart(id){
-  const {data, error} = await supabase.rpc('increment_cart', {
-   
-    prod_qty : 1,
-    prod_id : id
-  })
-  if(error){
-    console.log('this is the error updating the product', error);
+export async function incrementCart(id) {
+  const { data, error } = await supabase.rpc("increment_cart", {
+    prod_qty: 1,
+    prod_id: id
+  });
+  if (error) {
+    console.log("this is the error updating the product", error);
   }
-  
-  
 }
 
-//decrement the product 
-export async function decrementCart(id){
-  const {data, error} = await supabase.rpc('decrement_cart', {
- 
-    prod_qty : 1,
-    prod_id : id
-  })
-  if(error){
-    console.log('this is the error updating the product', error);
+export async function incrementNotificationLength(id) {
+  const { data, error } = await supabase.rpc("totalnotifications", {
+    clientid: id,
+    total_value: 1
+  });
+
+  if (error) {
+    console.log(
+      "This is the error incrementing the notifications length",
+      error
+    );
   }
-  
+  if (data) {
+    console.log("This is the increment data", data);
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//decrement the product
+export async function decrementCart(id) {
+  const { data, error } = await supabase.rpc("decrement_cart", {
+    prod_qty: 1,
+    prod_id: id
+  });
+  if (error) {
+    console.log("this is the error updating the product", error);
+  }
+}

@@ -30,47 +30,7 @@
 			<!-- Side Bar -->
 			<div class="side-bar">
 				<!-- Side Bar Menu Items -->
-				<div class="side__bar-menus">
-					<div class="side__bar--menus-items">
-						<!-- Home Menu Item -->
-						<a href="" class="menu__list-item">
-							<i class="fas fa-home"></i>
-							<span>Home</span>
-						</a>
-
-						<!-- Orders Menu Item -->
-						<a href="" class="menu__list-item">
-							<i class="fas fa-shopping-bag"></i>
-							<span>Orders</span>
-						</a>
-
-						<!-- Account Menu Item -->
-						<a href="" class="menu__list-item">
-							<i class="fas fa-user"></i>
-							<span>Account</span>
-						</a>
-
-						<!-- Coupons Menu Item -->
-						<a href="" class="menu__list-item">
-							<i class="fas fas fa-gift"></i>
-							<span>Coupons</span>
-						</a>
-
-						<!-- Feedback Menu Item -->
-						<a href="" class="menu__list-item">
-							<i class="fas fa-comment"></i>
-							<span>Feedback</span>
-						</a>
-					</div>
-
-					<!-- Logout Menu Item -->
-					<div>
-						<a href="" class="menu__list-item">
-							<i class="fas fa-sign-out-alt"></i>
-							<span>Logout</span>
-						</a>
-					</div>
-				</div>
+				
 			</div>
 
 			<!-- Dashboard Main Content -->
@@ -197,6 +157,43 @@
 				</div>
 			</div>
 		</div>
+		  <!-- ........notification drop down ........ -->
+      <!-- hideNotificationPopup -->
+      <div  class="notification__popup hideNotificationPopup">
+        <div class="no__notifications hideNotifications">
+         <div class="closeBtn-notification">
+          <span class="closeNotPopup">Close</span>
+         </div>
+          <h1 class="primary-heading">
+             No notifications
+             </h1>
+          <p class="primary-text">
+            You have not received any notification
+          </p>
+        </div>
+        <div class="notification__container">
+          <div class="notification__header">
+           <div class="notification__header-left">
+                <span class="closeNotPopup">Close</span>
+                <h2 class="notifications__top--heading">Notifications</h2>
+              </div>
+             <li class="mark__all--read"> <i class="fas fas fa-check-double"></i>
+              <span>Mark all as read</span>
+            </li>
+            
+          </div>
+          <div class="notification__header--body">Today</div>
+          <div class="notification__items">
+            <!-- ''''generated notifications here..... -->
+          </div>
+          <div class="notification__footer">
+            <a href="/user/pages/notifications.html">View all notifications</a>
+          </div>
+        </div>
+      </div>
+
 		<script type="module" src="/user/src/scripts/checkout.js"></script>
+		<script src="/user/src/scripts/menus/sidebar.js"></script>
+		<script type="module" src="/user/src/scripts/menus/header-menus.js"></script>
 	</body>
 </html>

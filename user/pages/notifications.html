@@ -53,48 +53,6 @@
       <!-- Side Bar -->
       <div class="side-bar">
         <!-- Side Bar Menu Items -->
-        <div class="side__bar-menus">
-          <!-- Individual Menu Items -->
-          <div class="side__bar--menus-items">
-            <!-- Home Menu Item -->
-            <a href="#" class="menu__list-item">
-              <i class="fas fa-home"></i>
-              <span>Home</span>
-            </a>
-
-            <!-- Orders Menu Item -->
-            <a href="#" class="menu__list-item">
-              <i class="fas fa-shopping-bag"></i>
-              <span>Orders</span>
-            </a>
-
-            <!-- Account Menu Item -->
-            <a href="#" class="menu__list-item">
-              <i class="fas fa-user"></i>
-              <span>Account</span>
-            </a>
-
-            <!-- Coupons Menu Item -->
-            <a href="#" class="menu__list-item">
-              <i class="fas fa-gift"></i>
-              <span>Coupons</span>
-            </a>
-
-            <!-- Feedback Menu Item -->
-            <a href="#" class="menu__list-item">
-              <i class="fas fa-comment"></i>
-              <span>Feedback</span>
-            </a>
-          </div>
-
-          <!-- Logout Menu Item -->
-          <div>
-            <a href="#" class="menu__list-item">
-              <i class="fas fa-sign-out-alt"></i>
-              <span>Logout</span>
-            </a>
-          </div>
-        </div>
       </div>
 
       <!-- Dashboard Main Content -->
@@ -103,104 +61,140 @@
         <div class="dashboard__header">
           <div class="header__top">
             <!-- Logo -->
-            <div class="logo-header">
-              <img src="/user/src/images/logo.png" alt="Jandar kitchen logo" />
-            </div>
-
-            <!-- Header Menu Items -->
-            <div class="header__menu">
-              <!-- Notifications -->
-              <span class="notice">
-                <i class="fas fa-bell"></i>
-                <span class="notice_count">2</span>
-              </span>
-
-              <!-- Shopping Cart -->
-              <span class="cart">
-                <i class="fas fa-cart-plus"></i>
-                <span class="order-count">2</span>
-              </span>
-
-              <!-- User Avatar -->
-              <img
-                src="/user/src/images/avatar.webp"
-                alt="User avatar"
-                class="avatar"
-              />
-            </div>
           </div>
         </div>
 
         <!-- container -->
         <div id="notification__container" class="notification__container">
-            <div class="notification__container notification__wrapper">
-                <div class="notification__header">
-                 
-                    <h2 class="notifications__top--heading">Notifications</h2>
-                   <li class="mark__all--read"> <i class="fas fas fa-check-double"></i>
-                    <span>Mark all as read</span>
-                  </li>
-                  
+          <div class="no__notifications hideNotifications">
+            <div class="closeBtn-notification">
+             <span class="closeNotPopup">Close</span>
+            </div>
+             <h1 class="primary-heading">
+                No notifications
+                </h1>
+             <p class="primary-text">
+               You have not received any notification
+             </p>
+           </div>
+          <div class="notification__container notification__wrapper">
+            <div class="notification__header">
+              <h2 class="notifications__top--heading">Notifications</h2>
+              <li class="mark__all--read">
+                <i class="fas fas fa-check-double"></i>
+                <span>Mark all as read</span>
+              </li>
+            </div>
+            <div class="notification__header--body">Today</div>
+            <div class="notification__items">
+              <div class="notifications__item">
+                <div class="notification__item-header">
+                  <h2 class="notification__heading">Order processing</h2>
+                  <span class="read_time">5h ago</span>
                 </div>
-                <div class="notification__header--body">Today</div>
-                <div class="notification__items">
-                  <div class="notifications__item">
-                    <div class="notification__item-header">
-                      <h2 class="notification__heading">Order processing</h2>
-                      <span class="read_time">5h ago</span>
-                    </div>
-                    <div class="notification__item-body">
-                      <p class="notification__message">Your order is now being processed. We’ll get it ready soon!</p>
-                    </div>
-                  </div>
-                  
-                  <div class="notifications__item">
-                    <div class="notification__item-header">
-                      <h2 class="notification__heading">Order rejected</h2>
-                      <span class="read_time">5h ago</span>
-                    </div>
-                    <div class="notification__item-body">
-                      <p class="notification__message">Unfortunately, your order couldn’t go through. Please try again.</p>
-                    </div>
-                  </div>
-                  
-                  <div class="notifications__item">
-                    <div class="notification__item-header">
-                      <h2 class="notification__heading">Order on its way</h2>
-                      <span class="read_time">5h ago</span>
-                    </div>
-                    <div class="notification__item-body">
-                      <p class="notification__message">Your order is out for delivery. It’ll be with you shortly!</p>
-                    </div>
-                  </div>
-                  
-                  <div class="notifications__item">
-                    <div class="notification__item-header">
-                      <h2 class="notification__heading">Order complete</h2>
-                      <span class="read_time">5h ago</span>
-                    </div>
-                    <div class="notification__item-body">
-                      <p class="notification__message">Your order is complete. Enjoy your purchase!</p>
-                    </div>
-                  </div>
-                  
-                  <div class="notifications__item">
-                    <div class="notification__item-header">
-                      <h2 class="notification__heading">Coupon available</h2>
-                      <span class="read_time">5h ago</span>
-                    </div>
-                    <div class="notification__item-body">
-                      <p class="notification__message">You’ve got a new coupon! Don’t miss out on this special offer.</p>
-                    </div>
-                  </div>
-                  
-                </div>
-                <div class="notification__footer">
-                  <a href="">View all notifications</a>
+                <div class="notification__item-body">
+                  <p class="notification__message">
+                    Your order is now being processed. We’ll get it ready soon!
+                  </p>
                 </div>
               </div>
+
+              <div class="notifications__item">
+                <div class="notification__item-header">
+                  <h2 class="notification__heading">Order rejected</h2>
+                  <span class="read_time">5h ago</span>
+                </div>
+                <div class="notification__item-body">
+                  <p class="notification__message">
+                    Unfortunately, your order couldn’t go through. Please try
+                    again.
+                  </p>
+                </div>
+              </div>
+
+              <div class="notifications__item">
+                <div class="notification__item-header">
+                  <h2 class="notification__heading">Order on its way</h2>
+                  <span class="read_time">5h ago</span>
+                </div>
+                <div class="notification__item-body">
+                  <p class="notification__message">
+                    Your order is out for delivery. It’ll be with you shortly!
+                  </p>
+                </div>
+              </div>
+
+              <div class="notifications__item">
+                <div class="notification__item-header">
+                  <h2 class="notification__heading">Order complete</h2>
+                  <span class="read_time">5h ago</span>
+                </div>
+                <div class="notification__item-body">
+                  <p class="notification__message">
+                    Your order is complete. Enjoy your purchase!
+                  </p>
+                </div>
+              </div>
+
+              <div class="notifications__item">
+                <div class="notification__item-header">
+                  <h2 class="notification__heading">Coupon available</h2>
+                  <span class="read_time">5h ago</span>
+                </div>
+                <div class="notification__item-body">
+                  <p class="notification__message">
+                    You’ve got a new coupon! Don’t miss out on this special
+                    offer.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="notification__footer">
+              <a href="">View all notifications</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+       <!-- ........notification drop down ........ -->
+      <!-- hideNotificationPopup -->
+      <div  class="notification__popup hideNotificationPopup">
+        <div class="no__notifications hideNotifications">
+         <div class="closeBtn-notification">
+          <span class="closeNotPopup">Close</span>
+         </div>
+          <h1 class="primary-heading">
+             No notifications
+             </h1>
+          <p class="primary-text">
+            You have not received any notification
+          </p>
+        </div>
+        <div class="notification__container">
+          <div class="notification__header">
+           <div class="notification__header-left">
+                <span class="closeNotPopup">Close</span>
+                <h2 class="notifications__top--heading">Notifications</h2>
+              </div>
+             <li class="mark__all--read"> <i class="fas fas fa-check-double"></i>
+              <span>Mark all as read</span>
+            </li>
+            
+          </div>
+          <div class="notification__header--body">Today</div>
+          <div class="notification__items">
+            <!-- ''''generated notifications here..... -->
+          </div>
+          <div class="notification__footer">
+            <a href="/user/pages/notifications.html">View all notifications</a>
+          </div>
+        </div>
+      </div>
+
+    <script src="/user/src/scripts/menus/sidebar.js"></script>
+    <script
+      type="module"
+      src="/user/src/scripts/menus/header-menus.js"
+    ></script>
   </body>
 </html>
