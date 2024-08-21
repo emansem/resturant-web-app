@@ -1,8 +1,8 @@
-const sideBar = document.querySelector('.side-bar');
+const sideBar = document.querySelector(".side-bar");
 
 //render the sidebar menus on the web page
-function renderSideBarMenus(){
-  return  sideBar.innerHTML = `    <div class="side__bar-menus">
+function renderSideBarMenus() {
+  return (sideBar.innerHTML = `    <div class="side__bar-menus">
           <div class="side__bar--menus-items">
             <span>
               <i class="fas fa-times"></i>
@@ -23,10 +23,7 @@ function renderSideBarMenus(){
               <i class="fas fas fa-gift"></i>
               <span>Coupons</span>
             </a>
-            <a href="/user/pages/feedback.html" class="menu__list-item">
-              <i class="fas fa-comment"></i>
-              <span>Feedback</span>
-            </a>
+           
             <a href="/user/pages/notifications.html" class="menu__list-item">
             <i class="fas fa-bell"></i>
               <span>Notifications</span>
@@ -38,7 +35,6 @@ function renderSideBarMenus(){
               <span>Logout</span>
             </a>
           </div>
-        </div>`
+        </div>`);
 }
 renderSideBarMenus();
-

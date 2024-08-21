@@ -95,7 +95,7 @@ export function formatAmout(amount) {
   return formatData;
 }
 
-// a function increment data in the detabase
+// a function to increment total number of quantity in the cart and save it the database
 export async function incrementCart(id) {
   const { data, error } = await supabase.rpc("increment_cart", {
     prod_qty: 1,
@@ -106,10 +106,23 @@ export async function incrementCart(id) {
   }
 }
 
+// a function to increment total number of orders and save it the database
+export async function incrementNumberOfOrders(id) {
+  const { data, error } = await supabase.rpc("increment_numberoforders", {
+    ordernumber: 1,
+    customerid: id
+  });
+  if (error) {
+    console.log("this is the error increment the numbers of orders", error);
+  }
+}
+
+
 export async function incrementNotificationLength(id) {
   const { data, error } = await supabase.rpc("totalnotifications", {
+    total_value: 1, 
     clientid: id,
-    total_value: 1
+   
   });
 
   if (error) {
@@ -122,7 +135,23 @@ export async function incrementNotificationLength(id) {
     console.log("This is the increment data", data);
   }
 }
-//decrement the product
+//increment the number of times the coupon should be use
+export async function incrementNumberoftimes(id) {
+  const { data, error } = await supabase.rpc("numberoftime", {
+    ordertimes: 1,
+    customerid: id,
+    
+  });
+
+  if (error) {
+    console.log(
+      "This is the error incrementing the notifications length",
+      error
+    );
+  }
+  
+}
+//decrement total carts item quantity
 export async function decrementCart(id) {
   const { data, error } = await supabase.rpc("decrement_cart", {
     prod_qty: 1,
@@ -132,3 +161,25 @@ export async function decrementCart(id) {
     console.log("this is the error updating the product", error);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

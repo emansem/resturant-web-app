@@ -13,6 +13,95 @@
   --gradient-2: linear-gradient(90deg, #ff7622, #ff6b6b);
   --gradient-3: linear-gradient(135deg, #ff7622, #ffd700);
 }
+.add__location--popup{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 100;
+background: rgba(0, 0, 0, 0.5);
+}
+.location__popup-wrapper{
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: var(--box-shadow2);
+  margin-inline: 1rem;
+  border-radius: 1rem;
+}
+.location__form-group{
+  width: 100%;
+  margin-block: 1rem;
+}
+.location__form-group input{
+  width: 100%;
+  height: 50px;
+  outline: none;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+  padding-inline: 1rem;
+  font-size: 18px;
+  color: #555;
+  font-weight: 500;
+  font-family: var(--body-fonts);
+  
+}
+.form__alert{
+  text-align: center;
+  padding: 1rem;
+  margin-block: 0.4rem;
+  color: #222;
+  font-size: 20px;
+  font-family: var(--body-fonts);
+  font-weight: 600;
+
+}
+#locations tr:nth-child(even){
+  background: rgba(0, 0, 0, 0.18);
+}
+.success_alert{
+background-color: #0aca0a;
+color: #fff;
+border-radius: 1rem;
+}
+.location__btn{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  color: #fff;
+}
+.location__btn button{
+  color: #fff;
+}
+.location__btn button:first-child{
+  background-color: #fd5454;
+}
+.hideLocationsForm{
+  display: none;
+}
+.hideLocationsContainer{
+  display: none;
+}
+.no__locations{
+  margin-block: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.hideNolocation{
+  display: none;
+}
+#locationButtons{
+  background-color: #ccc;
+  cursor: no-drop;
+}
+
 /* ........action popup design...... */
 .order__popup--container {
   position: fixed;
@@ -106,7 +195,9 @@
 }
 
 /* this is the admin dashboard here */
-
+.addLocationBtn{
+ color: #fff;
+}
 .dashboard__reports {
   margin-block: 7rem;
   margin-inline: auto;
@@ -117,6 +208,7 @@
   width: 100%;
   justify-content: flex-end;
   gap: 1rem;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -597,8 +689,45 @@ select {
 .save__message--button:hover {
   background-color: var(--secondary-color);
 }
-/* .............. hide the login form ..... */
-
+#Counpon_container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+.coupon__form{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.coupon__form--items{
+  width: 100%;
+}
+.coupon_group-item{
+  width: 100%;
+}
+.coupon_group-item input{
+  width: 100%;
+  height: 50px;
+  padding-inline: 1rem;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+  font-family: var(--body-fonts);
+  font-weight: 500;
+  font-size: 20px;
+}
+.save__coupon--details{
+  color: #fff;
+  transition: all 0.4s linear;
+}
+.save__coupon--details:hover{
+  background-color: var(--secondary-color);
+}
 /* this is the media querries here */
 
 @media screen and (max-width: 800px) {
@@ -617,6 +746,9 @@ select {
     width: 80%;
     margin-inline: 1rem;
   }
+  .coupon__form{
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -628,6 +760,9 @@ select {
   }
   .form__groud-textarea textarea {
     width: 90%;
+  }
+  .coupon__form{
+    width: 100%;
   }
   .menu__popup--form {
     width: 100%;

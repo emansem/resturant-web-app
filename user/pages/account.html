@@ -1,0 +1,211 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/user/src/styles/general.css" />
+  </head>
+  <body>
+    <!-- Container for the entire dashboard -->
+    <div class="dashboard">
+      <!-- Sidebar for navigation -->
+      <div class="side-bar">
+        <!-- Menu items within the sidebar -->
+      </div>
+
+      <!-- Main content area of the dashboard -->
+      <div class="dashboard-main">
+        <!-- Header section with logo and user info -->
+        <div class="dashboard__header">
+          <div class="header__top">
+            <!-- Logo of the company -->
+            <div class="logo-header">
+              <img src="/user/src/images/logo.png" alt="Jandar kitchen logo" />
+            </div>
+            <!-- Menu items for notifications, cart, and user avatar -->
+            <div class="header__menu">
+              <span class="notice">
+                <i class="fas fa-bell"></i>
+                <span class="notice_count">0</span>
+              </span>
+              <span class="cart">
+                <i class="fas fa-cart-plus"></i>
+                <span class="order-count">0</span>
+              </span>
+              <!-- User avatar -->
+              <img
+                src="/user/src/images/avatar.webp"
+                alt="a great man"
+                class="avatar"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders section -->
+        <div class="orders__container">
+          <h1 class="primary-heading">Reports</h1>
+          <br /><br />
+          <div class="order__table--container">
+            <div class="reports__items--wrapper">
+                <div class="reports__item">
+                    <div class="report__item--left">
+                        <i class="fas fa-shopping-cart"></i>
+
+                    </div>
+                    <div class="report__item--right">
+                        <span class="report__item-text">
+                            Total Orders
+                        </span>
+                        <span class="report__item-amount">
+                            12
+                        </span>
+                    </div>
+                </div>
+                <div class="reports__item">
+                    <div class="report__item--left">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="report__item--right">
+                        <span class="report__item-text">
+                            Total coupons
+                        </span>
+                        <span class="report__item-amount">
+                            12
+                        </span>
+                    </div>
+                </div>
+              
+                <div class="reports__item">
+                    <div class="report__item--left">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <div class="report__item--right">
+                        <span class="report__item-text">
+                           Pending orders
+                        </span>
+                        <span class="report__item-amount">
+                            13
+                        </span>
+                    </div>
+                </div>
+                <div class="reports__item">
+                    <div class="report__item--left">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="report__item--right">
+                        <span class="report__item-text">
+                          Rejected orders
+                        </span>
+                        <span class="report__item-amount">
+                            10
+                        </span>
+                    </div>
+                </div>
+                <div class="reports__item">
+                    <div class="report__item--left">
+                        <i class="fas fa-spinner"></i>
+                    </div>
+                    <div class="report__item--right">
+                        <span class="report__item-text">
+                          Processing orders
+                        </span>
+                        <span class="report__item-amount">
+                            1
+                        </span>
+                    </div>
+                </div>
+                <div class="reports__item">
+                    <div class="report__item--left">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="report__item--right">
+                        <span class="report__item-text">
+                            Completed orders
+                        </span>
+                        <span class="report__item-amount">
+                            1
+                        </span>
+                    </div>
+                </div>
+               
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer with navigation links -->
+        <div class="footer__menus">
+          <div class="footer__menus--wrapper">
+            <a href="" class="menu__item">
+              <i class="fas fa-home"></i>
+              <span>Home</span>
+            </a>
+            <a href="" class="menu__item">
+              <i class="fas fa-shopping-bag"></i>
+              <span>Orders</span>
+            </a>
+            <a href="" class="menu__item">
+              <i class="fas fa-user"></i>
+              <span>Account</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ........notification drop down ........ -->
+    <!-- hideNotificationPopup -->
+    <div class="notification__popup hideNotificationPopup">
+      <div class="no__notifications hideNotifications">
+        <div class="closeBtn-notification">
+          <span class="closeNotPopup">Close</span>
+        </div>
+        <h1 class="primary-heading">No notifications</h1>
+        <p class="primary-text">You have not received any notification</p>
+      </div>
+      <div class="notification__container">
+        <div class="notification__header">
+          <div class="notification__header-left">
+            <span class="closeNotPopup">Close</span>
+            <h2 class="notifications__top--heading">Notifications</h2>
+          </div>
+          <li class="mark__all--read">
+            <i class="fas fas fa-check-double"></i>
+            <span>Mark all as read</span>
+          </li>
+        </div>
+        <div class="notification__header--body">Today</div>
+        <div class="notification__items">
+          <!-- ''''generated notifications here..... -->
+        </div>
+        <div class="notification__footer">
+          <a href="/user/pages/notifications.html">View all notifications</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/user/src/scripts/menus/sidebar.js"></script>
+    <script
+      type="module"
+      src="/user/src/scripts/menus/header-menus.js"
+    ></script>
+  </body>
+</html>

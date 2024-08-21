@@ -6,7 +6,7 @@ import { fetchDataFromDataBase } from "../../../../general/data.js";
 import { fetchAllDataFromDataBase } from "../../../../general/data.js";
 import { timeAgo } from "../../../../general/helper.js";
 const notification__popup = document.querySelector(".notification__popup");
-const closeNotPopup = document.querySelector(".closeNotPopup");
+const closeNotPopup = document.querySelectorAll(".closeNotPopup");
 const notification__items = document.querySelector(".notification__items");
 const no__notifications = document.querySelector(".no__notifications");
 const notification__container = document.querySelector(
@@ -49,10 +49,11 @@ function renderHeaderMenus(cart, notifications) {
                     ><i class="fas fa-bell"></i>
                     <span class="notice_count">${notifications}</span></span
                   >
+                  <a href='/user/pages/cart.html'>
                   <span class="cart"
                     ><i class="fas fa-cart-plus"></i>
                     <span class="order-count"> ${cart} </span></span
-                  >
+                  ></a>
                  
                     <i class=" fas fa-bars"></i>
                   
@@ -80,12 +81,14 @@ async function showNotificationsPopup(notificationsIcon) {
   });
 }
 //close the notification popup
-closeNotPopup.addEventListener("click", function(e) {
-  notification__popup.id = "notification__popup";
-  setTimeout(() => {
-    notification__popup.classList.add("hideNotificationPopup");
-  }, 700);
-});
+closeNotPopup.forEach(button=>{
+  button.addEventListener("click", function(e) {
+    notification__popup.id = "notification__popup";
+    setTimeout(() => {
+      notification__popup.classList.add("hideNotificationPopup");
+    }, 700);
+  });
+})
 
 //render all notifications on the page
 function renderNotifications(data) {

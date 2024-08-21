@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Orders | Jandar kitchen</title>
+		|<title>Orders | Jandar kitchen</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -107,70 +107,14 @@
 
                 <div class="dashboard__reports">
                    
+            
 
                     <!-- ... recent orders sections..... -->
-                    <div class="order__invoice--body">
-                        <h1 class="primary-heading orderHeading">Total Orders</h1>
-                        <div class="search__section">
-							
-								<div class="search__input--items search">
-									<label for="searchValue">Search orders</label>
-									<input id="search__input" name="searchValue" type="text" placeholder="Enter order number or phone">
-									<button class="search-btn">
-										<i class="fas  fa-search"></i>
-									</button>
-								</div>
-							
-							<div class="search__input--items">
-								<label for="status">Filter orders</label>
-								<select name="status" id="status">
-									<option value="Processing">Processing</option>
-									<option value="Pending">Pending</option>
-									<option value="Delivery">In Transite</option>
-									<option value="Completed">completed</option>
-								</select>
-							</div>
-						</div>
-                        <div class="order__items--body order__list--container">
-                         
-                           <table>
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Phone No</th>
-									<th>Status</th>
-									<th>See more</th>
-								</tr>
-							</thead>
-							<tbody id="ordersContainer">
-							<!-- ......all the orders here..... -->
-							</tbody>
-						   </table>
-                        
-                          
-                        </div>
-                      </div>
-                      <!-- ......this is the pagination section...... -->
-                       <div class="pagination-container">
-                        <div class="pagination__item prev--btn">
-                            <span>Prev</span>
-                        </div>
-                        <div class="pagination__item">
-                            <span>1</span>
-                        </div>
-                        <div class="pagination__item">
-                            <span>3</span>
-                        </div>
-                        <div class="pagination__item">
-                            <span>4</span>
-                        </div>
-                        <div class="pagination__item">
-                            <span>5</span>
-                        </div>
-                        <div class="pagination__item next--btn">
-                            <span>Prev</span>
-                        </div>
-                       </div>
+                <div id="Counpon_container" class="order__invoice--body">
+                    <h1 class="primary-heading">Update or set coupon percentage</h1>
+                    <form action="" class="coupon__form">
+                  
+                    </form> 
                 </div>
 
 			
@@ -180,6 +124,6 @@
 			
 			</div>
 		</div>
-		<script type="module" src="/admin/src/sripts/order.js"></script>
+		<script type="module" src="/admin/src/sripts/coupons/coupon-settings.js"></script>
 	</body>
 </html>

@@ -14,8 +14,10 @@ const order__popup = document.querySelector(".order__popup--container");
 const closeOrderStatusForm = document.querySelector(
   ".close__order--status-form"
 );
+
 const statusSelectInput = document.querySelector("#status");
 const save__statusBtn = document.querySelector(".save__status");
+
 const success__messagWrapper = document.querySelector(
   ".success__message--container"
 );
@@ -71,15 +73,33 @@ async function renderOrderItems(data) {
 }
 
 //display the total amount here
-function displayTotalAmount(data) {
+async function displayTotalAmount(data) {
+  const order = await fetchDataFromDataBase('orders', 'id', orderId);
+  const transport = order[0].transport_price
+  const discount = order[0].discount;
+  
+   
   const amount = data.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+  const totalAmount = transport + amount - (discount);
   totalPrice.innerHTML = `
-  <span>Total Price:</span>
-  <span class="totalItemPrice">${formatAmout(amount)}</span>
-                      `;
+   <li class="price__list">
+                        <span>Discount:</span>
+                     <span class="totalItemPrice">-${formatAmout(discount)}</span>
+                       </li>
+                        
+<li class="price__list">
+  <span>Delivery Cost:</span>
+<span class="totalItemPrice">${formatAmout(transport)}</span>
+                       </li>
+                       <li class="price__list">
+                         <span>Total Price:</span>
+<span class="totalItemPrice">${formatAmout(totalAmount)}</span>
+                       </li>
+                   `
+                      
 }
 
 //display orders header details
@@ -100,11 +120,7 @@ function displayOrderItemInfo(data) {
                         <span class="order_key">Location:</span>
                         <span class="order__value">${data[0].location}</span>
                       </p>
-                      <p class="order__item--name">
-                        <span class="order_key">Delivery Type:</span>
-                        <span class="order__value">${data[0]
-                          .delvery_type}</span>
-                      </p>
+                    
                      
                       <p class="order__item--name">
                         <span class="order_key">Order Status:</span>
@@ -258,6 +274,29 @@ function checkOrderStatusToSave(status) {
     createOrderCompleteNotifications();
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

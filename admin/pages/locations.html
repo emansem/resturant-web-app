@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders | Jandar Kitchen</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="/user/src/styles/general.css" />
+    <link rel="stylesheet" href="/admin/src/styles/style.css" />
+  </head>
+  <body>
+    <!-- Dashboard Container -->
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <!-- Sidebar Menu Items -->
+        <div class="side__bar-menus">
+          <div class="side__bar--menus-items">
+            <!-- Dashboard Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-home"></i>
+              <span>Dashboard</span>
+            </a>
+
+            <!-- Orders Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-shopping-bag"></i>
+              <span>Orders</span>
+            </a>
+
+            <!-- Menus Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="far fa-file-archive"></i>
+              <span>Menus</span>
+            </a>
+
+            <!-- Profile Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-user"></i>
+              <span>Profile</span>
+            </a>
+
+            <!-- Feedback Menu Item -->
+            <a href="" class="menu__list-item">
+              <i class="fas fa-comment"></i>
+              <span>Feedback</span>
+            </a>
+          </div>
+
+          <!-- Logout Menu Item -->
+          <div>
+            <a href="" class="menu__list-item">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Main Content -->
+      <div class="dashboard-main">
+        <!-- Dashboard Header -->
+        <div class="dashboard__header">
+          <div class="header__top">
+            <!-- Logo -->
+            <div class="logo-header">
+              <img src="/user/src/images/logo.png" alt="Jandar Kitchen Logo" />
+            </div>
+
+            <!-- Header Menu Items -->
+            <div class="header__menu">
+              <!-- Notifications -->
+              <span class="notice">
+                <i class="fas fa-bell"></i>
+                <span class="notice_count">2</span>
+              </span>
+
+              <!-- Cart -->
+              <span class="cart">
+                <i class="fas fa-cart-plus"></i>
+                <span class="order-count">2</span>
+              </span>
+
+              <!-- User Avatar -->
+              <img
+                src="/user/src/images/avatar.webp"
+                alt="User Avatar"
+                class="avatar"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Reports Section -->
+        <div class="dashboard__reports hideLocationsContainer">
+          <!-- Order Section -->
+          
+          <div class="order__invoice--body">
+            <!-- Order Heading -->
+            <h1 class="primary-heading orderHeading">Add or update location</h1>
+            <div  id="search__section" class="search__section">
+							
+                <div class="search__input--items search">
+                    
+                    <input id="search__input" name="searchValue" type="text" placeholder="Enter order number or phone">
+                    <button class="search-btn">
+                        <i class="fas  fa-search"></i>
+                    </button>
+                </div>
+            
+           
+                
+                  <button class="primary-button addLocationBtn openLocationForm">Add new location</button>
+            
+        </div>
+
+            <!-- Order List Table -->
+            <div class="order__items--body order__list--container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>SN</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="locations">
+                 
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Pagination Section -->
+          <div class="pagination-container">
+            <div class="pagination__item prev--btn">
+              <span>Prev</span>
+            </div>
+            <div class="pagination__item">
+              <span>1</span>
+            </div>
+            <div class="pagination__item">
+              <span>3</span>
+            </div>
+            <div class="pagination__item">
+              <span>4</span>
+            </div>
+            <div class="pagination__item">
+              <span>5</span>
+            </div>
+            <div class="pagination__item next--btn">
+              <span>Next</span>
+            </div>
+          </div>
+        </div>
+        <div class="no__locations">
+          <h1 class="primary-heading">
+            No location found
+          </h1>
+          <p class="primary-text">Please click the button below to add a new location</p>
+          <button class="primary-button openLocationForm">Add location</button>
+         </div>
+      </div>
+    <div class="add__location--popup hideLocationsForm">
+        <div class="location__popup-wrapper">
+            <h1 class="primary-heading">Add new location</h1>
+            <p class="form__alert"></p>
+            <form class="location_form" action="">
+                <div class="location__form-group">
+                    <label for="quarter">Select quarter quater</label>
+                    <select name="quarter" id="quater">
+                    </select>
+                </div>
+                <div class="location__form-group">
+                    <label for="amount">Set transport amount</label>
+                   <input name="amount" type="number" placeholder="Enter amount" required>
+                </div>
+                <div class="location__form-group location__btn">
+                    <button  class="primary-button close_location_form locationButtons">Close</button>
+                    <button  class="primary-button locationButtons">Add now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+      <!-- Footer Menu Items (optional) -->
+    </div>
+    <script type="module" src="/admin/src/sripts/locations/locations-data.js"></script>
+    <script type="module" src="/admin/src/sripts/locations/addlocations.js"></script>
+  </body>
+</html>

@@ -15,13 +15,17 @@ async function getAllOrders() {
   if (dataResult.length !== 0) {
     console.log(dataResult);
     renderOrders(dataResult);
+  }else{
+    noResultContainer.classList.remove('hideNoOrder')
   }
 }
 getAllOrders();
 
 //render the all orders to the web page.
 
-function renderOrders(orders) {
+function renderOrders(data) {
+  const orders =data.sort((a, b)=>b.id-a.id)
+  console.log(orders)
   orders.forEach((order) => {
     const time = order.created_at.split("T")[0]
     const id = order.id
@@ -41,10 +45,7 @@ function renderOrders(orders) {
                 <!-- Order details body -->
                 <div class="order__data--body">
                   <div>
-                    <li class="data__items">
-                      <span class="data__text">Quantity:</span>
-                      <span class="data__value">${order.quantity}</span>
-                    </li>
+                   
                     <li class="data__items">
                       <span class="data__text">Price:</span>
                       <span class="data__value">${formatAmout(order.amount)}</span>
@@ -79,7 +80,12 @@ function changeOrderStatusClassName(status) {
     return "state processing";
   } else if (status === "Delivery") {
     return "state deliver";
-  } else {
+  }  else if (status === "Completed") {
+    return "state complete";
+  }
+  
+  else {
     return "state";
   }
 }
+

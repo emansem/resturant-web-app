@@ -1,199 +1,220 @@
-<!-- @format -->
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Checkout | Jandar Kitchen</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-		/>
-		<link rel="stylesheet" href="/user/src/styles/general.css" />
-	</head>
-	<body>
-		<!-- Dashboard Container -->
-		<div class="dashboard">
-			<!-- Side Bar -->
-			<div class="side-bar">
-				<!-- Side Bar Menu Items -->
-				
-			</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Jandar Kitchen</title>
 
-			<!-- Dashboard Main Content -->
-			<div class="dashboard-main">
-				<!-- Dashboard Header -->
-				<div class="dashboard__header">
-					<div class="header__top">
-						<!-- Logo -->
-						<div class="logo-header">
-							<img src="/user/src/images/logo.png" alt="Jandar kitchen logo" />
-						</div>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
-						<!-- Header Menu Items -->
-						<div class="header__menu">
-							<span class="notice"
-								><i class="fas fa-bell"></i>
-								<span class="notice_count">2</span></span
-							>
-							<span class="cart"
-								><i class="fas fa-cart-plus"></i>
-								<span class="order-count">2</span></span
-							>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
-							<!-- User Avatar -->
-							<img
-								src="/user/src/images/avatar.webp"
-								alt="a great man"
-								class="avatar"
-							/>
-						</div>
-					</div>
-				</div>
-                
-                <!-- the success popup form here-->
-                 <div class="success-container hidePopup">
-                    <div class="success__wrapper">
-                        <div class="success__wrapper--icon">
-                            <i class="fas fas fa-check"></i>
-                        </div>
-                        <div class="success__wrapper--container">
-                            <p class="primary-text">
-                                Yay! Your Jandar Kitchen order is on the way. We're making your 
-                                tasty meal now. We will get back to you in no time, Hungry? Not for long!
-                            </p>
-                        </div>
-                        <div class="success__wrapper--button">
-                            <button id="checkout_successBtn" class="primary-button success-Btn">View Order</button>
-                        </div>
-                    </div>
-                 </div>
+    <!-- General Stylesheet -->
+    <link rel="stylesheet" href="/user/src/styles/general.css" />
+  </head>
+  <body>
+    <!-- Dashboard Container -->
+    <div class="dashboard">
+      <!-- Side Bar -->
+      <div class="side-bar">
+        <!-- Side Bar Menu Items -->
+        <!-- Placeholder for sidebar menu items -->
+      </div>
 
+      <!-- Dashboard Main Content -->
+      <div class="dashboard-main">
+        <!-- Dashboard Header -->
+        <div class="dashboard__header">
+          <div class="header__top">
+            <!-- Logo -->
+            <div class="logo-header">
+              <img src="/user/src/images/logo.png" alt="Jandar kitchen logo" />
+            </div>
 
-				<!-- the ckout content here-->
-                 <div class="checkout-container">
-                    <div class="checkout__main">
-                       <div class="checkout__heading">
-                        <h1 class="primary-heading">Complete Your Checkout </h1>
-                        <div class="primary-text">Please we will charge deleivery fee depending on your location, make sure you enter your location</div>
-                       </div>
+            <!-- Header Menu Items -->
+            <div class="header__menu">
+              <span class="notice">
+                <i class="fas fa-bell"></i>
+                <span class="notice_count">2</span>
+              </span>
+              <span class="cart">
+                <i class="fas fa-cart-plus"></i>
+                <span class="order-count">2</span>
+              </span>
 
-                       <div class="checkout__content">
-                        <li class="checkout__list">
-                            <span class="checkout__key">
-                                Total Amount:
-                            </span>
-                            <span class="checkout__value totalAmount">2000CFA</span>
-                        </li>
-                        <li class="checkout__list">
-                            <span class="checkout__key">
-                               Delivery Type
-                            </span>
-                            <span class="checkout__value">
-                                <select name="delivery" id="delivery">
-                                    <option value="deliver">
-                                        Deliver to you
-                                    </option>
-                                    <option value="pickup">
-                                       Pickup
-                                    </option>
-                                </select>
-                            </span>
-                        </li>
-                        <li class="checkout__list">
-                            <span class="checkout__key">
-                              Location
-                            </span>
-                            <span class="checkout__value">
-                                <input id="location" class="delivery__fees" name="fees" type="text" placeholder="Enter your location" required>
-                            </span>
-                        </li>
-                       </div>
-                       <button class="primary-button checkout__btn">Place Order</button>
-                    </div>
-
-                    <div class="empty-cart hide-noresult ">
-                        <div class="no-result-image">
-                            <img src="/user/src/images/noresult.jpg" alt="">
-                        </div>
-                        <div class="no-result__message">
-                            <h1 class="priamry-heading">No Item found</h1>
-                            <p class="primary-text">No time found here, click the button below to order your meal.</p>
-                        </div>
-                        <button id="checkout__no-result" class="primary-button cart-button">Order now</button>
-                    </div>
-                 </div>
-			
-			</div>
-
-			<!-- Footer Menu Items -->
-			<div class="footer__menus">
-				<div class="footer__menus--wrapper">
-					<a href="" class="menu__item">
-						<i class="fas fa-home"></i>
-						<span>Home</span>
-					</a>
-					<a href="" class="menu__item">
-						<i class="fas fa-shopping-bag"></i>
-						<span>Orders</span>
-					</a>
-					<a href="" class="menu__item">
-						<i class="fas fa-user"></i>
-						<span>Account</span>
-					</a>
-				</div>
-			</div>
-		</div>
-		  <!-- ........notification drop down ........ -->
-      <!-- hideNotificationPopup -->
-      <div  class="notification__popup hideNotificationPopup">
-        <div class="no__notifications hideNotifications">
-         <div class="closeBtn-notification">
-          <span class="closeNotPopup">Close</span>
-         </div>
-          <h1 class="primary-heading">
-             No notifications
-             </h1>
-          <p class="primary-text">
-            You have not received any notification
-          </p>
+              <!-- User Avatar -->
+              <img
+                src="/user/src/images/avatar.webp"
+                alt="a great man"
+                class="avatar"
+              />
+            </div>
+          </div>
         </div>
-        <div class="notification__container">
-          <div class="notification__header">
-           <div class="notification__header-left">
-                <span class="closeNotPopup">Close</span>
-                <h2 class="notifications__top--heading">Notifications</h2>
+
+        <!-- Success Popup Form -->
+        <div class="success-container hidePopup">
+          <div class="success__wrapper">
+            <div class="success__wrapper--icon">
+              <i class="fas fas fa-check"></i>
+            </div>
+            <div class="success__wrapper--container">
+              <p class="primary-text">
+                Yay! Your Jandar Kitchen order is on the way. We're making your
+                tasty meal now. We will get back to you in no time, Hungry? Not
+                for long!
+              </p>
+            </div>
+            <div class="success__wrapper--button">
+              <button
+                id="checkout_successBtn"
+                class="primary-button success-Btn"
+              >
+                View Order
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout Content -->
+        <div class="checkout-container">
+          <div class="checkout__main">
+            <div class="checkout__heading">
+              <h1 class="primary-heading">Complete Your Checkout</h1>
+              <div class="primary-text">
+                Please note that we will charge a delivery fee depending on your
+                location, make sure you enter your location.
               </div>
-             <li class="mark__all--read"> <i class="fas fas fa-check-double"></i>
-              <span>Mark all as read</span>
-            </li>
-            
+            </div>
+
+            <!-- Checkout Form -->
+            <form id="checkout__form" class="checkout__content">
+              <div class="checkout__form--items">
+                <p class="form__lable">Do you have a coupon? Enter it below</p>
+                <div class="coupon__message">
+                  
+                </div>
+                <input
+                  class="coupon_code"
+                  type="text"
+                  placeholder="Enter coupon code"
+                />
+              </div>
+              <div class="checkout__form--items">
+                <p class="form__lable">Select your location</p>
+                <select name="delivery" id="delivery"></select>
+              </div>
+
+              <div class="checkout__form--items">
+                <p class="transport__alert"></p>
+              </div>
+              <div class="checkout__form--items">
+                <p class="form__lable">Discount amount</p>
+                <input class="discount_amount" value="58888" readonly />
+              </div>
+              <div class="checkout__form--items">
+                <p class="form__lable">Total amount to pay</p>
+                <input class="totalAmount" value="58888" readonly />
+              </div>
+
+              <div class="checkout__form--items">
+                <p class="form__lable">Not seeing your location?</p>
+                <input type="text" placeholder="Enter your location" />
+              </div>
+
+              <div class="checkout__button">
+                <button class="primary-button checkout__btn">Place Order</button>
+              </div>
+            </form>
           </div>
-          <div class="notification__header--body">Today</div>
-          <div class="notification__items">
-            <!-- ''''generated notifications here..... -->
-          </div>
-          <div class="notification__footer">
-            <a href="/user/pages/notifications.html">View all notifications</a>
+
+          <!-- Empty Cart Notification -->
+          <div class="empty-cart hide-noresult">
+            <div class="no-result-image">
+              <img src="/user/src/images/noresult.png" alt="No items found" />
+            </div>
+            <div class="no-result__message">
+              <h1 class="primary-heading">No Item found</h1>
+              <p class="primary-text">
+                No item found here, click the button below to order your meal.
+              </p>
+            </div>
+            <button id="checkout__no-result" class="primary-button cart-button">
+              <a href="/user/pages/dashboard.html">Order now</a>
+            </button>
           </div>
         </div>
       </div>
 
-		<script type="module" src="/user/src/scripts/checkout.js"></script>
-		<script src="/user/src/scripts/menus/sidebar.js"></script>
-		<script type="module" src="/user/src/scripts/menus/header-menus.js"></script>
-	</body>
+      <!-- Footer Menu Items -->
+      <div class="footer__menus">
+        <div class="footer__menus--wrapper">
+          <a href="#" class="menu__item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="#" class="menu__item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Orders</span>
+          </a>
+          <a href="#" class="menu__item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Drop Down -->
+    <div class="notification__popup hideNotificationPopup">
+      <div class="no__notifications hideNotifications">
+        <div class="closeBtn-notification">
+          <span class="closeNotPopup">Close</span>
+        </div>
+        <h1 class="primary-heading">No notifications</h1>
+        <p class="primary-text">You have not received any notification</p>
+      </div>
+      <div class="notification__container">
+        <div class="notification__header">
+          <div class="notification__header-left">
+            <span class="closeNotPopup">Close</span>
+            <h2 class="notifications__top--heading">Notifications</h2>
+          </div>
+          <li class="mark__all--read">
+            <i class="fas fas fa-check-double"></i>
+            <span>Mark all as read</span>
+          </li>
+        </div>
+        <div class="notification__header--body">Today</div>
+        <div class="notification__items">
+          <!-- Generated notifications will appear here -->
+        </div>
+        <div class="notification__footer">
+          <a href="/user/pages/notifications.html">View all notifications</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/user/src/scripts/checkout.js"></script>
+    <script src="/user/src/scripts/menus/sidebar.js"></script>
+    <script
+      type="module"
+      src="/user/src/scripts/menus/header-menus.js"
+    ></script>
+  </body>
 </html>
