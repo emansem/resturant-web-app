@@ -67,87 +67,7 @@
           <br /><br />
           <div class="order__table--container">
             <div class="reports__items--wrapper">
-                <div class="reports__item">
-                    <div class="report__item--left">
-                        <i class="fas fa-shopping-cart"></i>
-
-                    </div>
-                    <div class="report__item--right">
-                        <span class="report__item-text">
-                            Total Orders
-                        </span>
-                        <span class="report__item-amount">
-                            12
-                        </span>
-                    </div>
-                </div>
-                <div class="reports__item">
-                    <div class="report__item--left">
-                        <i class="fas fa-ticket-alt"></i>
-                    </div>
-                    <div class="report__item--right">
-                        <span class="report__item-text">
-                            Total coupons
-                        </span>
-                        <span class="report__item-amount">
-                            12
-                        </span>
-                    </div>
-                </div>
-              
-                <div class="reports__item">
-                    <div class="report__item--left">
-                        <i class="fas fa-hourglass-half"></i>
-                    </div>
-                    <div class="report__item--right">
-                        <span class="report__item-text">
-                           Pending orders
-                        </span>
-                        <span class="report__item-amount">
-                            13
-                        </span>
-                    </div>
-                </div>
-                <div class="reports__item">
-                    <div class="report__item--left">
-                        <i class="fas fa-times-circle"></i>
-                    </div>
-                    <div class="report__item--right">
-                        <span class="report__item-text">
-                          Rejected orders
-                        </span>
-                        <span class="report__item-amount">
-                            10
-                        </span>
-                    </div>
-                </div>
-                <div class="reports__item">
-                    <div class="report__item--left">
-                        <i class="fas fa-spinner"></i>
-                    </div>
-                    <div class="report__item--right">
-                        <span class="report__item-text">
-                          Processing orders
-                        </span>
-                        <span class="report__item-amount">
-                            1
-                        </span>
-                    </div>
-                </div>
-                <div class="reports__item">
-                    <div class="report__item--left">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="report__item--right">
-                        <span class="report__item-text">
-                            Completed orders
-                        </span>
-                        <span class="report__item-amount">
-                            1
-                        </span>
-                    </div>
-                </div>
-               
+                
             </div>
           </div>
         </div>
@@ -171,6 +91,13 @@
         </div>
       </div>
     </div>
+    <div class="loading__screen hideLoading">
+      <div class="animation__wrapper">
+        <span class="spining"></span>
+         <span class="spining__text">Please wait...</span>
+      </div>
+    </div>
+    
     <!-- ........notification drop down ........ -->
     <!-- hideNotificationPopup -->
     <div class="notification__popup hideNotificationPopup">
@@ -207,5 +134,6 @@
       type="module"
       src="/user/src/scripts/menus/header-menus.js"
     ></script>
+    <script type="module" src="/user/src/scripts/reports.js"></script>
   </body>
 </html>

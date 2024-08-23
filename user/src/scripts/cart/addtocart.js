@@ -74,8 +74,8 @@ async function addProductTocart(addTocartBtn, details) {
     addTocartBtn.innerHTML = "Please wait..";
     const data = await fetchDataFromDataBase("cart", "menu_id", menuID);
 
-    if (data.length !== 0) {
-      updateCartItem(data[0].product_price, data[0].id, addTocartBtn);
+    if (data.length !== 0 && !data[0].customer_Id) {
+      await updateCartItem(data[0].product_price, data[0].id, addTocartBtn);
       await getAllCartItems();
 
       return;

@@ -8,11 +8,10 @@ export async function saveDateIntoDataBase(saveData, tableName) {
     .insert([saveData])
     .select();
   if (data && data.length !== 0) {
-    console.log("this is the inserted data", data);
     return data;
   }
   if (error) {
-    console.error("this is the error inserting the data", error);
+    console.error(error);
   }
 }
 
@@ -30,11 +29,11 @@ export async function updateDataIntoDataBase(
     .eq(`${id}`, actionId)
     .select();
   if (data && data.length !== 0) {
-    console.log("this is the updated data", data);
+    // console.log("this is the updated data", data);
     return data;
   }
   if (error) {
-    console.log("this is the error updating the data", error);
+    console.log(error);
   }
 }
 
@@ -46,11 +45,10 @@ export async function deletDataInDataBase(tableName, id, actionId) {
     .eq(`${id}`, actionId)
     .select();
   if (data && data.length !== 0) {
-    console.log("this is the deleted data", data);
     return data;
   }
   if (error) {
-    console.log("this is the error deleting the data", error);
+    console.log(error);
   }
 }
 
@@ -59,10 +57,9 @@ export async function fetchAllDataFromDataBase(tableName) {
   const { data, error } = await supabase.from(`${tableName}`).select("*");
 
   if (error) {
-    console.log("this is the error fetch the data", error);
+    console.log(error);
   }
   if (data && data.length !== 0) {
-    console.log("this is the fetch data", data);
     return data;
   } else {
     return data;
@@ -76,10 +73,9 @@ export async function fetchDataFromDataBase(tableName, id, actionId) {
     .select("*")
     .eq(`${id}`, actionId);
   if (error) {
-    console.log("this is the error fetch the data", error);
+    console.log(error);
   }
   if (data && data.length !== 0) {
-    console.log("this is the fetch data", data);
     return data;
   } else {
     return data;
@@ -102,7 +98,7 @@ export async function incrementCart(id) {
     prod_id: id
   });
   if (error) {
-    console.log("this is the error updating the product", error);
+    console.log(error);
   }
 }
 
@@ -113,43 +109,30 @@ export async function incrementNumberOfOrders(id) {
     customerid: id
   });
   if (error) {
-    console.log("this is the error increment the numbers of orders", error);
+    console.log(error);
   }
 }
 
-
 export async function incrementNotificationLength(id) {
   const { data, error } = await supabase.rpc("totalnotifications", {
-    total_value: 1, 
-    clientid: id,
-   
+    total_value: 1,
+    clientid: id
   });
 
   if (error) {
-    console.log(
-      "This is the error incrementing the notifications length",
-      error
-    );
-  }
-  if (data) {
-    console.log("This is the increment data", data);
+    console.log(error);
   }
 }
 //increment the number of times the coupon should be use
 export async function incrementNumberoftimes(id) {
   const { data, error } = await supabase.rpc("numberoftime", {
     ordertimes: 1,
-    customerid: id,
-    
+    customerid: id
   });
 
   if (error) {
-    console.log(
-      "This is the error incrementing the notifications length",
-      error
-    );
+    console.log(error);
   }
-  
 }
 //decrement total carts item quantity
 export async function decrementCart(id) {
@@ -161,25 +144,18 @@ export async function decrementCart(id) {
     console.log("this is the error updating the product", error);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export async function fetchUsersNames(tableName, id, actionId) {
+  const { data, error } = await supabase
+    .from(`${tableName}`)
+    .select("*")
+    .in(`${id}`, actionId);
+  if (error) {
+    console.log(error);
+  }
+  if (data && data.length !== 0) {
+    return data;
+  } else {
+    return data;
+  }
+}
 

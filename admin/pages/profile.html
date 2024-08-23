@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Page title -->
-    <title>Feebacks | Jandar Kitchen</title>
+    <title>My profile | Jandar Kitchen</title>
 
     <!-- Preconnect to Google Fonts for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -79,19 +79,26 @@
         <div class="dashboard__reports">
           <!-- Primary Heading for Sales Reports -->
            <br>
-          <h1 class="primary-heading">All Customers</h1>
+          <h1 class="primary-heading">My profile</h1>
           <br />
-          <div class="customers__container">
-            <table>
-              <thead ><tr>
-                <th>Name</th>
-                <th>Phone Number</th>
-                <th>Date joined</th>
-              </tr></thead>
-              <tbody id="customers__wrapper">
-              
-              </tbody>
-            </table>
+          <div class="profile__container">
+             <form class="profile__wrapper">
+                <div class="profile__form--group">
+                    <label for="email">Update your email</label>
+                    <input name="email" type="text" value="email@gmail.com">
+                </div>
+                <div class="profile__form--group">
+                    <label for="password">Old password</label>
+                    <input name="password" type="password" value=".......">
+                </div>
+                <div class="profile__form--group">
+                    <label for="newpassword">New password</label>
+                    <input name="newPassword" type="password" placeholder="Enter new password">
+                </div>
+                <div class="profile__form--group update__button">
+                 <button class="primary-button">Update profile</button>
+                </div>
+             </form>
           </div>
 
         </div>

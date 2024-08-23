@@ -25,7 +25,7 @@ async function getAllCouponSettings() {
     coupon_code: couponCode,
     coupon_percentage: coupon_percentage,
     customer_id: activeId,
-    numberOfTimes: numberOfTimes,
+    numberOfTimes: 0,
     expire_date : expireDate,
   };
   createANewCoupon(numberOfOrders, totalNumberOfOrders, saveData);

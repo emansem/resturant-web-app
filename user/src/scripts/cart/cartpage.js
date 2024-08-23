@@ -7,9 +7,9 @@ const totalContainer = document.querySelector(".price-section");
 const placeOrderBtn = document.getElementById("add__cart");
 const emptyCartPage = document.querySelector(".empty-cart");
 const mainCartContainer = document.querySelector(".main-cart__wrapper");
-const couponInput = document.querySelector(".coupon_code");
+
 const customer_Id = Number(activeId);
-const discountAmount =  await fetchDataFromDataBase('users', 'id', customer_Id);
+
 
 // import all the functions from data js
 import {
@@ -255,8 +255,16 @@ placeOrderBtn.addEventListener("click", function(e) {
   location.href = "/user/pages/checkout.html";
 });
 
-
-
+//check if the cart page is empty
+async function checkIfCartIsEmpty(){
+  // mainCartContainer.innerHTML = '';
+  const data = await fetchDataFromDataBase("cart", "customer_Id", customer_Id);
+  if(data.length ===0){
+    mainCartContainer.style.display= 'none';
+    emptyCartPage.classList.remove('hide-noresult');
+  }
+}
+checkIfCartIsEmpty();
 
 
 

@@ -24,7 +24,7 @@ const activeId = localStorage.getItem("activeID");
 const couponInput = document.querySelector(".coupon_code");
 const transport__alert = document.querySelector(".transport__alert");
 const coupon__message = document.querySelector(".coupon__message");
-const checkout__button = document.querySelector('.checkout__button');
+const checkout__button = document.querySelector(".checkout__button");
 const customer_Id = Number(activeId);
 //fetch the total dsicout aamount
 async function getTotalDiscountAmount() {
@@ -53,16 +53,15 @@ async function checkIfCartIsEmpty() {
     "customer_Id",
     customer_Id
   );
-  console.log(dataResult)
+  console.log(dataResult);
   if (dataResult.length === 0) {
     checkout__main.classList.add("hideCheckout");
     emptyCartPage.classList.remove("hide-noresult");
-   
-  }else{
-    dataResult.forEach(item=>{
+  } else {
+    dataResult.forEach(item => {
       const price = item.product_price * item.product_quantity;
-      localStorage.setItem('amount', price);
-    })
+      localStorage.setItem("amount", price);
+    });
   }
 }
 checkIfCartIsEmpty();
@@ -95,7 +94,7 @@ async function createANewOrder() {
     discount: discountAmount,
     location: quarter,
     transport_price: price,
-    amount : parseInt(localStorage.getItem('amount'))
+    amount: parseInt(localStorage.getItem("amount"))
   };
   if (newOrderData.location === "") {
     return;
@@ -106,9 +105,8 @@ async function createANewOrder() {
 
 checkout__btn.addEventListener("submit", async function(e) {
   e.preventDefault();
-  checkout__button.innerHTML = `<br><br><p class="primary-text">Creating order please wait....<br><br></p>`
-  checkout__btn.disabled= true;
-  console.log('hello world');
+  checkout__button.innerHTML = `<br><br><p class="primary-text">Creating order please wait....<br><br></p>`;
+
   await createANewOrder();
 });
 
@@ -122,7 +120,10 @@ async function saveOrderDetails(saveInfo) {
     await incrementNumberOfOrders(customer_Id);
     await updateDataIntoDataBase({ discount: 0 }, "users", "id", customer_Id);
     await incrementNumberoftimes(coupon_id);
-    localStorage.removeItem('amount');
+    localStorage.removeItem("amount");
+    localStorage.removeItem('discount');
+    localStorage.removeItem('quarterid');
+    localStorage.removeItem('quarter');
   }
 }
 checkout_successBtn.addEventListener("click", function(e) {
@@ -160,16 +161,16 @@ async function saveOrderItemsDetails(saveData) {
   getTotalNoticationLength();
   if (data.length !== 0) {
     setTimeout(async function() {
-      const deletedData = await deletDataInDataBase(
+     await deletDataInDataBase(
         "cart",
         "customer_Id",
         data[0].user_id
       );
       localStorage.removeItem("transport");
       localStorage.removeItem("coupon_id");
-       checkout__button.innerHTML = showCouponMessage('Your order was created successfully',"success__coupon--message")
+      checkout__button.innerHTML =` <button class="primary-button checkout__btn">Place Order</button>`
       successContainer.classList.remove("hidePopup");
-      console.log("this is the deleted data here", deletedData);
+     
     }, 2000);
   }
 }

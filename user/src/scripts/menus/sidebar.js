@@ -1,11 +1,14 @@
 const sideBar = document.querySelector(".side-bar");
+// import { fetchDataFromDataBase } from "../../../../general/data.js";
 
+const activeId = localStorage.getItem("activeID");
+const customer_Id = Number(activeId);
 //render the sidebar menus on the web page
 function renderSideBarMenus() {
-  return (sideBar.innerHTML = `    <div class="side__bar-menus">
+  sideBar.innerHTML = `    <div class="side__bar-menus">
           <div class="side__bar--menus-items">
-            <span>
-              <i class="fas fa-times"></i>
+            <span id='close__sidebar'>
+            <i class="fas fa-times-circle"></i>
             </span>
             <a href="/user/pages/dashboard.html" class="menu__list-item">
               <i class="fas fa-home"></i>
@@ -30,11 +33,45 @@ function renderSideBarMenus() {
             </a>
           </div>
           <div>
-            <a href="" class="menu__list-item">
+            <p id='logoutBtn' class="menu__list-item">
               <i class="fas fa-sign-out-alt"></i>
               <span>Logout</span>
-            </a>
+            </p>
           </div>
-        </div>`);
+        </div>`;
+  const logoutBtn = document.getElementById("logoutBtn");
+  const close__sidebar = document.getElementById('close__sidebar');
+  logoutAuser(logoutBtn);
+  closeTheSideBar(close__sidebar);
 }
 renderSideBarMenus();
+
+//implement the logout section
+function logoutAuser(logoutBtn) {
+  logoutBtn.addEventListener("click", function(e) {
+    localStorage.removeItem("activeID");
+    setTimeout(() => {
+      location.href = `/user/pages/auth/account.html`;
+    }, 2000);
+  });
+}
+
+//add event to close the side bar
+function closeTheSideBar(close__sidebar) {
+  close__sidebar.addEventListener("click", function(e) {
+    sideBar.id = 'sidebar__slideback';
+    setTimeout(() => {
+      sideBar.style.display = "none";
+    }, 800);
+  });
+}
+
+
+
+
+
+
+
+
+
+

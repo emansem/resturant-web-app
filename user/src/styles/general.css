@@ -16,9 +16,29 @@
   --gradient-2: linear-gradient(90deg, #ff7622, #ff6b6b);
   --gradient-3: linear-gradient(135deg, #ff7622, #ffd700);
 }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background: rgba(0, 0, 0, 0.04);
+}
 html{
   font-size: 85%;
 }
+#close__sidebar {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+  font-size: 30px;
+  color: #ff6b6b;
+  cursor: pointer;
+  display: none;
+}
+
+
+
 .checkout-container{
   margin-block: 6rem;
 }
@@ -195,6 +215,7 @@ margin-bottom: 1rem;
   margin-top: 1rem;
   border-radius: 1rem;
   transition: all 0.4s linear;
+  background-color: #fff;
   cursor: pointer;
 }
 .notifications__item:hover {
@@ -229,6 +250,9 @@ margin-bottom: 1rem;
   color: var(--primary-color);
   font-weight: 600;
 }
+#no__notifications{
+  display: none;
+}
 .notification__wrapper {
   box-shadow: var(--box-shadow5);
   width: 80%;
@@ -238,6 +262,7 @@ margin-bottom: 1rem;
   display: flex;
   justify-content: center;
   margin-block: 1rem;
+  background-color: #fff;
 }
 /* ...........login or action message........ */
 .dashboard__container {
@@ -376,14 +401,15 @@ body {
 /* this is account css here */
 
 .account__wrapper {
-  width: 100%;
+ width: 100%;
+  background-color: #fff;
   padding-inline: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-
-  padding: 1rem;
+ /* background-color: red; */
+  padding: 2rem 1rem;
   margin-inline: 2rem;
   border-radius: 1rem;
 }
@@ -595,7 +621,7 @@ label {
   bottom: 0;
   top: 0;
   display: flex;
-  animation: slideInLeftbACK 1s ease-in-out;
+  /* animation: slideInLeftbACK 1s ease-in-out; */
 
   background: var(--background);
 }
@@ -762,6 +788,7 @@ label {
   display: flex;
   gap: 1rem;
   width: 100%;
+  background-color: #fff;
 }
 
 .food__info {
@@ -865,8 +892,11 @@ label {
   align-items: center;
   object-fit: cover;
 }
+#logoutBtn{
+  cursor: pointer;
+}
 .meal__details--wrapper {
-  margin: 6rem auto;
+  margin: 9rem auto;
   box-shadow: var(--box-shadow4);
   max-width: 900px;
   border-radius: 0.4rem;
@@ -964,7 +994,7 @@ label {
   box-shadow: var(--box-shadow3);
   border-radius: 1.2rem;
   margin-block: 1rem;
-  background-color: #f1f1f1a2;
+  background-color: #fff;
 }
 .cart__item1 {
   display: flex;
@@ -1466,6 +1496,7 @@ label {
 .view__order-details a {
   color: #fff;
 }
+
 @media screen and (max-width: 840px) {
   .account__footer {
     width: 100%;
@@ -1638,6 +1669,7 @@ tbody tr {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background-color: #fff;
   overflow: hidden;
   border-radius: 0.4rem;
 }
@@ -1649,6 +1681,7 @@ tbody tr {
 }
 .order__data--body {
   padding: 1rem;
+  ;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1716,6 +1749,7 @@ tbody tr {
   box-shadow: var(--box-shadow5);
   padding: 1rem;
   border-radius: 1rem;
+  background-color: #fff;
 }
 .transport__alert{
   font-size: 16px !important;
@@ -1748,8 +1782,32 @@ tbody tr {
   background-color: #128a12;
 }
 @media screen and (max-width: 700px) {
+  @keyframes slideInLeft {
+    from{
+      transform: translateX(-100%);
+    }
+    to{
+      transform: translateX(0%);
+    }
+  }
+  @keyframes slideBackInLeft {
+    from{
+      transform: translateX(0%);
+    }
+    to{
+      transform: translateX(-100%);
+    }
+  }
+ 
   .side-bar {
     display: none;
+    animation: slideInLeft 0.8s ease-in-out;
+  }
+  #sidebar__slideback{
+    animation: slideBackInLeft 0.8s ease-in-out;
+  }
+  #close__sidebar{
+    display: flex;
   }
   .fa-bars {
     display: block !important;
@@ -1897,8 +1955,7 @@ tbody tr {
     width: 100%;
     padding-inline: 1rem;
   }
-  .price__section--item {
-  }
+  
   .footer__menus {
     padding-bottom: 2rem;
   }
@@ -2013,6 +2070,7 @@ tbody tr {
   justify-content: space-between;
   white-space: nowrap;
   border-radius: 0.4rem;
+  background-color: #fff;
 }
 .report__item--right{
   display: flex;
@@ -2044,8 +2102,55 @@ tbody tr {
 .fa-hourglass-half{
   color: #ffd000;
 }
+.loading__screen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background: var(--background);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+}
+@keyframes spining {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+  
 
+.spining{
+  height: 80px;
+  display: block;
+ border-radius: 50%;
+  width: 80px;
+  border-right: 5px solid   var(--primary-color);
+  border-top: var(--primary-color) 5px solid;
+  animation: spining 1s linear infinite ;
 
+}
+.spining__text{
+ margin-top: 1rem;
+ display: block;
+ font-size: 20px;
+ font-weight: 500;
+ font-family: var(--body-fonts);
+ color: #fff;
+}
+.animation__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.hideLoading{
+  display: none;
+}
 
 
 

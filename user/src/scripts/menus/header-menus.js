@@ -13,26 +13,49 @@ const notification__container = document.querySelector(
   ".notification__container"
 );
 const deleteAllNotications = document.querySelector(".mark__all--read");
+const footer__menus = document.querySelector('.footer__menus');
+const loading__screen = document.querySelector('.loading__screen');
 
 const activeId = localStorage.getItem("activeID");
 const id = Number(activeId);
+const sideBar = document.querySelector(".side-bar");
+
+//display the loading screen and hide some features
+function showLoadingScreen(className){
+  loading__screen.classList.remove(`${className}`);
+}
+//hide loading screen
+function hideLoadingScreen(className){
+  loading__screen.classList.add(`${className}`);
+}
 
 //get total notifications and total items in the cart;
 async function getNotificationsTotalAndCartTotal() {
+  showLoadingScreen('hideLoading');
   dashboard__header.innerHTML = "";
-  const cart = await fetchAllDataFromDataBase("cart");
+  const cart = await fetchDataFromDataBase("cart", 'customer_Id', activeId);
   const notificationsLength = await fetchDataFromDataBase(
     "notifications_number",
     "client_id",
     activeId
   );
+ 
   const notifications = await fetchDataFromDataBase(
     "notifications",
     "customer_ID",
     activeId
   );
-  renderHeaderMenus(cart.length, notificationsLength[0].length);
+
+  if(notificationsLength.length !==0){
+    renderHeaderMenus(cart.length, notificationsLength[0].length);
+    hideLoadingScreen('hideLoading');
+  }else{
+    renderHeaderMenus(cart.length, 0);
+    hideLoadingScreen('hideLoading');
+  }
+  
   renderNotifications(notifications);
+  
 }
 getNotificationsTotalAndCartTotal();
 
@@ -59,7 +82,10 @@ function renderHeaderMenus(cart, notifications) {
                   
                 </div>`;
   const notificationsIcon = document.querySelector(".notice");
+  const openSideBarBtn = document.querySelector('.fa-bars');
   showNotificationsPopup(notificationsIcon);
+
+  openSideBar(openSideBarBtn);
 }
 
 //add event listener to show the notifications popup;
@@ -81,14 +107,14 @@ async function showNotificationsPopup(notificationsIcon) {
   });
 }
 //close the notification popup
-closeNotPopup.forEach(button=>{
+closeNotPopup.forEach(button => {
   button.addEventListener("click", function(e) {
     notification__popup.id = "notification__popup";
     setTimeout(() => {
       notification__popup.classList.add("hideNotificationPopup");
     }, 700);
   });
-})
+});
 
 //render all notifications on the page
 function renderNotifications(data) {
@@ -116,9 +142,76 @@ function renderNotifications(data) {
 deleteAllNotications.addEventListener("click", async () => {
   notification__container.classList.add("hideNotficationsContainer");
   no__notifications.classList.remove("hideNotifications");
-  const data = await deletDataInDataBase('notifications', 'customer_ID', activeId);
-  if(data.length !==0){
+  const data = await deletDataInDataBase(
+    "notifications",
+    "customer_ID",
+    activeId
+  );
+  if (data.length !== 0) {
     notification__container.classList.add("hideNotficationsContainer");
     no__notifications.classList.remove("hideNotifications");
   }
 });
+
+//check if the user have login or not
+async function checkIfAuserHaveLogin() {
+  if (!activeId) {
+    location.href = `/user/pages/auth/account.html`;
+    return;
+  } else {
+    const data = await fetchDataFromDataBase("users", "id", activeId);
+    
+    if (data.length !== 0) {
+     return
+    } else{
+      location.href = `/user/pages/auth/account.html`;
+    }
+    
+  }
+}
+checkIfAuserHaveLogin();
+
+//open the sidebar 
+function openSideBar(openSideBarBtn){
+ openSideBarBtn.addEventListener('click', function(e){
+  sideBar.id = '';
+  sideBar.style.display ='block';
+ })
+}
+
+//function generate the footer menus
+function generateFooterMenus(){
+  footer__menus.innerHTML=`   <div class="footer__menus--wrapper">
+            <!-- Home Footer Menu Item -->
+            <a href="/user/pages/dashboard.html" class="menu__item">
+              <i class="fas fa-home"></i>
+              <span>Home</span>
+            </a>
+
+            <!-- Orders Footer Menu Item -->
+            <a href="/user/pages/orders.html" class="menu__item">
+              <i class="fas fa-shopping-bag"></i>
+              <span>Orders</span>
+            </a>
+            <a href="/user/pages/counpons.html" class="menu__item">
+              <i class="fas fa-gift"></i>
+              <span>Coupons</span>
+            </a>
+
+            <!-- Account Footer Menu Item -->
+            <a href="/user/pages/account.html" class="menu__item">
+              <i class="fas fa-user"></i>
+              <span>Account</span>
+            </a>
+          </div>`
+}
+generateFooterMenus()
+
+
+
+
+
+
+
+
+
