@@ -695,7 +695,7 @@ label {
   color: #555;
   font-weight: 500;
   font-family: var(--heading-fonts);
-  margin-bottom: 1rem;
+  margin-block: 2rem;
 }
 .greeting span {
   color: var(--primary-color);

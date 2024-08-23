@@ -5,6 +5,7 @@ const show__register = document.querySelector(".show__register--page");
 const registerForm = document.querySelector(".registerForm");
 const loginForm = document.querySelector(".loginForm");
 import { supabase } from "../../../../general/config.js";
+import { fetchDataFromDataBase } from "../../../../general/data.js";
 const login__successMsg = document.querySelector("#login__success--message");
 const register__message = document.querySelector("#register__message");
 const signBtn = document.querySelector(".signBtn");
@@ -24,6 +25,21 @@ actionBtn.addEventListener("click", function(e) {
     register__form.classList.remove("hideregister");
   }
 });
+//check if the user have login or not
+async function checkIfAuserHaveLogin() {
+  if (!loggedUser) {
+    return;
+  } else {
+    const data = await fetchDataFromDataBase("users", "id", loggedUser);
+    
+    if (data[0].id === loggedUser) {
+     location.href = `/user/pages/dashboard.html`;
+     return
+    } 
+    
+  }
+}
+checkIfAuserHaveLogin()
 
 //the error message here
 
@@ -166,16 +182,23 @@ function validateLogin(data, phone, password) {
       login__successMsg.classList.remove("login__success-text");
       loginBtn.innerHTML = `LOGIN IN`;
       loginBtn.disabled=false;
+      loginBtn.style.cursor ='pointer';
       setTimeout(function() {
         location.href = "/user/pages/dashboard.html";
       }, 1500);
       localStorage.setItem("activeID", user.id);
     } else {
       errorMessage("Wrong credentials, try again.");
+      loginBtn.innerHTML = `LOGIN IN`;
+      loginBtn.disabled=false;
+      loginBtn.style.cursor ='pointer';
     }
     return;
   } else {
-    errorMessage("No found, create an account");
+    errorMessage("No user found, create an account");
+    loginBtn.innerHTML = `LOGIN IN`;
+      loginBtn.disabled=false;
+      loginBtn.style.cursor ='pointer';
   }
 }
 

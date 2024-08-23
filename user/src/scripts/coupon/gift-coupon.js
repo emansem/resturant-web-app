@@ -4,6 +4,7 @@ import {
   updateDataIntoDataBase,
   saveDateIntoDataBase
 } from "../../../../general/data.js";
+import { sendAnewNotification } from "../../../../general/helper.js";
 
 const activeId = localStorage.getItem("activeID");
 const customer_Id = Number(activeId);
@@ -35,7 +36,13 @@ getAllCouponSettings();
 //validate and create a coupon for a user when he meet all the conditions;
 async function createANewCoupon(numberOfOrders, totalNumberOfOrders, saveData) {
   if (numberOfOrders >= totalNumberOfOrders) {
-    await saveDateIntoDataBase(saveData, 'coupons');
+    const data = await saveDateIntoDataBase(saveData, 'coupons');
+    const message = `Jandar Kitchen: Thanks for being a valued customer! Enjoy ${data[0].coupon_percentage}% off your next order with the code ${data[0].coupon_code}. We can’t wait to serve you again!;
+`;
+    const phone = await fetchDataFromDataBase('users', 'id', activeId);
+  if(data.length !==0){
+    sendAnewNotification(message, phone[0].phone);
+  }
    //reset the number of orders back to zero
    updateDataIntoDataBase({numberOfOrders: 0}, 'users', 'id', activeId);
    return;

@@ -1,5 +1,8 @@
 const sideBar = document.querySelector(".side-bar");
-
+import {
+  fetchAllDataFromDataBase,
+  saveDateIntoDataBase
+} from "../../../../general/data.js";
 //render the sidebars to the web page
 function renderSidebarMenus() {
   sideBar.innerHTML = `<div class="side__bar-menus">
@@ -56,41 +59,45 @@ function renderSidebarMenus() {
 
 					<!-- Logout Menu Item -->
 					<div>
-						<a href="" class="menu__list-item">
+						<p id='logoutBtn' class="menu__list-item">
 							<i class="fas fa-sign-out-alt"></i>
 							<span>Logout</span>
-						</a>
+						</p>
 					</div>
 				</div>`;
-                const open__settings = document.querySelector('#open__settings--dropdown');
-                const dropdown = document.querySelector('.dropdown-menu ');
-               
-                openDropDownSettings(open__settings, dropdown);
+  const open__settings = document.querySelector("#open__settings--dropdown");
+  const dropdown = document.querySelector(".dropdown-menu ");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  openDropDownSettings(open__settings, dropdown);
+  logoutAdminOut(logoutBtn);
 }
 renderSidebarMenus();
 
 //open the settinsg dropdown menus
-function openDropDownSettings(btn, dropdown){
-    btn.addEventListener('click', function(e){
-        dropdown.classList.toggle('hidesettings');
-    })
+function openDropDownSettings(btn, dropdown) {
+  btn.addEventListener("click", function(e) {
+    dropdown.classList.toggle("hidesettings");
+  });
 }
 
+//logout admin out of the admin panel
+function logoutAdminOut(logoutBtn) {
+  logoutBtn.addEventListener("click", function(e) {
+    localStorage.removeItem("adminlogin");
+    setTimeout(() => {
+      location.href = `/admin/pages/adminlogin.html`;
+    }, 1500);
+  });
+}
 
+async function checkIfUserIsLoggedIn() {
+  const adminId = parseInt(localStorage.getItem("adminlogin"));
+  const data = await fetchAllDataFromDataBase("admin");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  if (!adminId && adminId !== data[1].id) {
+    location.href = `/admin/pages/adminlogin.html`;
+    return;
+  }
+}
+checkIfUserIsLoggedIn();

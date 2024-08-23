@@ -35,4 +35,4 @@ getAllAdminRegisterInputs();
 register__button.disabled =true;
 register__button.innerHTML = `Please wait...`
 
-})
+});
