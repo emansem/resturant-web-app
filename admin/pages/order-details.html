@@ -119,46 +119,29 @@
                     <img src="/user/src/images/logo.png" alt="">
                   </div>
                   <div class="order__invoice--header">
-                    <p class="order__item--name">
-                      <span class="order_key">Order Number:</span>
-                      <span class="order__value">#0282J</span>
-                    </p>
-                    <p class="order__item--name">
-                      <span class="order_key">Order Time:</span>
-                      <span class="order__value">09:12AM</span>
-                    </p>
-                    <p class="order__item--name">
-                      <span class="order_key">Order Status:</span>
-                      <span class="order__value">Proccessing</span>
-                    </p>
-                    <div class="order__buttons">
-                      <button  id="approve" class="approve">Approve</button>
-                      <button class="cancel-order">Reject</button>
-                    </div>
+                 
                   </div>
                   <div class="order__invoice--body">
                     <h1 class="primary-heading">Order Items</h1>
                     <div class="order__items--body">
-                      <li class="order__list-items">
-                        <span>Name</span>
-                        <span>Quantity</span>
-                        <span>Price</span>
-                      </li>
-                      <li class="order__list-items">
-                        <span>Fried Rice</span>
-                        <span>2</span>
-                        <span>2000CFA</span>
-                      </li>
-                      <li class="order__list-items">
-                        <span>Fried Rice</span>
-                        <span>2</span>
-                        <span>2000CFA</span>
-                      </li>
-                      <li class="order__list-items1">
-                        <span>Total Price:</span>
-                       
-                        <span>2000CFA</span>
-                      </li>
+                      <table id="order__data--table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                          </tr>
+                        </thead>
+                        <tbody id="order__dataContainer">
+                         <!-- .....the orders items will be generated here.... -->
+                        </tbody>
+                      </table>
+                     
+                      
+                    </div>
+                    <div id="totalPrice">
+                      <!-- .....total item amount here.... -->
+                    </div>
                     </div>
                   </div>
                   <div class="order__invoice--footer"></div>
@@ -167,6 +150,60 @@
         </div>
        
       </div>
+
+    <!-- ..........change order status... and cancel form..... -->
+     <div class="order__popup--container hideChangeOrderPopup">
+      <div class="change__order--status-form">
+        <div class="change__order-input">
+        <h1 class="primary-heading change-orderHeading">Change order status</h1>
+         <div class="success__message--container">
+          <!-- sucess message -->
+         </div>
+          <select name="status" id="status">
+            <option value="Processing">Processing</option>
+            <option value="Delivery">Delivery</option>
+            <option value="Completed">completed</option>
+          </select>
+          <div class="change__orderBtn">
+            <button class="cancel close__order--status-form">Close</button>
+            <button class="save__status">Change status</button>
+          </div>
+        </div>
+
+      </div>
+     </div>
+
+      <!-- ..........change order status... and cancel form..... -->
+      <div id="warning__popup" class="order__popup--container hideAction-popup">
+        <div id="rejectPopup" class="change__order--status-form">
+          <div class="change__order-input">
+          <h1 class="primary-heading change-orderHeading">Reject order</h1>
+           <div id="rejectedMessage" class="success__message--container">
+            <!-- <p class="sucess-text">Order was successfully change to
+              <span class="order-state">Processings</span> </p> -->
+           </div>
+           <div class="action-message">
+            <div class="action__message--header">
+               <span class="warning-alert">
+                <i class="fas fa-warning"></i>
+               </span>
+            </div>
+            <div class="action__message--body">
+              <p class="action--text">
+                Are you sure you want to reject this order?
+              </p>
+            </div>
+            
+           </div>
+            
+            <div class="change__orderBtn">
+              <button class="cancel close__order--status-form">Close</button>
+              <button id="save_rejected-status" class="save__status">Yes</button>
+            </div>
+          </div>
+  
+        </div>
+       </div>
 
       <!-- Footer Menu Items -->
       <div class="footer__menus">
@@ -186,5 +223,7 @@
         </div>
       </div>
     </div>
+    <script type="module" src="/admin/src/sripts/navbar/sidebar.js"></script>
+    <script type="module" src="/admin/src/sripts/order-invoice.js"></script>
   </body>
 </html>

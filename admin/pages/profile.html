@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Page title -->
-    <title>Dashboard | Jandar Kitchen</title>
+    <title>My profile | Jandar Kitchen</title>
 
     <!-- Preconnect to Google Fonts for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -78,20 +78,41 @@
         <!-- Sales Reports Section -->
         <div class="dashboard__reports">
           <!-- Primary Heading for Sales Reports -->
-          <h1 class="primary-heading">Sales reports</h1>
+           <br>
+          <h1 class="primary-heading">My profile</h1>
           <br />
-
-          <!-- Container for Report Content -->
-          <div class="dashboard__report--container">
-            <!-- Placeholder for report items -->
+         
+          <div class="profile__container">
+             <form class="profile__wrapper">
+                <div class="profile__form--group">
+                  <p class=" primary-text update__profile--message">Your password donot match</p>
+                </div>
+                <div class="profile__form--group">
+                  <label for="email">Update your email</label>
+                  <input name="email" type="text" value="email@gmail.com">
+              </div>
+                <div class="profile__form--group">
+                    <label for="password">Old password</label>
+                    <input name="password" type="password" placeholder="Enter old password" required>
+                </div>
+                <div class="profile__form--group">
+                    <label for="newpassword">New password</label>
+                    <input name="newPassword" type="password" placeholder="Enter new password" required>
+                </div>
+                <div class="profile__form--group update__button">
+                 <button class="primary-button">Update profile</button>
+                </div>
+             </form>
           </div>
+
         </div>
       </div>
 
       <!-- Footer Menu Items -->
       <!-- JavaScript files for interactive features -->
-      <script type="module" src="/admin/src/sripts/dashboard.js"></script>
+ <script type="module" src="/admin/src/sripts/profile.js"></script>
       <script type="module" src="/admin/src/sripts/navbar/sidebar.js"></script>
     </div>
+    
   </body>
 </html>

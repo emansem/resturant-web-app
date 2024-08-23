@@ -1,83 +1,44 @@
-<!-- @format -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Character encoding and viewport settings -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu Details</title>
+
+    <!-- Page title -->
+    <title>Feebacks | Jandar Kitchen</title>
+
+    <!-- Preconnect to Google Fonts for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Link to Google Fonts: Inter and Poppins -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Link to Font Awesome for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+
+    <!-- Link to external CSS files for general and specific styles -->
     <link rel="stylesheet" href="/user/src/styles/general.css" />
     <link rel="stylesheet" href="/admin/src/styles/style.css" />
-    <style>
-      .order__buttons button {
-        margin-block: 1rem !important;
-      }
-    </style>
   </head>
-
   <body>
     <!-- Dashboard Container -->
     <div class="dashboard">
       <!-- Side Bar -->
       <div class="side-bar">
         <!-- Side Bar Menu Items -->
-        <div class="side__bar-menus">
-          <div class="side__bar--menus-items">
-            <!-- Home Menu Item -->
-            <a href="" class="menu__list-item">
-              <i class="fas fa-home"></i>
-              <span>Home</span>
-            </a>
-
-            <!-- Orders Menu Item -->
-            <a href="" class="menu__list-item">
-              <i class="fas fa-shopping-bag"></i>
-              <span>Orders</span>
-            </a>
-
-            <!-- Account Menu Item -->
-            <a href="" class="menu__list-item">
-              <i class="fas fa-user"></i>
-              <span>Account</span>
-            </a>
-
-            <!-- Coupons Menu Item -->
-            <a href="" class="menu__list-item">
-              <i class="fas fas fa-gift"></i>
-              <span>Coupons</span>
-            </a>
-
-            <!-- Feedback Menu Item -->
-            <a href="" class="menu__list-item">
-              <i class="fas fa-comment"></i>
-              <span>Feedback</span>
-            </a>
-          </div>
-
-          <!-- Logout Menu Item -->
-          <div>
-            <a href="" class="menu__list-item">
-              <i class="fas fa-sign-out-alt"></i>
-              <span>Logout</span>
-            </a>
-          </div>
-        </div>
+        <!-- Placeholder for sidebar menu items -->
       </div>
 
       <!-- Dashboard Main Content -->
@@ -87,19 +48,22 @@
           <div class="header__top">
             <!-- Logo -->
             <div class="logo-header">
-              <img src="/user/src/images/logo.png" alt="Jandar kitchen logo" />
+              <img src="/user/src/images/logo.png" alt="Jandar Kitchen logo" />
             </div>
 
             <!-- Header Menu Items -->
             <div class="header__menu">
-              <span class="notice"
-                ><i class="fas fa-bell"></i>
-                <span class="notice_count">2</span></span
-              >
-              <span class="cart"
-                ><i class="fas fa-cart-plus"></i>
-                <span class="order-count">2</span></span
-              >
+              <!-- Notifications Icon with a count -->
+              <span class="notice">
+                <i class="fas fa-bell"></i>
+                <span class="notice_count">2</span>
+              </span>
+
+              <!-- Cart Icon with order count -->
+              <span class="cart">
+                <i class="fas fa-cart-plus"></i>
+                <span class="order-count">2</span>
+              </span>
 
               <!-- User Avatar -->
               <img
@@ -111,145 +75,33 @@
           </div>
         </div>
 
-        <!--the invoice details section -->
-        <div class="menu__overlay--popup hide__overlay">
-          <!-- ....... HERE IS THE POPUP FORM TO gift a coupon.... -->
-          <form action="" class="menu__popup--form ">
-            <div class="menu__input--group">
-              <h1 class="primary-heading">
-                Gift <span>Eman sem</span> a coupon
-              </h1>
-              <p class="primary-text">
-                Enter the percentage to cut below, the code will be generated
-                automatically.
-              </p>
-              <p class="update__successful primary-text">
-              You just send <span>Eman sem</span> a coupon code of 20%
-              </p>
-            </div>
-            <div class="menu__input--group">
-                <label for="phone">Enter Customer number</label>
-                <input
-                name="phone"
-                  type="number"
-                  class="menu__form--input"
-                  placeholder="20"
-                  required
-                />
-              </div>
-              <div class="menu__input--group">
-                <label for="exprire__date">Enter coupon expire date</label>
-                <input
-                name="exprire__date"
-                  type="date"
-                  class="menu__form--input"
-                 
-                  required
-                />
-              </div>
-            <div class="menu__input--group">
-              <label for="coupon">Coupon percentage</label>
-              <input
-              name="coupon"
-                type="number"
-                class="menu__form--input"
-                placeholder="20"
-                required
-              />
-            </div>
-
-            <div class="menu__input--group popup__buttons">
-              <button class="delete">Close</button>
-              <button class="add-food">Gift now</button>
-            </div>
-          </form>
-
-         
-        </div>
-
-        <div class="menus__conatiner">
-          <h1 class="primary-heading">Jandar kitchen Customers</h1>
-          <div class="menus__wrapper hide__menus">
-          <div class="search__option--header">
-              <div class="menus__add-new search__or__filter">
-               <div class="header__inputs">
-                <label for="filter">Filter Customers</label>
-                 <select name="filter__customers" id="filter__customers">
-                    <option value="recents">Recents Customers</option>
-                    <option value="eligible">Eligible for Coupons</option>
-                    <option value="not_eligible">Not eligible</option>
-                 </select>
-               </div>
-               <div class="search__input">
-                <input type="text" placeholder="Enter phone number">
-                <button class="search-btn">
-                    <i class="fas  fa-search"></i>
-                </button>
-            </div>
-              </div>
-            <div class="menus__add-new">
-              <p class="total__menus">Eligible for Coupon : 20</p>
-              <p class="total__menus">Total Customers  :300 </p>
-              <button class="primary-button add__new--menu">
-                Gift a coupon
-              </button>
-            </div>
-          </div>
-            <div class="menus__items--lists">
-              <li class="menus__item--list menu__item--list-header">
-                <span>Id</span>
-                <span>Name</span>
-                <span>Phone</span>
-                <span>Status</span>
-                <span>Date</span>
-              </li>
-              <div>
-                <li class="menus__item--list menu__item--list--body">
-                  <span>1</span>
-                  <span>Eman sem</span>
-                  <span>12,929,009</span>
-                  <span>Not eligible</span>
-                  <span >12/09/2001</span>
-                  
-                </li>
-                
-              </div>
-            </div>
+        <!-- Sales Reports Section -->
+        <div class="dashboard__reports">
+          <!-- Primary Heading for Sales Reports -->
+           <br>
+          <h1 class="primary-heading">All Customers</h1>
+          <br />
+          <div class="customers__container">
+            <table>
+              <thead ><tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Date joined</th>
+              </tr></thead>
+              <tbody id="customers__wrapper">
+              
+              </tbody>
+            </table>
           </div>
 
-          <div class="empty-cart hide__nomenu">
-            <div class="no-result-image">
-              <img src="/user/src/images/noresult.jpg" alt="" />
-            </div>
-            <div class="no-result__message">
-              <h1 class="priamry-heading">No menu item found</h1>
-              <p class="primary-text">
-                No menu found here, click the button below to add your menu.
-              </p>
-              <br />
-              <button class="primary-button cart-button">Add new</button>
-            </div>
-          </div>
         </div>
       </div>
 
       <!-- Footer Menu Items -->
-      <div class="footer__menus">
-        <div class="footer__menus--wrapper">
-          <a href="" class="menu__item">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-          </a>
-          <a href="" class="menu__item">
-            <i class="fas fa-shopping-bag"></i>
-            <span>Orders</span>
-          </a>
-          <a href="" class="menu__item">
-            <i class="fas fa-user"></i>
-            <span>Account</span>
-          </a>
-        </div>
-      </div>
+      <!-- JavaScript files for interactive features -->
+     <script type="module" src="/admin/src/sripts/customers.js"></script>
+      <script type="module" src="/admin/src/sripts/navbar/sidebar.js"></script>
     </div>
+    
   </body>
 </html>

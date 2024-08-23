@@ -1,0 +1,142 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coupons | Jandar Kitchen</title>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Inter and Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- General CSS Styles -->
+    <link rel="stylesheet" href="/user/src/styles/general.css" />
+
+    <!-- Admin CSS Styles -->
+    <link rel="stylesheet" href="/admin/src/styles/style.css" />
+<link rel="stylesheet" href="/user/src/styles/coupons.css">
+
+    <!-- Custom Inline Styles -->
+    <style>
+      .notification__container {
+        margin-block: 8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Dashboard Container -->
+    <div class="dashboard">
+      <!-- Side Bar -->
+      <div class="side-bar">
+        <!-- Side Bar Menu Items -->
+      </div>
+
+      <!-- Dashboard Main Content -->
+      <div class="dashboard-main">
+        <!-- Dashboard Header -->
+        <div class="dashboard__header">
+          <div class="header__top">
+            <!-- Logo -->
+          </div>
+        </div>
+        <!-- .......coupons container......... -->
+        <div class="coupons__container">
+            <!-- ..... no coupons found ........ -->
+            <div id="no__coupon" class="empty-cart hideNoCoupon">
+                <div class="no-result-image">
+                  <img src="/user/src/images/noresult.png" alt="" />
+                </div>
+                <div class="no-result__message">
+                  <h1 class="priamry-heading">No coupon found</h1>
+                  <p class="primary-text">
+                    Sorry! You don't have any coupons yet. <br>Once you order 10 times, your coupon will show up here.
+                </p>
+                
+                
+                </div>
+              </div>
+          <div class="coupons__wrapper ">
+            <div class="coupons__header">
+              <h1 class="primary-heading">My coupons</h1>
+              <p class="primary-text coupon__sub--heading">
+                Copy the coupon code to use it. Any coupons that are expired will be removed after 2 days.
+              </p>
+              <div class="copy__successText hideCopied">
+                <p>Success! Coupon copied to clipboard.</p>
+              </div>
+            </div>
+            <div  class="coupons__body"> </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Menu Items -->
+    <div class="footer__menus">
+       
+    </div>
+    <div class="loading__screen hideLoading">
+      <div class="animation__wrapper">
+        <span class="spining"></span>
+         <span class="spining__text">Please wait...</span>
+      </div>
+    </div>
+    <!-- ........notification drop down ........ -->
+    <!-- hideNotificationPopup -->
+    <div class="notification__popup hideNotificationPopup">
+      <div class="no__notifications hideNotifications">
+        <div class="closeBtn-notification">
+          <span class="closeNotPopup">Close</span>
+        </div>
+        <h1 class="primary-heading">No notifications</h1>
+        <p class="primary-text">You have not received any notification</p>
+      </div>
+      <div class="notification__container">
+        <div class="notification__header">
+          <div class="notification__header-left">
+            <span class="closeNotPopup">Close</span>
+            <h2 class="notifications__top--heading">Notifications</h2>
+          </div>
+          <li class="mark__all--read">
+            <i class="fas fas fa-check-double"></i>
+            <span>Mark all as read</span>
+          </li>
+        </div>
+        <div class="notification__header--body">Today</div>
+        <div class="notification__items">
+          <!-- ''''generated notifications here..... -->
+        </div>
+        <div class="notification__footer">
+          <a href="/user/pages/notifications.html">View all notifications</a>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <script src="/user/src/scripts/menus/sidebar.js"></script>
+    <script
+      type="module"
+      src="/user/src/scripts/menus/header-menus.js"
+    ></script>
+    <script type="module" src="/user/src/scripts/coupon/gift-coupon.js"></script>
+    <script type="module" src="/user/src/scripts/coupon/coupons.js"></script>
+  </body>
+</html>

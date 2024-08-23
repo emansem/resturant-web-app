@@ -4,14 +4,15 @@ const register__form = document.getElementById("register__form");
 const show__register = document.querySelector(".show__register--page");
 const registerForm = document.querySelector(".registerForm");
 const loginForm = document.querySelector(".loginForm");
-import { supabase } from "../../../../general/config";
+import { supabase } from "../../../../general/config.js";
+import { fetchDataFromDataBase } from "../../../../general/data.js";
 const login__successMsg = document.querySelector("#login__success--message");
 const register__message = document.querySelector("#register__message");
 const signBtn = document.querySelector(".signBtn");
 const error__message = document.querySelector("#error__message");
 const faild__message = document.querySelector(".hideError");
-const register__errorMsg = document.getElementById('register__error--message');
-// const loginBtn = document.querySelector('.loginBtn');
+const register__errorMsg = document.getElementById("register__error--message");
+const loginBtn = document.querySelector('.loginBtn');
 
 const activeId = localStorage.getItem("activeID");
 const loggedUser = Number(activeId);
@@ -24,6 +25,21 @@ actionBtn.addEventListener("click", function(e) {
     register__form.classList.remove("hideregister");
   }
 });
+//check if the user have login or not
+async function checkIfAuserHaveLogin() {
+  if (!loggedUser) {
+    return;
+  } else {
+    const data = await fetchDataFromDataBase("users", "id", loggedUser);
+    
+    if (data[0].id === loggedUser) {
+     location.href = `/user/pages/dashboard.html`;
+     return
+    } 
+    
+  }
+}
+checkIfAuserHaveLogin()
 
 //the error message here
 
@@ -37,11 +53,11 @@ function errorMessage(message) {
   return message;
 }
 function registerErrorMsg(message) {
- register__errorMsg.classList.remove("hide__register--error");
+  register__errorMsg.classList.remove("hide__register--error");
   register__errorMsg.innerHTML = message;
 
   setTimeout(function() {
-  register__errorMsg.classList.add("hide__register--error");
+    register__errorMsg.classList.add("hide__register--error");
   }, 5000);
   return message;
 }
@@ -62,7 +78,6 @@ function getAllRegisterForm() {
     password: registerForm.password.value
   };
   signUpUser(registerData.phone, registerData.password, registerData);
-  console.log(registerData);
 }
 //add submit event to handle the form
 
@@ -70,6 +85,8 @@ registerForm.addEventListener("submit", function(e) {
   e.preventDefault();
   getAllRegisterForm();
   signBtn.innerHTML = "Please wait...";
+  signBtn.disabled = true;
+  signBtn.style.cursor = "not-allowed";
 });
 
 async function signUpUser(phone, password, registerData) {
@@ -79,9 +96,12 @@ async function signUpUser(phone, password, registerData) {
   });
 
   if (error) {
-  registerErrorMsg(`${error.message}`);
-  console.error('this is user error', error);
-    signBtn.innerHTML = 'Sign up';
+    registerErrorMsg(`${error.message}`);
+
+    signBtn.innerHTML = "Sign up";
+
+    signBtn.disabled = false;
+    signBtn.style.cursor = "pointer";
   }
 
   if (data && data.user) {
@@ -93,7 +113,6 @@ async function signUpUser(phone, password, registerData) {
 
 //function to insert user information into the website
 async function saveUserData(user_id, registerData) {
-  signBtn.disabled = true;
   const { data, error } = await supabase
     .from("users")
     .insert({ ...registerData, user_id })
@@ -153,22 +172,33 @@ async function getUserId(phone, password) {
 //validate the login credentails
 function validateLogin(data, phone, password) {
   if (data && data.length !== 0) {
-   
     const user = data.find(
       user => user.phone === phone && user.password === password
     );
     if (user) {
-      login__successMsg.classList.remove('login__success-text');
-      setTimeout(function(){
-        location.href = '/user/pages/dashboard.html';
+      // loginBtn.innerHTML = `LOGIN IN`;
+      // loginBtn.disabled=false;
+      loginBtn.style.cursor ='pointer';
+      login__successMsg.classList.remove("login__success-text");
+      loginBtn.innerHTML = `LOGIN IN`;
+      loginBtn.disabled=false;
+      loginBtn.style.cursor ='pointer';
+      setTimeout(function() {
+        location.href = "/user/pages/dashboard.html";
       }, 1500);
-      localStorage.setItem('activeID', user.id);
+      localStorage.setItem("activeID", user.id);
     } else {
       errorMessage("Wrong credentials, try again.");
+      loginBtn.innerHTML = `LOGIN IN`;
+      loginBtn.disabled=false;
+      loginBtn.style.cursor ='pointer';
     }
     return;
   } else {
-    errorMessage("No found, create an account");
+    errorMessage("No user found, create an account");
+    loginBtn.innerHTML = `LOGIN IN`;
+      loginBtn.disabled=false;
+      loginBtn.style.cursor ='pointer';
   }
 }
 
@@ -176,5 +206,19 @@ function validateLogin(data, phone, password) {
 
 loginForm.addEventListener("submit", function(e) {
   e.preventDefault();
+  loginBtn.innerHTML = `Please wait...`;
+  loginBtn.disabled=true;
+  loginBtn.style.cursor ='not-allowed';
   getAllLoginInput();
 });
+
+
+
+
+
+
+
+
+
+
+

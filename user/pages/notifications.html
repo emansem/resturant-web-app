@@ -3,26 +3,49 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chicken | Details page</title>
+    <title>Notifications | Jandar Kitchen</title>
+
+    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Inter and Poppins -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Font Awesome Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+
+    <!-- General CSS Styles -->
     <link rel="stylesheet" href="/user/src/styles/general.css" />
+
+    <!-- Admin CSS Styles -->
+    <link rel="stylesheet" href="/admin/src/styles/style.css" />
+
+    <!-- Quill Text Editor CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Inline Styles -->
+    <style>
+      .notification__container {
+        margin-block: 8rem;
+      }
+    </style>
   </head>
   <body>
     <!-- Dashboard Container -->
@@ -37,48 +60,57 @@
         <!-- Dashboard Header -->
         <div class="dashboard__header">
           <div class="header__top">
-            <!-- Logo Section -->
-            <div class="logo-header">
-              <img src="/user/src/images/logo.png" alt="Jandar Kitchen logo" />
-            </div>
-
-            <!-- Header Menu Items -->
-            <div class="header__menu">
-              <!-- Notifications Icon -->
-              <span class="notice">
-                <i class="fas fa-bell"></i>
-                <span class="notice_count">2</span>
-              </span>
-
-              <!-- Cart Icon -->
-              <span class="cart">
-                <i class="fas fa-cart-plus"></i>
-                <span class="order-count">22</span>
-              </span>
-
-              <!-- User Avatar -->
-              <img
-                src="/user/src/images/avatar.webp"
-                alt="User Avatar"
-                class="avatar"
-              />
-            </div>
+            <!-- Logo -->
           </div>
         </div>
 
-        <!-- Meal Details Section -->
-        <div class="meal__details--wrapper"></div>
-
-        <!-- Footer Menu Items -->
-        <div class="footer__menus">
-       
+        <!-- container -->
+        <div id="notification__container" class="notification__container ">
+         
+          <div id="notification__container--items" class="notification__container notification__wrapper">
+            <div class="notification__header">
+              <h2 class="notifications__top--heading">Notifications</h2>
+              <li class="mark__all--read">
+                <i class="fas fas fa-check-double"></i>
+                <span>Mark all as read</span>
+              </li>
+            </div>
+            <div class="notification__header--body">Today</div>
+            <div id="notification__items" class="notification__items">
+             
+            </div>
+           
+          </div>
         </div>
       </div>
     </div>
+      <!-- Footer with navigation links -->
+      <div class="footer__menus">
+        <div class="footer__menus--wrapper">
+          <a href="" class="menu__item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="" class="menu__item">
+            <i class="fas fa-shopping-bag"></i>
+            <span>Orders</span>
+          </a>
+          <a href="" class="menu__item">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+          </a>
+        </div>
+      </div>
+      <div class="loading__screen hideLoading">
+        <div class="animation__wrapper">
+          <span class="spining"></span>
+           <span class="spining__text">Please wait...</span>
+        </div>
+      </div>
        <!-- ........notification drop down ........ -->
-      <!-- hideNotificationPopup -->
-      <div  class="notification__popup hideNotificationPopup">
-        <div class="no__notifications hideNotifications">
+
+       <div  class="notification__popup hideNotificationPopup">
+        <div id="no__notifications" class="no__notifications hideNotifications">
          <div class="closeBtn-notification">
           <span class="closeNotPopup">Close</span>
          </div>
@@ -89,7 +121,7 @@
             You have not received any notification
           </p>
         </div>
-        <div class="notification__container">
+        <div class="notification__container hideNotificationPopup">
           <div class="notification__header">
            <div class="notification__header-left">
                 <span class="closeNotPopup">Close</span>
@@ -100,27 +132,20 @@
             </li>
             
           </div>
-          <div class="notification__header--body">Today</div>
-          <div class="notification__items">
-            <!-- ''''generated notifications here..... -->
-          </div>
-          <div class="notification__footer">
-            <a href="/user/pages/notifications.html">View all notifications</a>
-          </div>
-        </div>
-      </div>
+         
       <div class="loading__screen hideLoading">
         <div class="animation__wrapper">
           <span class="spining"></span>
            <span class="spining__text">Please wait...</span>
         </div>
       </div>
+     
 
-    <script type="module" src="/user/src/scripts/cart/addtocart.js"></script>
     <script src="/user/src/scripts/menus/sidebar.js"></script>
     <script
       type="module"
       src="/user/src/scripts/menus/header-menus.js"
     ></script>
+    <script type="module" src="/user/src/scripts/notifications.js"></script>
   </body>
 </html>

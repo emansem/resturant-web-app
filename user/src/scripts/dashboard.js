@@ -4,6 +4,7 @@ import { updateDataIntoDataBase } from "../../../../general/data.js";
 import { deletDataInDataBase } from "../../../../general/data.js";
 import { fetchDataFromDataBase } from "../../../../general/data.js";
 import { fetchAllDataFromDataBase } from "../../../../general/data.js";
+import { supabase } from "../../../general/config.js";
 import { formatAmout } from "../../../../general/data.js";
 
 
@@ -18,7 +19,6 @@ const userData = await getUserData();
   const userName =  userData[0].name.split(' ')[0];
 
 //function to greet the user depending on the time.
-
 function greetUser(){
     const hours =  new Date().getHours();
     if(hours >=6 && hours < 12){
@@ -32,9 +32,7 @@ function greetUser(){
 }
 greetUser();
 
-
 //get all the menus from the admin and render to the users.
-
 async function getAllMenusItems(){
   foodItime__container.innerHTML = '';
   const data = await fetchAllDataFromDataBase('menus');
@@ -44,14 +42,13 @@ async function getAllMenusItems(){
   if(filterData && filterData.length !==0){
    renderFoodMenuItems(filterData);
   }else{
-    foodItime__container.innerHTML = '<div class ="primary-heading">No item found</div>';
+    foodItime__container.innerHTML = '<div class ="primary-heading">No item found here</div>';
   
   }
 }
 getAllMenusItems();
 
 //render the food item to the users 
-
 function renderFoodMenuItems(menus){
   menus.forEach(menu => {
     foodItime__container.innerHTML+= `   <div class="food-item">
@@ -74,6 +71,9 @@ function renderFoodMenuItems(menus){
   });
 
 }
+
+
+
 
 
 

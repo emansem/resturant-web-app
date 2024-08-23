@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orders</title>
+    <title>My account</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,7 +30,6 @@
       <!-- Sidebar for navigation -->
       <div class="side-bar">
         <!-- Menu items within the sidebar -->
-        
       </div>
 
       <!-- Main content area of the dashboard -->
@@ -46,11 +45,11 @@
             <div class="header__menu">
               <span class="notice">
                 <i class="fas fa-bell"></i>
-                <span class="notice_count">2</span>
+                <span class="notice_count">0</span>
               </span>
               <span class="cart">
                 <i class="fas fa-cart-plus"></i>
-                <span class="order-count">2</span>
+                <span class="order-count">0</span>
               </span>
               <!-- User avatar -->
               <img
@@ -64,23 +63,11 @@
 
         <!-- Orders section -->
         <div class="orders__container">
-         <h1 class="primary-heading">My orders</h1>
-         <br><br>
+          <h1 class="primary-heading">Reports</h1>
+          <br /><br />
           <div class="order__table--container">
-           <!-- the the orders will be generated here -->
-          </div>
-          <!-- Message displayed when no orders are found -->
-          <div class="empty-cart hideNoOrder">
-            <div class="no-result-image">
-              <img src="/user/src/images/noresult.png" alt="" />
-            </div>
-            <div class="no-result__message">
-              <h1 class="priamry-heading">No Order found</h1>
-              <p class="primary-text">
-                No order found here, click the button below to order your meal.
-              </p>
-              <button class="primary-button cart-button"><a href="/user/pages/dashboard.html"> Order now
-              </a></button>
+            <div class="reports__items--wrapper">
+                
             </div>
           </div>
         </div>
@@ -103,51 +90,50 @@
           </div>
         </div>
       </div>
-     
     </div>
-      <!-- ........notification drop down ........ -->
-      <!-- hideNotificationPopup -->
-      <div  class="notification__popup hideNotificationPopup">
-        <div class="no__notifications hideNotifications">
-         <div class="closeBtn-notification">
+    <div class="loading__screen hideLoading">
+      <div class="animation__wrapper">
+        <span class="spining"></span>
+         <span class="spining__text">Please wait...</span>
+      </div>
+    </div>
+    
+    <!-- ........notification drop down ........ -->
+    <!-- hideNotificationPopup -->
+    <div class="notification__popup hideNotificationPopup">
+      <div class="no__notifications hideNotifications">
+        <div class="closeBtn-notification">
           <span class="closeNotPopup">Close</span>
-         </div>
-          <h1 class="primary-heading">
-             No notifications
-             </h1>
-          <p class="primary-text">
-            You have not received any notification
-          </p>
         </div>
-        <div class="notification__container">
-          <div class="notification__header">
-           <div class="notification__header-left">
-                <span class="closeNotPopup">Close</span>
-                <h2 class="notifications__top--heading">Notifications</h2>
-              </div>
-             <li class="mark__all--read"> <i class="fas fas fa-check-double"></i>
-              <span>Mark all as read</span>
-            </li>
-            
+        <h1 class="primary-heading">No notifications</h1>
+        <p class="primary-text">You have not received any notification</p>
+      </div>
+      <div class="notification__container">
+        <div class="notification__header">
+          <div class="notification__header-left">
+            <span class="closeNotPopup">Close</span>
+            <h2 class="notifications__top--heading">Notifications</h2>
           </div>
-          <div class="notification__header--body">Today</div>
-          <div class="notification__items">
-            <!-- ''''generated notifications here..... -->
-          </div>
-          <div class="notification__footer">
-            <a href="/user/pages/notifications.html">View all notifications</a>
-          </div>
+          <li class="mark__all--read">
+            <i class="fas fas fa-check-double"></i>
+            <span>Mark all as read</span>
+          </li>
+        </div>
+        <div class="notification__header--body">Today</div>
+        <div class="notification__items">
+          <!-- ''''generated notifications here..... -->
+        </div>
+        <div class="notification__footer">
+          <a href="/user/pages/notifications.html">View all notifications</a>
         </div>
       </div>
-      <div class="loading__screen hideLoading">
-        <div class="animation__wrapper">
-          <span class="spining"></span>
-           <span class="spining__text">Please wait...</span>
-        </div>
-      </div>
+    </div>
 
-    <script type="module" src="/user/src/scripts/orders.js"></script>
     <script src="/user/src/scripts/menus/sidebar.js"></script>
-    <script type="module" src="/user/src/scripts/menus/header-menus.js"></script>
+    <script
+      type="module"
+      src="/user/src/scripts/menus/header-menus.js"
+    ></script>
+    <script type="module" src="/user/src/scripts/reports.js"></script>
   </body>
 </html>
