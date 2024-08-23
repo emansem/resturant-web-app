@@ -43,7 +43,7 @@ function renderSidebarMenus() {
 
 
 						<!-- Account Menu Item -->
-						<a href="" class="menu__list-item">
+						<a href="/admin/pages/profile.html" class="menu__list-item">
 							<i class="fas fa-user"></i>
 							<span>Profile</span>
 						</a>

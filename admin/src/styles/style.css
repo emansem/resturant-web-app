@@ -866,9 +866,10 @@ select {
   font-family: var(--body-fonts);
   border-radius: 0.4rem;
 }
+
 #admin__login{
   width: 30%;
-}
+}.update__profile--message,
 .admin__success{
   padding: 0.4rem 1rem;
   color: #fff;

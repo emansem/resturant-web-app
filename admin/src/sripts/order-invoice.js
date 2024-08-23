@@ -6,6 +6,7 @@ import { updateDataIntoDataBase } from "../../../../general/data.js";
 import { deletDataInDataBase } from "../../../../general/data.js";
 import { incrementNotificationLength } from "../../../general/data.js";
 const orderItemsContainer = document.querySelector("#order__dataContainer");
+import { sendAnewNotification } from "../../../../general/helper.js";
 
 const totalPrice = document.getElementById("totalPrice");
 const orderDetails = document.querySelector(".order__invoice--header");
@@ -25,8 +26,7 @@ const warning__popup = document.querySelector("#warning__popup");
 const rejectPopup = document.querySelector("#rejectPopup");
 const rejectedMessage = document.querySelector("#rejectedMessage");
 const orderId = location.search.split("=")[1];
-const activeId = localStorage.getItem("activeID");
-const id = Number(activeId);
+
 
 async function fetchAllOrders() {
   if (orderId === "undefined") {
@@ -38,13 +38,15 @@ async function fetchAllOrders() {
 
     if (dataResult.length !== 0) {
       console.log("this is the orders fetched from the database", dataResult);
-
+      localStorage.setItem('client_id', dataResult[0].customer_id);
       console.log(dataResult[0].id);
       displayOrderItemInfo(dataResult);
     }
   }
 }
 fetchAllOrders();
+const activeId = localStorage.getItem("client_id");
+const id = Number(activeId);
 
 //fetch all the order items from the database
 async function fetchAllOrdersItems() {
@@ -55,6 +57,7 @@ async function fetchAllOrdersItems() {
       orderId
     );
    renderOrderItems(dataResult);
+
    return dataResult[0].user_id;
 }
 const customerID = await fetchAllOrdersItems();
@@ -192,13 +195,20 @@ async function createRejecetNotifications() {
 //save order processing notifications when admin change  the order status,
 async function createOrderProcessNotifications() {
   const data = await fetchAllDataFromDataBase("notifications_settings");
+  
   const saveData = {
     customer_ID: id,
     description: data[0].processing_message,
     action: "Order processing"
   };
-  await saveDateIntoDataBase(saveData, "notifications");
-  await incrementNotificationLength(customerID);
+ const dataResult = await saveDateIntoDataBase(saveData, "notifications");
+ await incrementNotificationLength(customerID);
+ if(dataResult !==0){
+  const phone = await fetchDataFromDataBase('users', 'id', id);
+ 
+await sendAnewNotification(saveData.description, phone[0].phone);
+ }
+ 
 }
 //save order delivery notifications when admin change  the order status,
 async function createOrderCompleteNotifications() {
@@ -222,6 +232,11 @@ async function createOrderDeliveryNotifications() {
   };
   await saveDateIntoDataBase(saveData, "notifications");
   await incrementNotificationLength(customerID);
+  if(data.length!==0){
+    const phone = await fetchDataFromDataBase('users', 'id', id);
+  
+await sendAnewNotification(saveData.description, phone[0].phone);
+  }
 }
 //close the order status popup
 closeOrderStatusForm.addEventListener("click", () => {
